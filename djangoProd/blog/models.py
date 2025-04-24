@@ -13,3 +13,6 @@ class Post(models.Model):
     #This will delete the post made for this model/table if the user is deleted
     author = models.ForeignKey(User, on_delete=models.CASCADE)
 #Don't forget to do djangoProd/manage.py migrate in order to execute those changes to the database
+    def __str__(self):
+        return self.title
+

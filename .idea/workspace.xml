@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="added some bootstrap and css stuff to my base html file">
-      <change afterPath="$PROJECT_DIR$/djangoProd/blog/static/blog/css.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoProd/blog/templates/blog/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/djangoProd/blog/templates/blog/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoProd/blog/templates/blog/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/djangoProd/blog/templates/blog/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoProd/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/djangoProd/db.sqlite3" afterDir="false" />
-    </list>
+    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="added a new table to our sql database" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -125,13 +119,31 @@
       <option name="project" value="LOCAL" />
       <updated>1745192074158</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="added some css design along with some changes to my home.html and base.html.">
+      <option name="closed" value="true" />
+      <created>1745368157448</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1745368157448</updated>
+    </task>
+    <task id="LOCAL-00008" summary="added a new table to our sql database">
+      <option name="closed" value="true" />
+      <created>1745431541776</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1745431541776</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Started setting up my django project" />
     <MESSAGE value="made some edits to my django project" />
     <MESSAGE value="added some bootstrap and css stuff to my base html file" />
-    <option name="LAST_COMMIT_MESSAGE" value="added some bootstrap and css stuff to my base html file" />
+    <MESSAGE value="added some css design along with some changes to my home.html and base.html." />
+    <MESSAGE value="added a new table to our sql database" />
+    <option name="LAST_COMMIT_MESSAGE" value="added a new table to our sql database" />
   </component>
 </project>
