@@ -4,34 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="added a new table to our sql database">
-      <change afterPath="$PROJECT_DIR$/blog/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/users/templates/users/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/DjangoWork.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DjangoWork.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="Made some edits to my django blog project. Still have some errors that I have to fix, may potentially have to restart the project">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoProd/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoProd/blog/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/migrations/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoProd/blog/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoProd/blog/apps.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoProd/blog/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoProd/blog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoProd/blog/static/blog/css.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/static/blog/css.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoProd/blog/templates/blog/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoProd/blog/templates/blog/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoProd/blog/templates/blog/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoProd/blog/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoProd/blog/urls.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoProd/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoProd/djangoProd/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoProd/djangoProd/asgi.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoProd/djangoProd/settings.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoProd/djangoProd/urls.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoProd/djangoProd/wsgi.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoProd/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoProd/users/templates/users/base.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoProd/users/templates/users/register.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/projBlog/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/projBlog/blog/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/static/blog/css.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/templates/blog/about.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/templates/blog/base.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/templates/blog/home.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangoProd/db.sqlite3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/templates/users/register.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,8 +30,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -73,6 +62,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "DefaultHtmlFileTemplate": "HTML File",
+    "Python.manage.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
@@ -81,11 +71,37 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\pythonProject\DjangoWork\projBlog" />
       <recent name="C:\pythonProject\DjangoWork" />
+      <recent name="C:\pythonProject\DjangoWork\firstProject" />
       <recent name="C:\pythonProject\DjangoWork\djangoProd" />
       <recent name="$PROJECT_DIR$/djangoProd/blog/templates/blog" />
-      <recent name="$PROJECT_DIR$/djangoProd" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="manage" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="DjangoWork" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.12 (pythonProject)" />
+      <option name="WORKING_DIRECTORY" value="C:\pythonProject\DjangoWork\projBlog" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/projBlog/manage.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -167,7 +183,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745431541776</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Made some edits to my django blog project. Still have some errors that I have to fix, may potentially have to restart the project">
+      <option name="closed" value="true" />
+      <created>1750396861520</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1750396861520</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -176,6 +200,7 @@
     <MESSAGE value="added some bootstrap and css stuff to my base html file" />
     <MESSAGE value="added some css design along with some changes to my home.html and base.html." />
     <MESSAGE value="added a new table to our sql database" />
-    <option name="LAST_COMMIT_MESSAGE" value="added a new table to our sql database" />
+    <MESSAGE value="Made some edits to my django blog project. Still have some errors that I have to fix, may potentially have to restart the project" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made some edits to my django blog project. Still have some errors that I have to fix, may potentially have to restart the project" />
   </component>
 </project>
