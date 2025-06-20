@@ -4,7 +4,7 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 
 # Create your models here.
-# Side note: Remember to do python djangoProd/manage.py makemigrations to update any changes made to the database
+# Side note: Remember to do python djangoProd/manage.py make migrations to update any changes made to the database
 #Each Class is its own table in the database
 class Post(models.Model):
     title = models.CharField(max_length=100)
@@ -13,6 +13,8 @@ class Post(models.Model):
     #This will delete the post made for this model/table if the user is deleted
     author = models.ForeignKey(User, on_delete=models.CASCADE)
 #Don't forget to do djangoProd/manage.py migrate in order to execute those changes to the database
+
+    #This tells the admin page of django to display the title of the blog post
     def __str__(self):
         return self.title
 
