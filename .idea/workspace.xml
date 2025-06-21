@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="We are redoing the django project, first doing a walkthrough to get familiar with it, and then we will begin to build from there. Right now we have successfully created our app and set up our url patterns, we have just added our blog app to our list of installed apps to begin accessing HTML templates for rendering">
-      <change afterPath="$PROJECT_DIR$/projBlog/blog/templates/blog/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projBlog/users/templates/users/home.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projBlog/users/templates/users/register.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projBlog/users/urls.py" afterDir="false" />
+    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="So I have established the users app and a template where users can now register (however, I haven't yet created a system in which the users input data is saved to the database). I have made some edits to the url patterns to include the users app and making navigation a little smoother.">
+      <change afterPath="$PROJECT_DIR$/projBlog/users/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projBlog/blog/templates/blog/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/projBlog/blog/templates/blog/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projBlog/blog/templates/blog/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/projBlog/blog/templates/blog/home.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +16,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -190,7 +185,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750454423676</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="So I have established the users app and a template where users can now register (however, I haven't yet created a system in which the users input data is saved to the database). I have made some edits to the url patterns to include the users app and making navigation a little smoother.">
+      <option name="closed" value="true" />
+      <created>1750481631511</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1750481631511</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -201,6 +204,7 @@
     <MESSAGE value="added a new table to our sql database" />
     <MESSAGE value="Made some edits to my django blog project. Still have some errors that I have to fix, may potentially have to restart the project" />
     <MESSAGE value="We are redoing the django project, first doing a walkthrough to get familiar with it, and then we will begin to build from there. Right now we have successfully created our app and set up our url patterns, we have just added our blog app to our list of installed apps to begin accessing HTML templates for rendering" />
-    <option name="LAST_COMMIT_MESSAGE" value="We are redoing the django project, first doing a walkthrough to get familiar with it, and then we will begin to build from there. Right now we have successfully created our app and set up our url patterns, we have just added our blog app to our list of installed apps to begin accessing HTML templates for rendering" />
+    <MESSAGE value="So I have established the users app and a template where users can now register (however, I haven't yet created a system in which the users input data is saved to the database). I have made some edits to the url patterns to include the users app and making navigation a little smoother." />
+    <option name="LAST_COMMIT_MESSAGE" value="So I have established the users app and a template where users can now register (however, I haven't yet created a system in which the users input data is saved to the database). I have made some edits to the url patterns to include the users app and making navigation a little smoother." />
   </component>
 </project>
