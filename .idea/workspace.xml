@@ -4,23 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="Made some edits to my django blog project. Still have some errors that I have to fix, may potentially have to restart the project">
+    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="We are redoing the django project, first doing a walkthrough to get familiar with it, and then we will begin to build from there. Right now we have successfully created our app and set up our url patterns, we have just added our blog app to our list of installed apps to begin accessing HTML templates for rendering">
+      <change afterPath="$PROJECT_DIR$/projBlog/blog/templates/blog/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projBlog/users/templates/users/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projBlog/users/templates/users/register.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projBlog/users/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/projBlog/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/admin.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/apps.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/projBlog/blog/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/static/blog/css.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/templates/blog/about.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/templates/blog/base.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/templates/blog/home.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/urls.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/views.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoProd/db.sqlite3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/templates/users/register.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projBlog/blog/templates/blog/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/projBlog/blog/templates/blog/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projBlog/blog/templates/blog/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/projBlog/blog/templates/blog/home.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,8 +21,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -59,16 +50,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Python.manage.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Python.manage.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\pythonProject\DjangoWork\projBlog" />
@@ -191,7 +182,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750396861520</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="We are redoing the django project, first doing a walkthrough to get familiar with it, and then we will begin to build from there. Right now we have successfully created our app and set up our url patterns, we have just added our blog app to our list of installed apps to begin accessing HTML templates for rendering">
+      <option name="closed" value="true" />
+      <created>1750454423676</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1750454423676</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -201,6 +200,7 @@
     <MESSAGE value="added some css design along with some changes to my home.html and base.html." />
     <MESSAGE value="added a new table to our sql database" />
     <MESSAGE value="Made some edits to my django blog project. Still have some errors that I have to fix, may potentially have to restart the project" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made some edits to my django blog project. Still have some errors that I have to fix, may potentially have to restart the project" />
+    <MESSAGE value="We are redoing the django project, first doing a walkthrough to get familiar with it, and then we will begin to build from there. Right now we have successfully created our app and set up our url patterns, we have just added our blog app to our list of installed apps to begin accessing HTML templates for rendering" />
+    <option name="LAST_COMMIT_MESSAGE" value="We are redoing the django project, first doing a walkthrough to get familiar with it, and then we will begin to build from there. Right now we have successfully created our app and set up our url patterns, we have just added our blog app to our list of installed apps to begin accessing HTML templates for rendering" />
   </component>
 </project>
