@@ -1,6 +1,8 @@
 {% extends "blog/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
+
+
 <div class="content-section">
   <div class="media">
     <img class="rounded-circle account-img" src="{{user.profile.image.url}}">
@@ -9,6 +11,21 @@
       <p class="text-secondary">{{user.email}}</p>
     </div>
   </div>
-  <!-- FORM HERE -->
+  <form action="#" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <!-- Used to group the elements within our form-->
+      <fieldset class="form-group">
+        <!-- Gives a title to our form-->
+        <legend class="border-bottom mb-4">
+          Profile Info
+        </legend>
+        <!-- Here we input the 'u_form' and the 'p_form' to allow the user to edit their account an profile -->
+        {{u_form|crispy}}
+        {{p_form|crispy}}
+      </fieldset>
+      <div class="form-group">
+        <button type="submit" class="btn btn-outline-info">Update Profile</button>
+      </div>
+    </form>
 </div>
 {% endblock %}

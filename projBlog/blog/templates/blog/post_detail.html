@@ -1,0 +1,19 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+<!-- Make sure that the variable name for the database values you are passing in is changed to object because that is
+what the class viewList that you are using will be looking for when passing in the database values-->
+    <article class="media content-section">
+      <img class="rounded-circle article-img" src="{{object.author.profile.image.url}}">
+  <div class="media-body">
+    <div class="article-metadata">
+      <a class="mr-2" href="#">{{ object.author }}</a>
+      <!-- Here we are using a filter for date that will help us format the date info that we get-->
+      <!-- In this case we will use "F d, Y" ot get the full month, plus the day, and the Full year-->
+      <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
+    </div>
+    <h2 class="article-title">{{ object.title }}</h2>
+    <p class="article-content">{{ object.content }}</p>
+  </div>
+</article>
+{% endblock content %}

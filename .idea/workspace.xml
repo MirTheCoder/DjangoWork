@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="We have structured the login and logout pages for the users along with a profile page for the user as well. We have also made it so that whenever a user is made, a default profile will automatically be made for them as well" />
+    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="We have structured the login and logout pages for the users along with a profile page for the user as well. We have also made it so that whenever a user is made, a default profile will automatically be made for them as well">
+      <change afterPath="$PROJECT_DIR$/projBlog/blog/templates/blog/post_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projBlog/blog/templates/blog/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/projBlog/blog/templates/blog/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projBlog/blog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projBlog/blog/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projBlog/users/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/projBlog/users/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projBlog/users/templates/users/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/projBlog/users/templates/users/profile.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,8 +20,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -206,7 +213,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750561510289</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="We have structured the login and logout pages for the users along with a profile page for the user as well. We have also made it so that whenever a user is made, a default profile will automatically be made for them as well">
+      <option name="closed" value="true" />
+      <created>1750561542525</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1750561542525</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
