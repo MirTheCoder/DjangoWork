@@ -1,18 +1,7 @@
 {% extends "blog/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-{% if alert %}
-  <script>
-    alert("{{alert}}");
-  </script>
-{% endif %}
 
-{% if voice %}
-  <script>
-    alert("{{voice}}");
-    window.location.href = "http://127.0.0.1:8000/login"
-  </script>
-{% endif %}
 
   <div class="content-section">
     <form action="#" method="post">
@@ -22,18 +11,18 @@
         <!-- Gives a title to our form-->
         <!-- -->
         <legend class="border-bottom mb-4">
-          Join Today
+          Log In
         </legend>
         <!-- the "as_p" helps to split up our firm a little-->
         {{form|crispy}}
       </fieldset>
       <div class="form-group">
-        <button type="submit" class="btn btn-outline-info">Sign up</button>
+        <button type="submit" class="btn btn-outline-info">Login</button>
       </div>
     </form>
     <div class="border-top pt-3">
         <small class="text-muted">
-          Already have an account? <a class="ml-2" href="{% url 'login'%}">Sign In</a>
+          need an account? <a class="ml-2" href="{% url 'user-register'}">Sign Up Now</a>
         </small>
     </div>
   </div>

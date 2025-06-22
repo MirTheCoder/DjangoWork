@@ -8,5 +8,6 @@ urlpatterns = [
     #page is requested
     #Because we can potentially have multiple home pages, we need to name the blog one "blog-home" to avoid confusion
     path('register/', views.register, name='users-register'),
+    path('profile/', views.profile, name='profile'),
     path('', views.home, name='users-home'),
 ]
