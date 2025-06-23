@@ -13,6 +13,9 @@ what the class viewList that you are using will be looking for when passing in t
       <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
     </div>
     <h2 class="article-title">{{ object.title }}</h2>
+    {% if post.image %}
+        <img style="border: 4px solid grey; border-radius: 4px" src="{{post.image.url}}" alt="Image for the Post">
+    {% endif %}
     <p class="article-content">{{ object.content }}</p>
     {% if object.author == user %}
     <div>

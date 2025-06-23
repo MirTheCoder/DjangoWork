@@ -15,7 +15,7 @@
 {% endif %}
 
   <div class="content-section">
-    <form action="#" method="post">
+    <form action="#" method="post" enctype="multipart/form-data">
       {% csrf_token %}
       <!-- Used to group the elements within our form-->
       <fieldset class="form-group">
@@ -24,7 +24,6 @@
         <legend class="border-bottom mb-4">
           Blog Post
         </legend>
-        <!-- the "as_p" helps to split up our firm a little-->
         {{form|crispy}}
       </fieldset>
       <div class="form-group">

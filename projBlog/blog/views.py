@@ -1,10 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
+from django.template.context_processors import request
+
 #The dot means that you are importing from the same directory as the python file you are in
 from . models import Post
 #This will check and see if the user is logged in before we allow them to create a blog post
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.contrib.auth.models import User
 
 
 # Create your views here.
@@ -33,6 +36,8 @@ class PostListView(ListView):
     #If you add a question mark to your url, it allows you to pass a parameter to your url file
     #ex: ?page = 2 will send you to the second page of blogs
 
+
+
 class PostDetailView(DetailView):
     model = Post
 
@@ -42,7 +47,7 @@ class PostDetailView(DetailView):
 #before we allow them to create a new blog post
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post  #The create view looks for the template in the path "blog/post_form.html"
-    fields = ["title", "content"]
+    fields = ["title", "content", "image"]
 
     #We are going to override the form_valid method (method that checks if the users form submission is valid)
     #In order to automatically input the user as the author whenever the blog post is made
@@ -55,7 +60,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post  #The update view looks for the template in the path "blog/post_form.html"
     #Both "PostCreateView" and "PostUpdateView" share the same template which is "blog/post_form.html"
-    fields = ["title", "content"]
+    fields = ["title", "content", "image"]
 
     #We are going to override the form_valid method (method that checks if the users form submission is valid)
     #In order to automatically input the user as the author whenever the blog post is made
