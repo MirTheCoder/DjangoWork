@@ -1,0 +1,35 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% if alert %}
+  <script>
+    alert("{{alert}}");
+  </script>
+{% endif %}
+
+{% if voice %}
+  <script>
+    alert("{{voice}}");
+    window.location.href = "http://127.0.0.1:8000/login"
+  </script>
+{% endif %}
+
+  <div class="content-section">
+    <form action="#" method="post">
+      {% csrf_token %}
+      <!-- Used to group the elements within our form-->
+      <fieldset class="form-group">
+        <!-- Gives a title to our form-->
+        <!-- -->
+        <legend class="border-bottom mb-4">
+          Blog Post
+        </legend>
+        <!-- the "as_p" helps to split up our firm a little-->
+        {{form|crispy}}
+      </fieldset>
+      <div class="form-group">
+        <button type="submit" class="btn btn-outline-info">Post</button>
+      </div>
+    </form>
+  </div>
+{% endblock %}

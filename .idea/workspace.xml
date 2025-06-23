@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="We have structured the login and logout pages for the users along with a profile page for the user as well. We have also made it so that whenever a user is made, a default profile will automatically be made for them as well">
-      <change afterPath="$PROJECT_DIR$/projBlog/blog/templates/blog/post_detail.html" afterDir="false" />
+    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="We have made some edits in the way we are displaying our users blogs. We have made a system for them to edit their accounts and are working on a feature that will let them also create enw blogs">
+      <change afterPath="$PROJECT_DIR$/projBlog/blog/templates/blog/post_confirm_delete.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projBlog/blog/templates/blog/post_form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projBlog/blog/templates/blog/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/projBlog/blog/templates/blog/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projBlog/blog/templates/blog/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/projBlog/blog/templates/blog/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projBlog/blog/templates/blog/post_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/projBlog/blog/templates/blog/post_detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projBlog/blog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projBlog/blog/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projBlog/users/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/projBlog/users/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projBlog/users/templates/users/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/projBlog/users/templates/users/profile.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,7 +221,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750561542525</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="We have made some edits in the way we are displaying our users blogs. We have made a system for them to edit their accounts and are working on a feature that will let them also create enw blogs">
+      <option name="closed" value="true" />
+      <created>1750624968387</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1750624968387</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -235,6 +243,7 @@
     <MESSAGE value="So I have established the users app and a template where users can now register (however, I haven't yet created a system in which the users input data is saved to the database). I have made some edits to the url patterns to include the users app and making navigation a little smoother." />
     <MESSAGE value="We have created a new Users Registration form that will inherit from the default registration form for users that Django provides us, but instead it now adds a new field called the email field which the user can now input an email, however, it is optional if they want to put an email or not" />
     <MESSAGE value="We have structured the login and logout pages for the users along with a profile page for the user as well. We have also made it so that whenever a user is made, a default profile will automatically be made for them as well" />
-    <option name="LAST_COMMIT_MESSAGE" value="We have structured the login and logout pages for the users along with a profile page for the user as well. We have also made it so that whenever a user is made, a default profile will automatically be made for them as well" />
+    <MESSAGE value="We have made some edits in the way we are displaying our users blogs. We have made a system for them to edit their accounts and are working on a feature that will let them also create enw blogs" />
+    <option name="LAST_COMMIT_MESSAGE" value="We have made some edits in the way we are displaying our users blogs. We have made a system for them to edit their accounts and are working on a feature that will let them also create enw blogs" />
   </component>
 </project>

@@ -1,0 +1,34 @@
+{% extends "blog/base.html" %}
+{% block content %}
+{% if alert %}
+  <script>
+    alert("{{alert}}");
+  </script>
+{% endif %}
+
+{% if voice %}
+  <script>
+    alert("{{voice}}");
+    window.location.href = "http://127.0.0.1:8000/login"
+  </script>
+{% endif %}
+
+  <div class="content-section">
+    <form action="#" method="post">
+      {% csrf_token %}
+      <!-- Used to group the elements within our form-->
+      <fieldset class="form-group">
+        <!-- Gives a title to our form-->
+        <!-- -->
+        <legend class="border-bottom mb-4">
+          Delete Post
+        </legend>
+          <h2>Are you sure you want to delete the post {{ object.title }}</h2>
+      </fieldset>
+      <div class="form-group">
+        <button type="submit" class="btn btn-outline-danger">Yes, Delete</button>
+      </div>
+    </form>
+      <a href="{% url 'post-detail' object.id %}" class="btn btn-outline-secondary">Cancel</a>
+  </div>
+{% endblock %}

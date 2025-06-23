@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import PostListView, PostDetailView, PostCreateView
+from .views import PostListView, PostDetailView, PostCreateView, PostUpdateView, PostDeleteView
 
 #These url patterns help decided which function in our views file handle the request
 urlpatterns = [
@@ -13,6 +13,9 @@ urlpatterns = [
     path('', PostListView.as_view(), name='blog-home'),
     path('about/', views.about, name='blog-about'),
     #We are going to use this url to go see the details of a selected Blog
+    #We also pass the primary key as a variable into the url to ensure that we can get the right blog post via id number
     path('post/<int:pk>/', PostDetailView.as_view(), name='post-detail'),
+    path('post/<int:pk>/update', PostUpdateView.as_view(), name='post-update'),
     path('post/new/', PostCreateView.as_view(), name='post-create'),
+    path('post/<int:pk>/delete', PostDeleteView.as_view(), name='post-delete'),
 ]
