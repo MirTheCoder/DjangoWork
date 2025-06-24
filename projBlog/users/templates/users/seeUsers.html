@@ -1,0 +1,24 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+{% for author in person %}
+    <article class="media content-section">
+        <!-- Used to display the users image-->
+      <img class="rounded-circle article-img" src="{{author.profile.image.url}}">
+  <div class="media-body">
+    <div class="article-metadata">
+        <!-- Used to display the users username and email-->
+      <a class="mr-2" href="#"> {{ author.username }} </a>
+      <p class="mr-2">Email: {{author.email}}</p>
+        <!-- This will be a link that allows you to see the Post of a user -->
+      <button type="submit" class="btn btn-outline">
+              <a href="{% url 'post-of-user' author.username %}" class="btn btn-outline">
+                    View User's Posts
+                </a>
+      </button>
+    </div>
+  </div>
+</article>
+{% endfor %}
+
+{% endblock content %}

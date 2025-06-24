@@ -36,8 +36,26 @@ class PostListView(ListView):
     #If you add a question mark to your url, it allows you to pass a parameter to your url file
     #ex: ?page = 2 will send you to the second page of blogs
 
+#This class List view is a view that is meant to display a list of objects from a database
+class UsersPostListView(ListView):
+    model = Post
+    template_name = "blog/usersPost.html"    #class View will by default look for an html file with this path "<app>/<model>_list.html"
+    #This sets the name of the list that we will be passing into our template context
+    context_object_name = 'posts'
+    #This helps to change the order in which the values within our Post database are displayed
+    ordering = ['-date_posted']
 
 
+    #Use this to pass the argument within your url link for this view into the corresponding template
+    def get_context_data(self, **kwargs):
+        #This will allow us to create and fill a context dictionary that can be used in our template with default values
+        context = super().get_context_data(**kwargs)
+        #Fetches parameter from our url and stores it within our context dictionary
+        context['person'] = self.kwargs.get('person')
+        return context
+
+#PostDetailView automatically looks at the argument (has to be a primary key argument) and fetches the corresponding
+#object of the database we are referencing and passes it into our template as 'object'
 class PostDetailView(DetailView):
     model = Post
 

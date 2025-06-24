@@ -1,0 +1,28 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+{% for post in posts %}
+  {% if post.author.username == person %}
+    <article class="media content-section">
+      <img class="rounded-circle article-img" src="{{post.author.profile.image.url}}">
+  <div class="media-body">
+    <div class="article-metadata">
+      <a class="mr-2" href="#"> {{ post.author }} </a>
+      <!-- Here we are using a filter for date that will help us format the date info that we get-->
+      <!-- In this case we will use "F d, Y" ot get the full month, plus the day, and the Full year-->
+      <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
+    </div>
+    <!-- We will use "{% url 'post-detail' post.id %}" in order to pass the specific object that we want into
+    the post_details.html page. The "post.id" variable that we pass in will decipher the exact object that we want
+    within the database-->
+    <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+    {% if post.image %}
+        <img style="border: 4px solid grey; border-radius: 4px" src="{{post.image.url}}" alt="Image for the Post">
+    {% endif %}
+    <p class="article-content">{{ post.content }}</p>
+  </div>
+</article>
+  {% endif %}
+{% endfor %}
+
+{% endblock content %}

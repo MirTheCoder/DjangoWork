@@ -55,6 +55,12 @@ def profile(request):
     }
     return render(request, 'users/profile.html', context)
 
+class UsersList(ListView):
+    model = User
+    template_name = "users/seeUsers.html"  # class View will by default look for an html file with this path "<app>/<model>_list.html"
+    # This sets the name of the list that we will be passing into our template context
+    context_object_name = 'person'
+
 
 #This will be the home page of our code
 def home(request):
