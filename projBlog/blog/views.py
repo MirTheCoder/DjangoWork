@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.template.context_processors import request
 
 #The dot means that you are importing from the same directory as the python file you are in
-from . models import Post
+from . models import Post, Comment
 #This will check and see if the user is logged in before we allow them to create a blog post
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
@@ -115,3 +115,17 @@ class PostDeleteView(LoginRequiredMixin,UserPassesTestMixin,DeleteView):
             return True
         else:
             return False
+
+class CommentCreateView(LoginRequiredMixin, CreateView):
+    model = Comment  #The create view looks for the template in the path "blog/post_form.html"
+    fields = ["title", "content", "image"]
+
+
+    #We are going to override the form_valid method (method that checks if the users form submission is valid)
+    #In order to automatically input the user as the author whenever the blog post is made
+    def form_valid(self, form):
+        form.instance.speaker = self.request.user
+        val = self.kwargs.get('post')
+        form.instance.post = get_object_or_404(Post, title=val)
+        #This runs the form_valid method but now will ensure that the author is listed as the current user
+        return super().form_valid(form)

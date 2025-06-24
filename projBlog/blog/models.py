@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import ForeignKey
 from django.utils import timezone
 from django.contrib.auth.models import User
 from django.urls import reverse
@@ -50,3 +51,10 @@ class Post(models.Model):
                 output_size = (600, 600)
                 img.thumbnail(output_size)
                 img.save(self.image.path)
+
+#This is where we will store the comments made on different post
+class Comment(models.Model):
+    text = models.TextField()
+    date_posted = models.DateTimeField(default=timezone.now)
+    speaker = ForeignKey(User, on_delete=models.CASCADE)
+    post = ForeignKey(Post, on_delete=models.CASCADE)
