@@ -31,7 +31,7 @@ class Post(models.Model):
     #values
     image = models.ImageField(upload_to='post.pics',null=True,blank=True)
 
-#Controls how the data in Post table will display teh data
+#Controls how the data in Post table will display the data in admin
     def __str__(self):
         return self.title
 
@@ -58,3 +58,9 @@ class Comment(models.Model):
     date_posted = models.DateTimeField(default=timezone.now)
     speaker = ForeignKey(User, on_delete=models.CASCADE)
     post = ForeignKey(Post, on_delete=models.CASCADE)
+
+    # This method will redirect the user to the detail page of the post once the user adds a comment
+    def get_absolute_url(self):
+        #This will be used in order to call the post-detail url and pass the post primary key to find the blog post we
+        #want to display
+        return reverse('post-comment', kwargs={'pk':self.pk})

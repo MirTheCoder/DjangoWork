@@ -17,16 +17,17 @@ what the class viewList that you are using will be looking for when passing in t
         <img style="border: 4px solid grey; border-radius: 4px" src="{{post.image.url}}" alt="Image for the Post">
     {% endif %}
     <p class="article-content">{{ object.content }}</p>
-    {% if object.author == user %}
     <div>
+    {% if object.author == user %}
+
       <!-- btn is a bootstrap for button styling -->
       <a class="btn btn-secondary btn-sn mt-1 mb-1" href="{% url 'post-update' object.id %}"> Update</a>
       <!-- It is so cool that you can reference page urls by just using the url name you assigned it instead
       of typing out the entire url-->
       <a class="btn btn-secondary btn-sn mt-1 mb-1" href="{% url 'post-delete' object.id %}"> Delete</a>
-    </div>
     {% endif %}
-
+    <a class="btn btn-secondary btn-sn mt-1 mb-1" href="{% url 'post-comment' object.id %}"> Comment</a>
+    </div>
   </div>
 </article>
 {% endblock content %}

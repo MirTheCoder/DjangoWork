@@ -2,7 +2,7 @@ from django.urls import path
 from . import views
 from .views import (PostListView, PostDetailView,
                     PostCreateView, PostUpdateView,
-                    PostDeleteView, UsersPostListView)
+                    PostDeleteView, UsersPostListView, CommentCreateView)
 
 #These url patterns help decided which function in our views file handle the request
 urlpatterns = [
@@ -21,4 +21,5 @@ urlpatterns = [
     path('post/new/', PostCreateView.as_view(), name='post-create'),
     path('post/<int:pk>/delete', PostDeleteView.as_view(), name='post-delete'),
     path('post/seeUserPost/<str:person>/', UsersPostListView.as_view(), name='post-of-user'),
+    path('post/comment/<int:pk>/', CommentCreateView.as_view(), name='post-comment'),
 ]

@@ -1,0 +1,59 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% if alert %}
+  <script>
+    alert("{{alert}}");
+  </script>
+{% endif %}
+
+{% if voice %}
+  <script>
+    alert("{{voice}}");
+    window.location.href = "http://127.0.0.1:8000/login"
+  </script>
+{% endif %}
+<article class="media content-section">
+      <img class="rounded-circle article-img" src="{{text.author.profile.image.url}}">
+  <article class="media-body">
+    <div class="article-metadata">
+      <a class="mr-2" href="#">{{ text.author }}</a>
+      <!-- Here we are using a filter for date that will help us format the date info that we get-->
+      <!-- In this case we will use "F d, Y" ot get the full month, plus the day, and the Full year-->
+      <small class="text-muted">{{ text.date_posted|date:"F d, Y" }}</small>
+    </div>
+    <h2 class="article-title">{{ text.title }}</h2>
+    {% if post.image %}
+        <img style="border: 4px solid grey; border-radius: 4px" src="{{text.image.url}}" alt="Image for the Post">
+    {% endif %}
+    <p class="article-content">{{ text.content }}</p>
+    {% if text.author == user %}
+    <div>
+      <!-- btn is a bootstrap for button styling -->
+      <a class="btn btn-secondary btn-sn mt-1 mb-1" href="{% url 'post-update' text.id %}"> Update</a>
+      <!-- It is so cool that you can reference page urls by just using the url name you assigned it instead
+      of typing out the entire url-->
+      <a class="btn btn-secondary btn-sn mt-1 mb-1" href="{% url 'post-delete' text.id %}"> Delete</a>
+    </div>
+    {% endif %}
+
+  <div class="content-section">
+    <form action="{% url 'post-comment' text.id %}" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <!-- Used to group the elements within our form-->
+      <fieldset class="form-group">
+        <!-- Gives a title to our form-->
+        <!-- -->
+        <legend class="border-bottom mb-4">
+          Add Comment
+        </legend>
+        {{form|crispy}}
+      </fieldset>
+      <div class="form-group">
+        <button type="submit" class="btn btn-outline-info">Post Comment</button>
+      </div>
+    </form>
+  </div>
+  </article>
+</article>
+{% endblock %}

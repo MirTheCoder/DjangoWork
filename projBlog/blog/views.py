@@ -36,6 +36,15 @@ class PostListView(ListView):
     #If you add a question mark to your url, it allows you to pass a parameter to your url file
     #ex: ?page = 2 will send you to the second page of blogs
 
+    def get_context_data(self, **kwargs):
+        #We will query all of the comments
+        comments = Comment.objects.all()
+        #This will allow us to create and fill a context dictionary that can be used in our template with default values
+        context = super().get_context_data(**kwargs)
+        #Fetches parameter from our url and stores it within our context dictionary
+        context['comments'] = comments
+        return context
+
 #This class List view is a view that is meant to display a list of objects from a database
 class UsersPostListView(ListView):
     model = Post
@@ -118,14 +127,28 @@ class PostDeleteView(LoginRequiredMixin,UserPassesTestMixin,DeleteView):
 
 class CommentCreateView(LoginRequiredMixin, CreateView):
     model = Comment  #The create view looks for the template in the path "blog/post_form.html"
-    fields = ["title", "content", "image"]
+    #Used to set the name of teh template for the
+    template_name = 'blog/post_comment.html'
+    fields = ["text"]
+
+    def get_context_data(self, **kwargs):
+        #This will allow us to create and fill a context dictionary that can be used in our template with default values
+        context = super().get_context_data(**kwargs)
+        #here we are fetching the Post based off of the id passed into the url
+        person = get_object_or_404(Post, id=self.kwargs.get('pk'))
+        #Fetches parameter from our url and stores it within our context dictionary
+        context['text'] = person
+        return context
 
 
     #We are going to override the form_valid method (method that checks if the users form submission is valid)
     #In order to automatically input the user as the author whenever the blog post is made
     def form_valid(self, form):
         form.instance.speaker = self.request.user
-        val = self.kwargs.get('post')
-        form.instance.post = get_object_or_404(Post, title=val)
+        #This will receive and store the title of the post passed into the url
+        val = self.kwargs.get('pk')
+        #This will get the post object from the title of the post past into it and fill the post field of the comment
+        #table
+        form.instance.post = get_object_or_404(Post, id=val)
         #This runs the form_valid method but now will ensure that the author is listed as the current user
         return super().form_valid(form)

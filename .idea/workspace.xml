@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="We have added the option for people to look at the post of other users along with the ability to look at the post made by specific users as well. Next I hope to add a comment section for users to comment on post">
+    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="Currently working on creating the comment database and also the ability for users to add comments to post">
+      <change afterPath="$PROJECT_DIR$/projBlog/blog/templates/blog/post_comment.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projBlog/blog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/projBlog/blog/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projBlog/blog/templates/blog/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/projBlog/blog/templates/blog/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projBlog/blog/templates/blog/post_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/projBlog/blog/templates/blog/post_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projBlog/blog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projBlog/blog/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projBlog/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/projBlog/blog/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -266,7 +270,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750735692646</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Currently working on creating the comment database and also the ability for users to add comments to post">
+      <option name="closed" value="true" />
+      <created>1750788367651</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1750788367651</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -285,6 +297,7 @@
     <MESSAGE value="We have added a paginator that splits up the blogs into different pages for the user to access" />
     <MESSAGE value="We have added an image attribute to allow users to add an image to their Post, and we are going to be working on hopefully adding an option in the users homepage to look at other users" />
     <MESSAGE value="We have added the option for people to look at the post of other users along with the ability to look at the post made by specific users as well. Next I hope to add a comment section for users to comment on post" />
-    <option name="LAST_COMMIT_MESSAGE" value="We have added the option for people to look at the post of other users along with the ability to look at the post made by specific users as well. Next I hope to add a comment section for users to comment on post" />
+    <MESSAGE value="Currently working on creating the comment database and also the ability for users to add comments to post" />
+    <option name="LAST_COMMIT_MESSAGE" value="Currently working on creating the comment database and also the ability for users to add comments to post" />
   </component>
 </project>

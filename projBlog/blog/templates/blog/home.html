@@ -1,6 +1,38 @@
 {% extends "blog/base.html" %}
 
 {% block content %}
+<style>
+    .hidden{
+        display: none;
+    }
+    .comments-section {
+  margin-top: 3rem;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.comment {
+  background-color: #fff;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.comment-text {
+  font-size: 1rem;
+  color: #222;
+}
+</style>
 {% for post in posts %}
     <article class="media content-section">
       <img class="rounded-circle article-img" src="{{post.author.profile.image.url}}">
@@ -19,6 +51,22 @@
         <img style="border: 4px solid grey; border-radius: 4px" src="{{post.image.url}}" alt="Image for the Post">
     {% endif %}
     <p class="article-content">{{ post.content }}</p>
+    <button type="button" class="btn btn-secondary btn-sn" id="reveal">View Comments</button>
+    {% for comment in comments %}
+        {% if comment.post == post %}
+
+        <div class="hidden comment" id="review">
+            <div class="comment-header">
+            {% if comment.speaker.profile.image %}
+                <img class="rounded-circle article-img mt-2" src="{{comment.speaker.profile.image.url}}">
+            {% endif %}
+            <a class="mr-2" href="#"> {{ comment.speaker.username }} </a>
+            <small class="text-muted">{{ comment.date_posted|date:"F d, Y" }}</small>
+            </div>
+            <p class="article-content comment-text">{{ comment.text }}</p>
+        </div>
+        {% endif %}
+   {% endfor %}
   </div>
 </article>
 {% endfor %}
@@ -49,5 +97,17 @@
       <a href="?page={{ page_obj.paginator.num_pages }}" class="btn btn-outline-info mb-4">Last</a>
   {% endif %}
 {% endif %}
+
+<script>
+    words = document.getElementById("review");
+    veil = document.getElementById("reveal");
+    veil.addEventListener("click", function(){
+            if(words.classList.contains("hidden")){
+                words.classList.remove("hidden");
+            } else {
+                words.classList.add("hidden");
+            }
+        });
+</script>
 
 {% endblock content %}
