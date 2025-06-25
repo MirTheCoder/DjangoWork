@@ -4,6 +4,7 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from django.urls import reverse
 from PIL import Image
+from django.shortcuts import get_object_or_404
 #Make sure to run "python projBlog/manage.py makemigrations " to create the table
 
 #Run "python projBlog/manage.py sqlmigrate blog 0001" in the terminal line to ensure that the table is added to the
@@ -63,4 +64,4 @@ class Comment(models.Model):
     def get_absolute_url(self):
         #This will be used in order to call the post-detail url and pass the post primary key to find the blog post we
         #want to display
-        return reverse('post-comment', kwargs={'pk':self.pk})
+        return reverse('post-detail', kwargs={'pk':self.post.id})

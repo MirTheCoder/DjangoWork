@@ -41,7 +41,7 @@
       <a class="mr-2" href="#"> {{ post.author }} </a>
       <!-- Here we are using a filter for date that will help us format the date info that we get-->
       <!-- In this case we will use "F d, Y" ot get the full month, plus the day, and the Full year-->
-      <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
+      <small class="text-muted">{{ post.date_posted|date:"l, F d, Y" }} at {{ post.date_posted|date:"h:ia" }}</small>
     </div>
     <!-- We will use "{% url 'post-detail' post.id %}" in order to pass the specific object that we want into
     the post_details.html page. The "post.id" variable that we pass in will decipher the exact object that we want
@@ -52,21 +52,23 @@
     {% endif %}
     <p class="article-content">{{ post.content }}</p>
     <button type="button" class="btn btn-secondary btn-sn" id="reveal">View Comments</button>
+    <div class="hidden" id="review">
     {% for comment in comments %}
         {% if comment.post == post %}
 
-        <div class="hidden comment" id="review">
+        <div class="comment" >
             <div class="comment-header">
             {% if comment.speaker.profile.image %}
                 <img class="rounded-circle article-img mt-2" src="{{comment.speaker.profile.image.url}}">
             {% endif %}
             <a class="mr-2" href="#"> {{ comment.speaker.username }} </a>
-            <small class="text-muted">{{ comment.date_posted|date:"F d, Y" }}</small>
+            <small class="text-muted">{{ comment.date_posted|date:"l, F d, Y" }} at {{ comment.date_posted|date:"h:ia" }}</small>
             </div>
             <p class="article-content comment-text">{{ comment.text }}</p>
         </div>
         {% endif %}
    {% endfor %}
+   </div>
   </div>
 </article>
 {% endfor %}
