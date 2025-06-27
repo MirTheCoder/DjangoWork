@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import UsersList
+from .views import UsersList, ChatCreateView
 
 #These url patterns help decided which function in our views file handle the request
 urlpatterns = [
@@ -11,6 +11,7 @@ urlpatterns = [
     path('register/', views.register, name='users-register'),
     path('profile/', views.profile, name='profile'),
     path('seeUsers/', UsersList.as_view(), name='users-list'),
+    path('chat/<int:pk>/', ChatCreateView.as_view(), name='users-chat'),
 
     #Be sure to identify the type of variable that you will be passing into the url (ex. <username> will be a string)
     path('', views.home, name='users-home'),

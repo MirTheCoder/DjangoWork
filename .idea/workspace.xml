@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="Cuwe have given users the ability to comment on post, still working out a bug though on the return url after the user submits the comment">
+    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="Fixed the issues relating to the comments attribute">
+      <change afterPath="$PROJECT_DIR$/projBlog/users/templates/users/chat.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projBlog/blog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/projBlog/blog/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projBlog/blog/templates/blog/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/projBlog/blog/templates/blog/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projBlog/projBlog/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/projBlog/projBlog/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projBlog/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/projBlog/users/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projBlog/users/templates/users/seeUsers.html" beforeDir="false" afterPath="$PROJECT_DIR$/projBlog/users/templates/users/seeUsers.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projBlog/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projBlog/users/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projBlog/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/projBlog/users/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -283,7 +285,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750810658147</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Fixed the issues relating to the comments attribute">
+      <option name="closed" value="true" />
+      <created>1750825935096</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1750825935096</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -304,6 +314,17 @@
     <MESSAGE value="We have added the option for people to look at the post of other users along with the ability to look at the post made by specific users as well. Next I hope to add a comment section for users to comment on post" />
     <MESSAGE value="Currently working on creating the comment database and also the ability for users to add comments to post" />
     <MESSAGE value="Cuwe have given users the ability to comment on post, still working out a bug though on the return url after the user submits the comment" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cuwe have given users the ability to comment on post, still working out a bug though on the return url after the user submits the comment" />
+    <MESSAGE value="Fixed the issues relating to the comments attribute" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed the issues relating to the comments attribute" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/projBlog/blog/urls.py</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

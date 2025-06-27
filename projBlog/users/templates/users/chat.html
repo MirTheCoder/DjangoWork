@@ -1,0 +1,132 @@
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<style>
+    .chat-container {
+  max-width: 600px;
+  margin: 50px auto;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  overflow: hidden;
+}
+
+.message-container {
+  flex: 1;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.message {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 15px;
+}
+
+.message.left {
+  justify-content: flex-start;
+}
+
+.message.right {
+  justify-content: flex-end;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.bubble {
+  max-width: 70%;
+  padding: 10px 15px;
+  border-radius: 20px;
+  margin: 0 10px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.message.left .bubble {
+  background-color: #e0e0e0;
+  color: #000;
+  border-top-left-radius: 0;
+}
+
+.message.right .bubble {
+  background-color: #4CAF50;
+  color: #fff;
+  border-top-right-radius: 0;
+}
+
+.input-area {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  background: #fff;
+}
+
+.input-area input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  outline: none;
+}
+
+.input-area button {
+  margin-left: 10px;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+</style>
+
+
+<div class="chat-container">
+  <div class="message-container">
+    {% if convo %}
+        {% for chat in convo %}
+            {% if chat.user1 == user and chat.user2 == person %}
+                <div class="message right"> <!-- Sent by current user -->
+                    <div class="bubble">{{chat.text}}</div>
+                     <img src="{{user.profile.image.url}}" alt="User" class="avatar">
+                </div>
+            {% elif chat.user1 == person and chat.user2 == user %}
+                <div class="message left"> <!-- Received from other user -->
+                    <img src="{{person.profile.image.url}}" alt="Person" class="avatar">
+                    <div class="bubble">{{chat.text}}</div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+      <div class="message right">
+          <img src="{{user.profile.image.url}}" alt="User 2" class="avatar">
+      </div>
+      <div class="message left">
+          <img src="{{person.profile.image.url}}" alt="User 1" class="avatar">
+      </div>
+    {% endif %}
+  </div>
+  <div class="input-area">
+    <form action="#" method="POST" enctype="multipart/form-data">
+        <!-- Do not forget to add the csrf token as it is needed in order for the form to submit-->
+        {% csrf_token %}
+            <!-- As long as the inputs name matches the name of the field that you put into the createView form,
+            When you submit the form with input, the createView will pick up the data put into the input
+            and use it to create a new chat-->
+            <input type="text" name="text" placeholder="Type a message..." />
+        <button type="submit">Send</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}
