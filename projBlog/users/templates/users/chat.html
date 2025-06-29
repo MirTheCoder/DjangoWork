@@ -25,7 +25,7 @@
 .message {
   display: flex;
   align-items: flex-end;
-  margin-bottom: 15px;
+  margin-bottom: 3px;
 }
 
 .message.left {
@@ -90,17 +90,24 @@
 
 </style>
 
+<p id="">  </p>
 
 <div class="chat-container">
   <div class="message-container">
     {% if convo %}
         {% for chat in convo %}
             {% if chat.user1 == user and chat.user2 == person %}
+                <div class="message right">
+                    <small style="font-size: 10px; margin-right: 50px">{{ chat.date_posted|date:" F d, Y" }} at {{ chat.date_posted|date:"h:ia" }}</small>
+                </div>
                 <div class="message right"> <!-- Sent by current user -->
                     <div class="bubble">{{chat.text}}</div>
                      <img src="{{user.profile.image.url}}" alt="User" class="avatar">
                 </div>
             {% elif chat.user1 == person and chat.user2 == user %}
+                <div class="message left">
+                    <small style="font-size: 10px; margin-left: 50px">{{ chat.date_posted|date:" F d, Y" }} at {{ chat.date_posted|date:"h:ia" }}</small>
+                </div>
                 <div class="message left"> <!-- Received from other user -->
                     <img src="{{person.profile.image.url}}" alt="Person" class="avatar">
                     <div class="bubble">{{chat.text}}</div>

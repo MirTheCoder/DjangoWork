@@ -6,8 +6,7 @@ class UsersConfig(AppConfig):
     name = 'users'
 
     def ready(self):
-        import users.signals
-
+        pass
 
     #We will use this to override the save method for our images
     def save(self):

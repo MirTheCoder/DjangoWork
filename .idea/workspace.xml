@@ -4,13 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="Fixed the issues relating to the comments attribute">
-      <change afterPath="$PROJECT_DIR$/projBlog/users/templates/users/chat.html" afterDir="false" />
+    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="creation of chat table and its modifications">
+      <change afterPath="$PROJECT_DIR$/projAuction/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projAuction/auction/templates/auction/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projAuction/auction/templates/auction/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projAuction/auction/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projAuction/projAuction/templates/projBase/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projAuction/users/templates/users/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projAuction/users/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projBlog/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/projBlog/users/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projBlog/users/templates/users/seeUsers.html" beforeDir="false" afterPath="$PROJECT_DIR$/projBlog/users/templates/users/seeUsers.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projBlog/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projBlog/users/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projBlog/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/projBlog/users/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projBlog/users/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/projBlog/users/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projBlog/users/templates/users/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/projBlog/users/templates/users/chat.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,11 +65,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\pythonProject\DjangoWork\projAuction" />
       <recent name="C:\pythonProject\DjangoWork\projBlog" />
       <recent name="C:\pythonProject\DjangoWork" />
       <recent name="C:\pythonProject\DjangoWork\BASE_DIR\media" />
       <recent name="C:\pythonProject\DjangoWork\firstProject" />
-      <recent name="C:\pythonProject\DjangoWork\djangoProd" />
     </key>
   </component>
   <component name="RunManager">
@@ -293,7 +297,23 @@
       <option name="project" value="LOCAL" />
       <updated>1750825935096</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Added a chat feature in which users can chat with other users so long as they are logged in">
+      <option name="closed" value="true" />
+      <created>1750991291986</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1750991291986</updated>
+    </task>
+    <task id="LOCAL-00025" summary="creation of chat table and its modifications">
+      <option name="closed" value="true" />
+      <created>1750991479771</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1750991479771</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -315,7 +335,9 @@
     <MESSAGE value="Currently working on creating the comment database and also the ability for users to add comments to post" />
     <MESSAGE value="Cuwe have given users the ability to comment on post, still working out a bug though on the return url after the user submits the comment" />
     <MESSAGE value="Fixed the issues relating to the comments attribute" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed the issues relating to the comments attribute" />
+    <MESSAGE value="Added a chat feature in which users can chat with other users so long as they are logged in" />
+    <MESSAGE value="creation of chat table and its modifications" />
+    <option name="LAST_COMMIT_MESSAGE" value="creation of chat table and its modifications" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
