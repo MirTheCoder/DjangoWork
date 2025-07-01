@@ -1,0 +1,15 @@
+{% extends 'auction/base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="content-section">
+<form action="#" method="post">
+  <h3>Fill In The Fields Below To Register Now</h3>
+  {% csrf_token %}
+  {{form|crispy}}
+  <button class="btn" style="background-color: powderblue" type="submit">Submit</button>
+</form>
+  <small>Already have an account</small>
+  <a href="{% url 'login' %}"><small>Click Here to Log In</small></a>
+</div>
+
+{% endblock %}

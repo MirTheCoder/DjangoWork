@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Auction Home</title>
-</head>
-<body>
-<h2>Hello World</h2>
+{% extends 'auction/base.html' %}
+{% block content %}
 
-</body>
-</html>
+{% if user.is_authenticated %}
+<small><b>Welcome {{user.username}}</b></small>
+{% endif %}
+
+<Title>Auction Home Page</Title>
+<h2 style="margin-top: 10px">Hello</h2>
+
+{% endblock content %}

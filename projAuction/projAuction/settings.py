@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -35,6 +36,10 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'django.contrib.admin',
     'django.contrib.auth',
+    # This crispy_forms is an app we can use in order to help style our registration form
+    'crispy_forms',
+    # This app is the css or bootstrap styling for our code
+    'crispy_bootstrap4',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -118,7 +123,21 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+#This is where we will save all the images of our users
+MEDIA_ROOT = os.path.join('AUCTION_MEDIA_FOLDER', 'media')
+MEDIA_URL = '/media/'
+
+
+#This points the crispy forms to the exact bootstrap that we want to use for styling
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#Since we are using the Login and Logout default vies provided by django, we want to reroute the views to our templates
+#when a user is logged in or logged out
+LOGIN_REDIRECT_URL = 'users-home'
+LOGIN_URL = 'login'
+LOGOUT_REDIRECT_URL = 'logout'

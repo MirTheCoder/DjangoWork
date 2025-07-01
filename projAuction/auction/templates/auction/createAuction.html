@@ -1,0 +1,12 @@
+{% extends 'auction/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<title>Post an Auction</title>
+<h3>Welcome {{user.username}}, please fill out the form below to post an auction</h3>
+<div content="content-section">
+  <form action="#" method="post" enctype="multipart/form-data">
+    {{form|crispy}}
+    <button class="btn" style="background-color: powderblue; border-radius: 5px" type="submit">Post Auction</button>
+  </form>
+</div>
+{% endblock %}
