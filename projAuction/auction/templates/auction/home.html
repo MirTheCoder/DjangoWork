@@ -6,6 +6,18 @@
 {% endif %}
 
 <Title>Auction Home Page</Title>
-<h2 style="margin-top: 10px">Hello</h2>
-
+<h2><b>Auctions</b></h2>
+{% if auctions %}
+{% for auction in auctions %}
+    <div class="content-section">
+        <div>
+            <h2>{{auction.title}}</h2>
+            <small style="margin-left: 10px">{{auction.date}}</small>
+        </div>
+        <img src="{{auction.auctioneer.profile.image.url}}" alt="Auctioneer's image">
+    </div>
+{% endfor %}
+{% else %}
+<p class="text-muted">There are currently no auctions running right now</p>
+{% endif %}
 {% endblock content %}

@@ -9,7 +9,7 @@ from .models import Profile
 @receiver(post_save, sender=User)
 def createProfile(sender, instance, created, **kwargs):
     if created:
-        Profile.objects.create(user= instance)
+        Profile.objects.create(person= instance)
 
 #This will save the profile of the user to our profile database
 @receiver(post_save, sender=User)

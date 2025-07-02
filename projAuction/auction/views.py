@@ -13,11 +13,11 @@ def home(request):
 #if you want to check to see if a user is logged in, else it won't work properly in the url page
 class PostAnAuction(LoginRequiredMixin,CreateView):
     model = Auction
-    fields = ['title', 'description', 'image']
+    fields = ['title', 'description','startPrice','image']
     template_name = 'auction/createAuction.html'
 
     def form_valid(self, form):
-        form.instance.author = self.request.user
+        form.instance.auctioneer = self.request.user
         # This runs the form_valid method but now will ensure that the author is listed as the current user
         return super().form_valid(form)
 

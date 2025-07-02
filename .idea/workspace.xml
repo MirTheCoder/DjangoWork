@@ -4,26 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="We are starting a project in which we will be developing and auctioning system">
-      <change afterPath="$PROJECT_DIR$/projAuction/auction/templates/auction/createAuction.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projAuction/users/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projAuction/users/signal.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projAuction/users/templates/users/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projAuction/users/templates/users/logout.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projAuction/users/templates/users/register.html" afterDir="false" />
+    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="We have successfully given the user the ability to add an auction, to be able to also log in and register. The next goal is to display the auctions on the page">
+      <change afterPath="$PROJECT_DIR$/AUCTION_MEDIA_FOLDER/media/profile_pics/default.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/auction/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/auction/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projAuction/auction/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/auction/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/auction/templates/auction/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/auction/templates/auction/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projAuction/auction/templates/auction/createAuction.html" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/auction/templates/auction/createAuction.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projAuction/auction/templates/auction/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/auction/templates/auction/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projAuction/auction/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/auction/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projAuction/auction/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/auction/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/projAuction/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/projAuction/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/projAuction/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/projAuction/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/users/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/users/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projAuction/users/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/users/apps.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projAuction/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/users/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/users/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/users/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projAuction/users/signal.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/users/signal.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,17 +53,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Python.manage.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Python.manage.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/pythonProject/DjangoWork/AUCTION_MEDIA_FOLDER/media/profile_pics",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\pythonProject\DjangoWork\AUCTION_MEDIA_FOLDER\media\profile_pics" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\pythonProject\DjangoWork\projAuction\users\templates\users" />
       <recent name="C:\pythonProject\DjangoWork\projAuction" />
@@ -346,7 +341,15 @@
       <option name="project" value="LOCAL" />
       <updated>1751237969799</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="We have successfully given the user the ability to add an auction, to be able to also log in and register. The next goal is to display the auctions on the page">
+      <option name="closed" value="true" />
+      <created>1751402785732</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1751402785732</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -371,7 +374,8 @@
     <MESSAGE value="Added a chat feature in which users can chat with other users so long as they are logged in" />
     <MESSAGE value="creation of chat table and its modifications" />
     <MESSAGE value="We are starting a project in which we will be developing and auctioning system" />
-    <option name="LAST_COMMIT_MESSAGE" value="We are starting a project in which we will be developing and auctioning system" />
+    <MESSAGE value="We have successfully given the user the ability to add an auction, to be able to also log in and register. The next goal is to display the auctions on the page" />
+    <option name="LAST_COMMIT_MESSAGE" value="We have successfully given the user the ability to add an auction, to be able to also log in and register. The next goal is to display the auctions on the page" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
