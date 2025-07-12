@@ -15,7 +15,11 @@ from .models import Profile
 def home(request):
     return render(request, 'users/home.html')
 
+#This is used to help register users and create an account for them in our database
 def register(request):
+    create = False
+    #If a POST request is made, the computer will take the info input by the user in order to geenrate and account for
+    #them with the given information
     if request.method == "POST":
         form = UserRegisterForm(request.POST)
         #Checks to see if the form being passed back to the function is valid
@@ -25,8 +29,11 @@ def register(request):
             #If it is valid, then we will get the username and send a message alert to the user to let them know it was
             #successful
             username = form.cleaned_data.get('username')
+            persona = User.objects.filter(username=username).first()
             messages.success(request, f"Account created for {username}")
             voice = f"Account created for{username}"
+            if persona:
+                Profile.objects.create(person=persona)
             return render(request, "users/register.html", {"form": form, "voice": voice})
         else:
             #If the form was not valid, then we will alert the user that it wasn't successful
@@ -40,10 +47,20 @@ def register(request):
 
 #This @login_required is a decelerator that adds functionality or requirements for this function to run
 @login_required()
+#This allows the user to update their profile
 class UpdateProfile(UpdateView):
     model = Profile
     template_name = 'users/updateProfile'
     fields = ['age','phone','email','bio','twitter','instagram','facebook','image']
+
+@login_required()
+#This will allow the user to access their profile
+def viewProfile(request):
+    #This will cross-reference the Profile table with the user making the request to see if there is a match and then
+    #return the matching profile to us
+    character = get_object_or_404(Profile, person=request.user)
+    # Fetches parameter from our url and stores it within our context dictionary
+    return render(request, "users/profile.html", {"profile": character})
 
 
 

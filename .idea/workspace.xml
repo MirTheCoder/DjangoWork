@@ -4,17 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="We have successfully given the user the ability to add an auction, to be able to also log in and register. The next goal is to display the auctions on the page">
-      <change afterPath="$PROJECT_DIR$/AUCTION_MEDIA_FOLDER/media/profile_pics/default.jpg" afterDir="false" />
+    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="We are still making edits to our auction page. We have edited the register function in our views so that it automatically creates a profile for each registered user. We also are working on the profile page to allow users to view their profile. More aspects to come as this is just a rough draft">
+      <change afterPath="$PROJECT_DIR$/projAuction/users/templates/users/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/DjangoWork.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DjangoWork.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AUCTION_MEDIA_FOLDER/media/profile_pics/default.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/AUCTION_MEDIA_FOLDER/media/default.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projAuction/auction/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/auction/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/auction/templates/auction/createAuction.html" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/auction/templates/auction/createAuction.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/auction/templates/auction/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/auction/templates/auction/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projAuction/auction/templates/auction/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/auction/templates/auction/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projAuction/auction/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/auction/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projAuction/auction/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/auction/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projAuction/projAuction/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/projAuction/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projAuction/users/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/users/apps.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projAuction/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/users/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/users/signal.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/users/signal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projAuction/users/signal.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projAuction/users/templates/users/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/users/templates/users/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projAuction/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/users/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projAuction/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/users/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,39 +47,45 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/MirTheCoder/DjangoWork.git&quot;,
-    &quot;accountId&quot;: &quot;7a082490-1493-415b-9de6-26f8fb52c801&quot;
+    &quot;accountId&quot;: &quot;bc70367c-b1f7-4eef-b8aa-a377a482a018&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
   <component name="ProjectId" id="2vsaXCObQP4sei0fxjCR80dkq25" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Python.manage.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/pythonProject/DjangoWork/AUCTION_MEDIA_FOLDER/media/profile_pics",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Python.manage.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/pythonProject/DjangoWork/AUCTION_MEDIA_FOLDER/media/profile_pics&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\pythonProject\DjangoWork\AUCTION_MEDIA_FOLDER\media\profile_pics" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/AUCTION_MEDIA_FOLDER" />
+      <recent name="$PROJECT_DIR$/AUCTION_MEDIA_FOLDER/media" />
       <recent name="C:\pythonProject\DjangoWork\projAuction\users\templates\users" />
       <recent name="C:\pythonProject\DjangoWork\projAuction" />
       <recent name="C:\pythonProject\DjangoWork\projBlog" />
-      <recent name="C:\pythonProject\DjangoWork" />
-      <recent name="C:\pythonProject\DjangoWork\BASE_DIR\media" />
     </key>
   </component>
   <component name="RunManager">
@@ -86,11 +98,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="SDK_NAME" value="Python 3.12 (pythonProject)" />
       <option name="WORKING_DIRECTORY" value="C:\pythonProject\DjangoWork\projBlog" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="C:\pythonProject\DjangoWork\projBlog\manage.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -104,7 +116,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-495700d161d3-aa17d162503b-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-243.22562.220" />
+        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-PY-251.26927.74" />
+        <option value="bundled-python-sdk-657d8234b839-64d779b69b7a-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.26927.74" />
       </set>
     </attachedChunks>
   </component>
@@ -116,6 +129,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1744936272603</updated>
+      <workItem from="1752187606129" duration="106000" />
+      <workItem from="1752206949371" duration="472000" />
+      <workItem from="1752214380785" duration="475000" />
+      <workItem from="1752248299256" duration="454000" />
+      <workItem from="1752263272272" duration="8915000" />
     </task>
     <task id="LOCAL-00001" summary="Started setting up my django project">
       <option name="closed" value="true" />
@@ -352,6 +370,9 @@
     <option name="localTasksCounter" value="30" />
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Started setting up my django project" />
     <MESSAGE value="made some edits to my django project" />
@@ -375,7 +396,8 @@
     <MESSAGE value="creation of chat table and its modifications" />
     <MESSAGE value="We are starting a project in which we will be developing and auctioning system" />
     <MESSAGE value="We have successfully given the user the ability to add an auction, to be able to also log in and register. The next goal is to display the auctions on the page" />
-    <option name="LAST_COMMIT_MESSAGE" value="We have successfully given the user the ability to add an auction, to be able to also log in and register. The next goal is to display the auctions on the page" />
+    <MESSAGE value="We are still making edits to our auction page. We have edited the register function in our views so that it automatically creates a profile for each registered user. We also are working on the profile page to allow users to view their profile. More aspects to come as this is just a rough draft" />
+    <option name="LAST_COMMIT_MESSAGE" value="We are still making edits to our auction page. We have edited the register function in our views so that it automatically creates a profile for each registered user. We also are working on the profile page to allow users to view their profile. More aspects to come as this is just a rough draft" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -387,6 +409,15 @@
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/projAuction/projAuction/urls.py</url>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/projAuction/auction/urls.py</url>
+          <line>1</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/projAuction/users/models.py</url>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

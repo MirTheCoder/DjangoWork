@@ -16,8 +16,7 @@ class Auction(models.Model):
     date = models.DateTimeField(default=timezone.now)
 
     def get_absolute_url(self):
-        # This will be used in order to call the post-detail url and pass the post primary key to find the blog post we
-        # want to display
+        # This will be used in order to call the auction-home url in order to go to the home page to view all auctions
         return reverse('auction-home')
 
     # This will edit the size of the image of the item being auctioned off it the user wants to post an image
