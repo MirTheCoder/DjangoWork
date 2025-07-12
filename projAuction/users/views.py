@@ -45,12 +45,10 @@ def register(request):
     return render(request, "users/register.html", {"form": form})
 
 
-#This @login_required is a decelerator that adds functionality or requirements for this function to run
-@login_required()
 #This allows the user to update their profile
-class UpdateProfile(UpdateView):
+class editProfile(LoginRequiredMixin,UpdateView):
     model = Profile
-    template_name = 'users/updateProfile'
+    template_name = 'users/updateProfile.html'
     fields = ['age','phone','email','bio','twitter','instagram','facebook','image']
 
 @login_required()

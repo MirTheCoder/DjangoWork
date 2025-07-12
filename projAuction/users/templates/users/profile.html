@@ -2,23 +2,34 @@
 {% block content %}
     <h2>Welcome back {{user.username}}</h2>
     {% if profile %}
-        <div class="content-section">
+        <div class="content-section" style="border-radius: 10px">
             <article class="article-title">
             <h3>{{profile.person.username}}</h3>
             <img class="article-img" src="{{profile.image.url}}" alt="Users Image">
             </article>
             <h3><b>Info</b></h3>
+            <div class="content-section">
             <div class="article-content">
                 <p>Email: {{profile.email}}</p>
                 <p>Age: {{profile.age}}</p>
                 <p>Phone: {{profile.phone}}</p>
             </div>
-            <h3>Socials</h3>
-            <div>
-                <p>Twitter: {{profile.twitter}}</p>
-                <p>Instagram: {{profile.instagram}}<</p>
-                <p>Facebook: {{profile.facebook}}<</p>
             </div>
-        </div>
+            <h3><b>Socials</b></h3>
+            <div class="content-section">
+            <div class="article-content">
+                <p>Twitter: {{profile.twitter}}</p>
+                <p>Instagram: {{profile.instagram}}</p>
+                <p>Facebook: {{profile.facebook}}</p>
+            </div>
+            </div>
+
+            <h3><b>BIO</b></h3>
+            <div class="article-content">
+                <p class="content-section">{{profile.bio}}</p>
+            </div>
+            </div>
+            <a href="{% url 'updateProfile' profile.id %}"><button type="button" class="button">Update Profile</button></a>
+
     {% endif %}
 {% endblock %}

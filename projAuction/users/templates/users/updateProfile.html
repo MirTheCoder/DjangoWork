@@ -1,0 +1,12 @@
+{% extends "auction/base.html" %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+<h3>Welcome to the Update Page, feel free to update whatever info you would like</h3>
+<form class="content-section" action="#" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{form|crispy}}
+  <button class="button" type="submit">Submit Changes</button>
+</form>
+
+{% endblock %}

@@ -10,7 +10,7 @@ from django.utils import timezone
 class Auction(models.Model):
     title = models.CharField(max_length=1000)
     description = models.TextField()
-    image = models.ImageField(upload_to="auction_photos", null=True, blank=True)
+    image = models.ImageField(upload_to="auction_media/auction_photos", null=True, blank=True)
     auctioneer = models.ForeignKey(User, on_delete=models.CASCADE)
     startPrice = models.IntegerField(default=0)
     date = models.DateTimeField(default=timezone.now)
