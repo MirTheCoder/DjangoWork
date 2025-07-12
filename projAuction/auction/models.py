@@ -34,3 +34,8 @@ class Auction(models.Model):
 
     def __str__(self):
         return self.title
+
+class Bids(models.Model):
+    auction = models.ForeignKey(Auction, on_delete=models.CASCADE)
+    bidder = models.ForeignKey(User, on_delete=models.CASCADE)
+    amount = models.IntegerField()

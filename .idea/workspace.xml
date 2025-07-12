@@ -4,23 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="We are still making edits to our auction page. We have edited the register function in our views so that it automatically creates a profile for each registered user. We also are working on the profile page to allow users to view their profile. More aspects to come as this is just a rough draft">
-      <change afterPath="$PROJECT_DIR$/projAuction/users/templates/users/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/DjangoWork.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DjangoWork.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="We have created a template for updating the users profile, we are still working out a few bugs and playing around with the media roots as well.Once we get the profile stuff done, the goal is to start working on the bidding system.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AUCTION_MEDIA_FOLDER/media/profile_pics/default.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/AUCTION_MEDIA_FOLDER/media/default.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/auction/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/auction/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/auction/templates/auction/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/auction/templates/auction/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/auction/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/auction/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/auction/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/auction/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/projAuction/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/projAuction/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/users/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/users/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projAuction/auction/templates/auction/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/auction/templates/auction/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projAuction/projAuction/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/projAuction/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projAuction/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/users/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/users/signal.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/users/templates/users/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/users/templates/users/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/users/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/users/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +54,7 @@
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/pythonProject/DjangoWork/AUCTION_MEDIA_FOLDER/media/profile_pics&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/bossmanhomecomputer/PycharmProjects/DjangoWork/BASE_DIR/auction_media&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -78,14 +66,15 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/BASE_DIR/auction_media" />
       <recent name="C:\pythonProject\DjangoWork\AUCTION_MEDIA_FOLDER\media\profile_pics" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/BASE_DIR/auction_media" />
+      <recent name="$PROJECT_DIR$/BASE_DIR" />
       <recent name="$PROJECT_DIR$/AUCTION_MEDIA_FOLDER" />
       <recent name="$PROJECT_DIR$/AUCTION_MEDIA_FOLDER/media" />
       <recent name="C:\pythonProject\DjangoWork\projAuction\users\templates\users" />
-      <recent name="C:\pythonProject\DjangoWork\projAuction" />
-      <recent name="C:\pythonProject\DjangoWork\projBlog" />
     </key>
   </component>
   <component name="RunManager">
@@ -134,6 +123,8 @@
       <workItem from="1752214380785" duration="475000" />
       <workItem from="1752248299256" duration="454000" />
       <workItem from="1752263272272" duration="8915000" />
+      <workItem from="1752279405479" duration="8047000" />
+      <workItem from="1752332409989" duration="2472000" />
     </task>
     <task id="LOCAL-00001" summary="Started setting up my django project">
       <option name="closed" value="true" />
@@ -367,7 +358,31 @@
       <option name="project" value="LOCAL" />
       <updated>1751402785732</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="We are still making edits to our auction page. We have edited the register function in our views so that it automatically creates a profile for each registered user. We also are working on the profile page to allow users to view their profile. More aspects to come as this is just a rough draft">
+      <option name="closed" value="true" />
+      <created>1752279558028</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1752279558028</updated>
+    </task>
+    <task id="LOCAL-00031" summary="We are still making edits to our auction page. We have edited the register function in our views so that it automatically creates a profile for each registered user. We also are working on the profile page to allow users to view their profile. More aspects to come as this is just a rough draft">
+      <option name="closed" value="true" />
+      <created>1752279625080</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1752279625080</updated>
+    </task>
+    <task id="LOCAL-00032" summary="We have created a template for updating the users profile, we are still working out a few bugs and playing around with the media roots as well.Once we get the profile stuff done, the goal is to start working on the bidding system.">
+      <option name="closed" value="true" />
+      <created>1752295167768</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1752295167768</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -397,7 +412,8 @@
     <MESSAGE value="We are starting a project in which we will be developing and auctioning system" />
     <MESSAGE value="We have successfully given the user the ability to add an auction, to be able to also log in and register. The next goal is to display the auctions on the page" />
     <MESSAGE value="We are still making edits to our auction page. We have edited the register function in our views so that it automatically creates a profile for each registered user. We also are working on the profile page to allow users to view their profile. More aspects to come as this is just a rough draft" />
-    <option name="LAST_COMMIT_MESSAGE" value="We are still making edits to our auction page. We have edited the register function in our views so that it automatically creates a profile for each registered user. We also are working on the profile page to allow users to view their profile. More aspects to come as this is just a rough draft" />
+    <MESSAGE value="We have created a template for updating the users profile, we are still working out a few bugs and playing around with the media roots as well.Once we get the profile stuff done, the goal is to start working on the bidding system." />
+    <option name="LAST_COMMIT_MESSAGE" value="We have created a template for updating the users profile, we are still working out a few bugs and playing around with the media roots as well.Once we get the profile stuff done, the goal is to start working on the bidding system." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -405,10 +421,6 @@
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/projBlog/blog/urls.py</url>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/projAuction/projAuction/urls.py</url>
-          <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/projAuction/auction/urls.py</url>

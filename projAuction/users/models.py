@@ -23,7 +23,7 @@ class Profile(models.Model):
 
     def get_absolute_url(self):
         # This will be used in order to send the user back to the profile page
-        return reverse('user-profile')
+        return reverse('updateProfile', kwargs={'pk':self.pk})
 
     # This will edit the size of the image of the item being auctioned off it the user wants to post an image
     # of the item on the auction post

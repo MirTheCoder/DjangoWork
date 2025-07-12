@@ -1,0 +1,46 @@
+{% extends 'auction/base.html' %}
+{% block content %}
+<style>
+    .hide{
+       display: none;
+    }
+</style>
+{% if auction %}
+<div class="content-section">
+        <div>
+            <h2>{{auction.title}}</h2>
+            <small style="margin-left: 10px">{{auction.date}}</small>
+        </div>
+        <img class="rounded-circle article-img" src="{{auction.auctioneer.profile.image.url}}" alt="Auctioneer's image">
+        <p> </p>
+        <div class="media-body content-section">
+            <img style="border: solid 5px" src="{{auction.image.url}}" alt="image of auction item">
+            <h4>Description</h4>
+            <p class="content-section" style="text-align: center;">{{auction.description}}</p>
+        </div>
+        <h4>Starting Bid Price: ${{auction.startPrice}}</h4>
+        <button id="placeBid" type="button" class="btn btn-outline" style="background-color: #4CAF50">Place Bid</button>
+        <button id="viewBids" type="button" class="btn btn-outline" style="background-color: #5f788a">View Bids</button>
+        <form method="post" action="{% url 'createBid' %}" enctype="multipart/form-data" class="hide" id="bidForm">
+            {% csrf_token %}
+            $<input type="number" min="{{auction.startPrice}}" name="bidNum" required>
+            <textarea name="auctionName" class="hide">{{auction.title}}</textarea>
+            <button type="submit" class="btn btn-outline">Submit Bid</button>
+        </form>
+</div>
+{% endif %}
+
+<script>
+    addBid = document.getElementById('placeBid')
+    submitBid = document.getElementById('bidForm')
+    addBid.addEventListener("click", function(){
+        if(submitBid.classList.contains("hide")){
+            submitBid.classList.remove('hide')
+            addBid.textContent = "Show less"
+        } else {
+            submitBid.classList.add("hide")
+            addBid.textContent = "Place Bid"
+        }
+    })
+</script>
+{% endblock %}

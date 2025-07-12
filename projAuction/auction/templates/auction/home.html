@@ -14,8 +14,16 @@
             <h2>{{auction.title}}</h2>
             <small style="margin-left: 10px">{{auction.date}}</small>
         </div>
-        <img src="{{auction.auctioneer.profile.image.url}}" alt="Auctioneer's image">
+        <img class="rounded-circle article-img" src="{{auction.auctioneer.profile.image.url}}" alt="Auctioneer's image">
+        <p> </p>
+        <div class="media-body content-section">
+            <img style="border: solid 5px" src="{{auction.image.url}}" alt="image of auction item">
+            <h4>Description</h4>
+            <p class="content-section" style="text-align: center;">{{auction.description}}</p>
+        </div>
+        <a href="{% url 'auctionDetails' auction.id %}"><button type="button" class="btn btn-outline">View Details</button></a>
     </div>
+
 {% endfor %}
 {% else %}
 <p class="text-muted">There are currently no auctions running right now</p>

@@ -1,10 +1,11 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.http import HttpResponse
 from django.template.context_processors import request
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from .models import Auction
+from .models import Auction, Bids
 
 def home(request):
     return render(request,'auction/home.html')
@@ -30,3 +31,19 @@ class ViewAuctions(ListView):
     model = Auction
     template_name = "auction/home.html"
     context_object_name = "auctions"
+
+class ViewAuctionDetails(DetailView):
+    model = Auction
+    template_name = "auction/auctionDetails.html"
+    context_object_name = "auction"
+
+
+def createBid(request):
+    if request.method == "POST":
+        #Mkae sure to use request.POST.get to obtain specific data in the form that has been submitted, do not use
+        #request.form as it only works for flask
+        name = request.POST.get('auctionName')
+        auctionPiece = Auction.objects.filter(title=name).first()
+        bid = request.form['bidNum']
+        Bids.objects.create(auction=auctionPiece, bidder=request.user, amount=bid)
+    return redirect(reverse('auction-home'))
