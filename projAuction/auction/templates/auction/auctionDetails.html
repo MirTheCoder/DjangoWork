@@ -14,7 +14,9 @@
         <img class="rounded-circle article-img" src="{{auction.auctioneer.profile.image.url}}" alt="Auctioneer's image">
         <p> </p>
         <div class="media-body content-section">
+            {% if auction.image %}
             <img style="border: solid 5px" src="{{auction.image.url}}" alt="image of auction item">
+            {% endif %}
             <h4>Description</h4>
             <p class="content-section" style="text-align: center;">{{auction.description}}</p>
         </div>
