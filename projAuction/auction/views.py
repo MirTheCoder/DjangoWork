@@ -1,3 +1,5 @@
+from django.contrib import messages
+
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.shortcuts import render, redirect
@@ -44,6 +46,7 @@ def createBid(request):
         #request.form as it only works for flask
         name = request.POST.get('auctionName')
         auctionPiece = Auction.objects.filter(title=name).first()
-        bid = request.form['bidNum']
+        bid = request.POST.get('bidNum')
         Bids.objects.create(auction=auctionPiece, bidder=request.user, amount=bid)
+    messages.success(request, "Your bid has been successfully added")
     return redirect(reverse('auction-home'))

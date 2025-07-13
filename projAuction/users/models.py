@@ -11,7 +11,7 @@ from PIL import Image
 #This is the profile model in which we will store each profile that is created in this table within our database
 class Profile(models.Model):
     date = models.DateTimeField(default=timezone.now)
-    image = models.ImageField(upload_to='auction_media', default='default.jpg')
+    image = models.ImageField(upload_to='auction_profile_pics', default='default.jpg')
     person = models.OneToOneField(User, on_delete=models.CASCADE)
     email = models.EmailField(blank=True, null=True)
     bio = models.TextField(blank=True, null=True)
