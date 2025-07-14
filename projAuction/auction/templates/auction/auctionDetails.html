@@ -17,12 +17,18 @@
             {% if auction.image %}
             <img style="border: solid 5px" src="{{auction.image.url}}" alt="image of auction item">
             {% endif %}
-            <h4>Description</h4>
+            <h4 style="margin-top: 35px">Description</h4>
             <p class="content-section" style="text-align: center;">{{auction.description}}</p>
         </div>
         <h4>Starting Bid Price: ${{auction.startPrice}}</h4>
+        {% if user != auction.auctioneer %}
         <button id="placeBid" type="button" class="btn btn-outline" style="background-color: #4CAF50">Place Bid</button>
-        <button id="viewBids" type="button" class="btn btn-outline" style="background-color: #5f788a">View Bids</button>
+        {% endif %}
+        {% if user == auction.auctioneer %}
+        <a href="{% url 'viewBids' auction.id %}">
+            <button id="viewBids" type="button" class="btn btn-outline" style="background-color: #5f788a">View Bids</button>
+        </a>
+        {% endif %}
         <form method="post" action="{% url 'createBid' %}" enctype="multipart/form-data" class="hide" id="bidForm">
             {% csrf_token %}
             $<input type="number" min="{{auction.startPrice}}" name="bidNum" required>

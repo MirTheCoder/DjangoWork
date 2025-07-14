@@ -1,0 +1,16 @@
+{% extends "auction/base.html" %}
+{% block content %}
+<h3>Here are the bids for {{auction.title}}</h3>
+{% for bid in bids %}
+{% if bid.auction == auction %}
+<div class="content-section" style="border: dashed 3px; margin-top: 25px">
+    <small style="margin-left: 10px">{{bid.date}}</small>
+    <div style="display: flex; margin-top: 15px">
+    <img class="rounded-circle article-img" src="{{auction.auctioneer.profile.image.url}}" alt="Bidders Image">
+    <h4 style="margin-left: 20px">{{user}}</h4>
+    </div>
+    <h5 style="margin-top: 30px">Amount: ${{bid.amount}}</h5>
+</div>
+{% endif %}
+{% endfor %}
+{% endblock %}

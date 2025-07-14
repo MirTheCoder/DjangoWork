@@ -1,5 +1,15 @@
 {% extends 'auction/base.html' %}
 {% block content %}
+<style>
+    .content-space {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+</style>
+
 
 {% if user.is_authenticated %}
 <small><b>Welcome {{user.username}}</b></small>
@@ -21,7 +31,7 @@
             <img style="border: solid 5px" src="{{auction.image.url}}" alt="image of auction item">
             {% endif %}
             <h4>Description</h4>
-            <p class="content-section" style="text-align: center;">{{auction.description}}</p>
+            <p class="content-space" >{{auction.description}}</p>
         </div>
         <a href="{% url 'auctionDetails' auction.id %}"><button type="button" class="btn btn-outline">View Details</button></a>
     </div>
