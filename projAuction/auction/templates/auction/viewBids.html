@@ -7,7 +7,9 @@
     <small style="margin-left: 10px">{{bid.date}}</small>
     <div style="display: flex; margin-top: 15px">
     <img class="rounded-circle article-img" src="{{auction.auctioneer.profile.image.url}}" alt="Bidders Image">
-    <h4 style="margin-left: 20px">{{user}}</h4>
+    {% if bid.bidder.code.codeName %}
+    <h4 style="margin-left: 20px">Bidder: {{bid.bidder.code.codeName}}</h4>
+    {% endif %}
     </div>
     <h5 style="margin-top: 30px">Amount: ${{bid.amount}}</h5>
 </div>

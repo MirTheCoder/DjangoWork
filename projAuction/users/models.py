@@ -4,6 +4,19 @@ from django.db.models import TextField
 from django.urls import reverse
 from django.utils import timezone
 from PIL import Image
+import string
+import random
+
+
+
+def generate_unique_code():
+    length = 8
+    while True:
+        #This will generate a code that is of length six and only has the ascii uppercase characters in it
+        code = ''.join(random.choices(string.ascii_letters, k= length))
+        if Code.objects.filter(codeName=code).count() == 0:
+            break
+    return code
 
 
 # Create your models here.
@@ -40,6 +53,21 @@ class Profile(models.Model):
 
     def __str__(self):
         return f"{self.person.username}'s Profile"
+
+
+class Code(models.Model):
+    codeName = models.CharField(max_length=8, null=True, blank=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+
+    #Here we are going to override the save method in order to have the computer generate a unique code for the user
+    #which we will use to display for them when they go to bid
+    def save(self, *args, **kwargs):
+        bidName = generate_unique_code()
+        self.codeName = bidName
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return f"{self.user.username}'s bidding code:{self.codeName}"
 
 
 

@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from .models import Profile
+from .models import Profile, Code
 
 
 def home(request):
@@ -33,7 +33,9 @@ def register(request):
             messages.success(request, f"Account created for {username}")
             voice = f"Account created for{username}"
             if persona:
+                #Here we will cretae a profile and a bidding code for each user who registers and makes an account
                 Profile.objects.create(person=persona)
+                Code.objects.create(user=persona)
             return render(request, "users/register.html", {"form": form, "voice": voice})
         else:
             #If the form was not valid, then we will alert the user that it wasn't successful
