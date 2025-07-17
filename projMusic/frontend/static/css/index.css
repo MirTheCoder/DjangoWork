@@ -1,0 +1,23 @@
+/* This will applying styling to the html tag and body tag of our html file*/
+html,
+body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    /* add white here */
+}
+
+/* We are applying styling to the main and app div's (these are id's for their respective div tags)*/
+#main{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+#app {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}

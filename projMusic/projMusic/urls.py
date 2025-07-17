@@ -19,5 +19,8 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('api.urls'))
+    #The Api urls will be urls that trigger backend operations that the users will not be able to see
+    path('api/', include('api.urls')),
+    #The frontend urls will be urls that the user can see and interact with
+    path('', include('frontend.urls')),
 ]

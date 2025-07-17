@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Music Controller</title>
+    <!-- These are some scripts and style sheets that we need to customize our webpage -->
+    {% load static %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    />
+    <!-- This will grab the css styling within the index.css file which is located in the css directory which
+    is stored inside the static directory-->
+    <link rel="stylesheet" type="text/css" href="{% static "css/index.css" %}"
+    />
+  </head>
+  <body>
+    <div id="main">
+        <!-- This div class will hold all the html code that is handled by React
+        so in other words, whatever we produce or have in our react page will appear in this div class-->
+      <div id="app"></div>
+    </div>
+
+    <script src="{% static "frontend/main.js"%}" > </script>
+
+
+
+</body>
+</html>
