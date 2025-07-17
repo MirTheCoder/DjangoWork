@@ -8,3 +8,10 @@ class RoomSerializer(serializers.ModelSerializer):
     class Meta:
         model = Room
         fields = ('id', 'code', 'host', 'guest_can_pause', 'vote_to_skip', 'created_at')
+
+#This serializer will check the request made by the user via frontend for making a room to make sure that it is a valid
+#request and that all the required field are accurately filled out
+class CreateRoomSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Room
+        fields = ('guest_can_pause', 'votes')

@@ -3,19 +3,31 @@
 import React, { Component } from "react";
 /* instead of using 'import { render } from "react-dom";" since we are using react 19 we have to use the import below*/
 import { createRoot } from 'react-dom/client';
+import HomePage from "./HomePage";
+import RoomJoinPage from "./RoomJoinPage";
+import CreateRoomPage from "./CreateRoomPage";
+
+/* This App javascript file will serve as our base Component where we will render the details stored in other
+* components*/
 
 
 /* Here we will be setting up an App class that extends to the parent class Component
 * and we are also making this class the default export of this file */
 export default class App extends Component{
     /* Here is our constructor that takes in one argument in order to create an instance of this class*/
+    /* we can also pass props from one component to another as well */
     constructor(props) {
         super(props);
     }
 
-
+    /*This right here is telling our main app component to render the details of our */
     render(){
-        return(<h1>Testing the React Code</h1>)
+        /* We must use a div class if we want to return multiple components because we can only technically pass
+        * one item into our rendering at a time, so our div class will just basically wrap all the components into
+        * one element kind of*/
+
+        /* This is how we can render multiple component pages from our base component page */
+        return <HomePage></HomePage>
     }
 }
 
