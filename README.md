@@ -18,8 +18,9 @@ Required Pip Installations for projMusic
 - Next, install "npm install @material-ui/core" for some built-in webpage styling  (install "npm install @mui/material @emotion/react @emotion/styled
 "If you are using React 18 or 19, as the new Reacts need the newer version of Material UI
 - Next, you need to install "npm install @babel/plugin-proposal-class-properties" to use async and await in our JavaScript code
-- Next we will install "npm install react-router-dom" which will allow us to reroute our pages so that we can navigate to different pages from React
+- Next, we will install "npm install react-router-dom" which will allow us to reroute our pages so that we can navigate to different pages from React
 - Next, we need to install "npm install @mui/icons-material" to get the icons required
 
 
 More on ProjMusic
+- Make sure to change your directory to the frontend app within your project (your package.json file and package-lock.json should both be in that frontend app file) before you run "npm run dev"
