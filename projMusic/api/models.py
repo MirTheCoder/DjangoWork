@@ -13,9 +13,11 @@ def generate_unique_code():
 
 # Create your models here.
 class Room(models.Model):
-    code = models.CharField(max_length=8, default='', unique=True)
+    #Whenever we create a new room, the table will by default call 'generate_unique_code' to create a default code
+    # for the room
+    code = models.CharField(max_length=8, default=generate_unique_code, unique=True)
     host = models.CharField(max_length=50, unique=True, null=True)
     guest_can_pause = models.BooleanField(null=False, default=False)
-    vote_to_skip = models.IntegerField(default=1,null=False)
+    votes_to_skip = models.IntegerField(default=1,null=False)
     #This will allow the database to automatically add the current date time whenever a room is created
     created_at = models.DateTimeField(auto_now_add=True)
