@@ -1,8 +1,7 @@
-from django.core.serializers import serialize
 from django.shortcuts import render
 from rest_framework import generics, status
-from .models import Room
 from .serializers import RoomSerializer, CreateRoomSerializer
+from .models import Room
 from rest_framework.views import APIView
 from rest_framework.response import Response
 

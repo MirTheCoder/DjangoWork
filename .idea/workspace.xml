@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="We have now set up a routing system in our HomePage.js in order to flip through the various components that we render. We are also creating a serializer that will check and see if the post request made for the creation of a room is valid so that we can send over the details requested for this creation of the room" />
+    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="We have established a create view where users can now create rooms, and we have some validity and session checks that are also put into place as well" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -132,6 +132,7 @@
       <workItem from="1752623507852" duration="10899000" />
       <workItem from="1752704461439" duration="12932000" />
       <workItem from="1752778571967" duration="6108000" />
+      <workItem from="1752809895409" duration="4008000" />
     </task>
     <task id="LOCAL-00001" summary="Started setting up my django project">
       <option name="closed" value="true" />
@@ -461,14 +462,21 @@
       <option name="project" value="LOCAL" />
       <updated>1752785439834</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="We have established a create view where users can now create rooms, and we have some validity and session checks that are also put into place as well">
+      <option name="closed" value="true" />
+      <created>1752814113232</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1752814113232</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Made some edits to my django blog project. Still have some errors that I have to fix, may potentially have to restart the project" />
     <MESSAGE value="We are redoing the django project, first doing a walkthrough to get familiar with it, and then we will begin to build from there. Right now we have successfully created our app and set up our url patterns, we have just added our blog app to our list of installed apps to begin accessing HTML templates for rendering" />
     <MESSAGE value="So I have established the users app and a template where users can now register (however, I haven't yet created a system in which the users input data is saved to the database). I have made some edits to the url patterns to include the users app and making navigation a little smoother." />
     <MESSAGE value="We have created a new Users Registration form that will inherit from the default registration form for users that Django provides us, but instead it now adds a new field called the email field which the user can now input an email, however, it is optional if they want to put an email or not" />
@@ -493,7 +501,8 @@
     <MESSAGE value="We have started to install our required installations from npm as per the tutorial." />
     <MESSAGE value="We have set up our index.html page for rendering, we have also set up a new app called frontend, and we have also set up our React file page as well and set up a div class that the React file can render its stuff inside of" />
     <MESSAGE value="We have now set up a routing system in our HomePage.js in order to flip through the various components that we render. We are also creating a serializer that will check and see if the post request made for the creation of a room is valid so that we can send over the details requested for this creation of the room" />
-    <option name="LAST_COMMIT_MESSAGE" value="We have now set up a routing system in our HomePage.js in order to flip through the various components that we render. We are also creating a serializer that will check and see if the post request made for the creation of a room is valid so that we can send over the details requested for this creation of the room" />
+    <MESSAGE value="We have established a create view where users can now create rooms, and we have some validity and session checks that are also put into place as well" />
+    <option name="LAST_COMMIT_MESSAGE" value="We have established a create view where users can now create rooms, and we have some validity and session checks that are also put into place as well" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
