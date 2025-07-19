@@ -53,3 +53,21 @@ class CreateRoomView(APIView):
             #data will turn the data we receive from the RoomSerializer into json data
                 return Response(RoomSerializer(room).data, status=status.HTTP_201_CREATED)
         return Response({'Bad Request': 'Invalid data...'}, status=status.HTTP_400_BAD_REQUEST)
+
+class GetRoom(APIView):
+    serializer_class = RoomSerializer
+    lookup_url_kwargs = 'code'
+
+    def get(self, request, format=None):
+        #This will give us the variables within our parameter, and it looks specifically for the one that matches the
+        #variable name
+        code = request.GET.get(self.lookup_url_kwargs)
+        if code != None:
+            room = Room.objects.filter(code=code).first()
+            if room:
+                data = RoomSerializer(room).data
+                data['is_host'] = self.request.session.session_key == room.host
+                return Response(data, status=status.HTTP_200_OK)
+            else:
+                return Response({'Room Not Found': 'Invalid Room Code.'}, status=status.HTTP_404_NOT_FOUND)
+        return Response({'Bad Request': 'Code not found'}, status=status.HTTP_400_BAD_REQUEST)
