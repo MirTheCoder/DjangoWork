@@ -50,14 +50,17 @@ export default class CreateRoomPage extends Component{
                     /* This just tells us the type of data we are passing via request*/
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify({
-                        votes_To_Skip: this.state.votesToSkip,
-                        guest_Can_Pause: this.state.guestCanPause,
+                        votes_to_skip: this.state.votesToSkip,
+                        guest_can_pause: this.state.guestCanPause,
                     }),
                 };
                 /* here is where we call the create room method from the frontend and feed it the data that the user has
                 * typed in so that the api cna create the room*/
-                fetch('/api/create-room', requestOptions). then((response) => response.json()
-                ). then((data) => console.log(data))
+                fetch('/api/create-room', requestOptions)
+                .then((response) => response.json())
+                .then((data) => console.log(data))
+                .catch((error) => console.error('Error:', error));
+
             }
 
     render(){

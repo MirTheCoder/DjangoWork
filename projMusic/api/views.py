@@ -31,8 +31,8 @@ class CreateRoomView(APIView):
         serializer = self.serializer_class(data=request.data)
         #Here we check to see if the fields of interest have valid data in them
         if serializer.is_valid():
-            guest_can_pause = serializer.data.get('guest_can_pause')
-            votes_to_skip = serializer.data.get('votes_to_skip')
+            guest_can_pause = serializer.validated_data.get('guest_can_pause')
+            votes_to_skip = serializer.validated_data.get('votes_to_skip')
             host = self.request.session.session_key
             #Here, we check and see, if the user who is currently active has a room already made, and if they do then we
             #will just transport them back to their room but with the 'guest_can_pause' and 'votes_to_skip' details
