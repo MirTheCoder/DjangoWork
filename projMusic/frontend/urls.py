@@ -8,5 +8,6 @@ urlpatterns = [
     #handle the path and rendering pretty much
     path('join', index, name= 'frontend-home'),
     path('create', index, name= 'frontend-home'),
+    path('room/<str:roomCode>', index, name= 'frontend-home'),
 
 ]

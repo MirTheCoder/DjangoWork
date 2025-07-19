@@ -135,6 +135,7 @@
       <workItem from="1752809895409" duration="4008000" />
       <workItem from="1752872689363" duration="2380000" />
       <workItem from="1752893584986" duration="8508000" />
+      <workItem from="1752948468281" duration="2680000" />
     </task>
     <task id="LOCAL-00001" summary="Started setting up my django project">
       <option name="closed" value="true" />
@@ -488,7 +489,23 @@
       <option name="project" value="LOCAL" />
       <updated>1752906648080</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="We have successfully created the room creation front end page, and we have also connected the frontend to the back end api that will create the room based off of the users input">
+      <option name="closed" value="true" />
+      <created>1752951287714</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1752951287714</updated>
+    </task>
+    <task id="LOCAL-00046" summary="We have successfully created the room creation front end page, and we have also connected the frontend to the back end api that will create the room based off of the users input">
+      <option name="closed" value="true" />
+      <created>1752951419540</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1752951419540</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
