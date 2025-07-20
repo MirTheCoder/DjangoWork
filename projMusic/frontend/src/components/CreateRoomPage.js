@@ -58,7 +58,7 @@ export default class CreateRoomPage extends Component{
                 * typed in so that the api cna create the room*/
                 fetch('/api/create-room', requestOptions)
                 .then((response) => response.json())
-                .then((data) => console.log(data))
+                .then((data) => window.location.href="/room/" + data.code)
                 .catch((error) => console.error('Error:', error));
 
             }

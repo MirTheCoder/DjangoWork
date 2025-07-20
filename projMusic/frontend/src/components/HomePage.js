@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import RoomJoinPage from "./RoomJoinPage";
 import CreateRoomPage from "./CreateRoomPage";
-import Room from "./Room";
 /* Make sure to use this BrowserRouter import format to import the React routes if you are using react-router-dom v6 or
 * higher */
 import { BrowserRouter as Router, Routes, Route, Link, Redirect} from "react-router-dom"

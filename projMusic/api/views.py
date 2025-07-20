@@ -62,7 +62,7 @@ class GetRoom(APIView):
         #This will give us the variables within our parameter, and it looks specifically for the one that matches the
         #variable name
         code = request.GET.get(self.lookup_url_kwargs)
-        if code != None:
+        if code is not None:
             room = Room.objects.filter(code=code).first()
             if room:
                 data = RoomSerializer(room).data
@@ -70,4 +70,4 @@ class GetRoom(APIView):
                 return Response(data, status=status.HTTP_200_OK)
             else:
                 return Response({'Room Not Found': 'Invalid Room Code.'}, status=status.HTTP_404_NOT_FOUND)
-        return Response({'Bad Request': 'Code not found'}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({'Bad Request': 'Code parameter not found in request'}, status=status.HTTP_400_BAD_REQUEST)
