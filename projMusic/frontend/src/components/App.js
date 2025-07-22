@@ -27,7 +27,7 @@ export default class App extends Component{
         * one element kind of*/
 
         /* This is how we can render multiple component pages from our base component page */
-        return <HomePage></HomePage>
+        return <div className="center"><HomePage></HomePage></div>
     }
 }
 

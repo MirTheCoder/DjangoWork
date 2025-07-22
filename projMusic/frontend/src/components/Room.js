@@ -11,7 +11,7 @@ class Room extends Component {
         };
         //We get the room code that is passed into our props and store it as the room code for this page
         this.roomCode = props.roomCode;
-        //We call this function in order to recieve all the room details based off of that code
+        //We call this function in order to receive all the room details based off of that code
         this.getRoomDetails()// passed from wrapper
     }
 

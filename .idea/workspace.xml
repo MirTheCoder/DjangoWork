@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="We are now setting up a page to display the details of a room" />
+    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="We have successfully set up the display page for the rooms, and also have made it so that the users are automatically sent to that page after they create a room" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -138,6 +138,7 @@
       <workItem from="1752948468281" duration="2680000" />
       <workItem from="1752952122083" duration="2400000" />
       <workItem from="1752955375630" duration="896000" />
+      <workItem from="1752975759807" duration="4913000" />
     </task>
     <task id="LOCAL-00001" summary="Started setting up my django project">
       <option name="closed" value="true" />
@@ -523,14 +524,21 @@
       <option name="project" value="LOCAL" />
       <updated>1752956264538</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="We have successfully set up the display page for the rooms, and also have made it so that the users are automatically sent to that page after they create a room">
+      <option name="closed" value="true" />
+      <created>1752983708980</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1752983708980</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="We have made some edits in the way we are displaying our users blogs. We have made a system for them to edit their accounts and are working on a feature that will let them also create enw blogs" />
     <MESSAGE value="We have now given the user the ability to update and delete their blogs, however, we have a system in place that will make sure that the user in session is the one who created that blog before they can do anything to it. We also are making the update and delete options more accessible" />
     <MESSAGE value="We have added a paginator that splits up the blogs into different pages for the user to access" />
     <MESSAGE value="We have added an image attribute to allow users to add an image to their Post, and we are going to be working on hopefully adding an option in the users homepage to look at other users" />
@@ -555,7 +563,8 @@
     <MESSAGE value="We have successfully created the room creation front end page, and we have also connected the frontend to the back end api that will create the room based off of the users input" />
     <MESSAGE value="We are now setting up a page to display teh details of a room" />
     <MESSAGE value="We are now setting up a page to display the details of a room" />
-    <option name="LAST_COMMIT_MESSAGE" value="We are now setting up a page to display the details of a room" />
+    <MESSAGE value="We have successfully set up the display page for the rooms, and also have made it so that the users are automatically sent to that page after they create a room" />
+    <option name="LAST_COMMIT_MESSAGE" value="We have successfully set up the display page for the rooms, and also have made it so that the users are automatically sent to that page after they create a room" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
