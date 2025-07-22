@@ -5,13 +5,68 @@ import CreateRoomPage from "./CreateRoomPage";
 * higher */
 import { BrowserRouter as Router, Routes, Route, Link, Redirect} from "react-router-dom"
 import Room from "./Room";
+import {ButtonGroup, Button, Grid, Typography} from '@mui/material';
 /* This component will be used to render our homepage */
 export default class HomePage extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      /* Since we have '/room/roomCode' as one of our routes, we have to set the roomCode equal to null so that
+      * we are not redirected to the room page yet, until the user joins a room, so tha then the user will instantly be
+      * redirected to the room they are in when the home page is rendered*/
+      roomCode: null
+    }
+  }
+
+  /* This is a life cycle method that allows us to make an action before the page renders.
+  * We add async so that this function can run in the background, allowing the component
+  * to continue on with other processes*/
+  async componentDidMount(){
+    fetch('/api/user-in-room'
+    ).then((response) => response.json()
+    ).then((data) => {
+      this.setState({
+        roomCode: data.code
+      })
+    })
+  }
+
+  /* Here we have created a function called renderHomepage which holds the details that we want to render from this
+  * component. We will call it from the render itself in order to fill out the information of our render with
+  * what we have inside of this function*/
+  renderHomePage(){
+/* Make sure to add "direction='column' " in order to organize the grid vertically */
+    return(
+
+        <Grid container spacing={3} direction="column">
+          <Grid item xs={12} align='center'>
+            <Typography variant="h3" component="h3">
+              House Party
+            </Typography>
+          </Grid>
+          <Grid item xs={12} align='center'>
+            <ButtonGroup disableElevation variant="contained" color="primary">
+              <Button color="primary" to='/join' component={Link}>
+                Join a Room
+              </Button>
+              <Button color="secondary" to='/create' component={Link}>
+                Create a Room
+              </Button>
+            </ButtonGroup>
+          </Grid>
+        </Grid>
+    );
+  }
+
   render() {
     return (
       <Router>
         <Routes>
-          <Route path='/' element={<p>This is the home page</p>} />
+          <Route path='/' render={() => {
+            return this.state.roomCode ? (<Redirect to={`/room/${this.state.roomCode}`}/>) :
+              ( this.renderHomePage() )
+          }} />
           <Route path='/join' element={<RoomJoinPage />} />
           <Route path='/create' element={<CreateRoomPage />} />
             {/* the '/:' just notifies the computer that an argument or variable will be passed in the url request*/}

@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.shortcuts import render
 from rest_framework import generics, status
 from .serializers import RoomSerializer, CreateRoomSerializer
@@ -79,21 +80,35 @@ class GetRoom(APIView):
 
 class JoinRoom(APIView):
 
-        lookup_url_kwarg = 'code'
-        #This is where we define the request that is being sent, or the type of request we will receive
-        def post(self, request, format=None):
-            # We are checking to see if the current user has an active session with the web server
-            if not self.request.session.exists(self.request.session.session_key):
-                # We will create a session for the user if they do not have an active one running
-                self.request.session.create()
+    lookup_url_kwarg = 'code'
+    #This is where we define the request that is being sent, or the type of request we will receive
+    def post(self, request, format=None):
+        # We are checking to see if the current user has an active session with the web server
+        if not self.request.session.exists(self.request.session.session_key):
+            # We will create a session for the user if they do not have an active one running
+            self.request.session.create()
 
-            code = request.data.get(self.lookup_url_kwarg)
-            if code is not None:
-                room = Room.objects.filter(code=code).first()
-                if room:
-                    #We wil use this to ensure that the system knows that this user has successfully joined the room
-                    self.request.session['room_code'] = code
-                    return Response({'message': 'Room Joined'}, status=status.HTTP_200_OK)
-                else:
-                    return Response({"BadRequest": "Invalid Room Code"}, status=status.HTTP_400_BAD_REQUEST)
-            return Response({'BadRequest': "Invalid post data, did not find a 'code key'"}, status=status.HTTP_400_BAD_REQUEST)
+        code = request.data.get(self.lookup_url_kwarg)
+        if code is not None:
+            room = Room.objects.filter(code=code).first()
+            if room:
+                #We wil use this to ensure that the system knows that this user has successfully joined the room
+                self.request.session['room_code'] = code
+                return Response({'message': 'Room Joined'}, status=status.HTTP_200_OK)
+            else:
+                return Response({"BadRequest": "Invalid Room Code"}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({'BadRequest': "Invalid post data, did not find a 'code key'"}, status=status.HTTP_400_BAD_REQUEST)
+
+#This function will allow us to check and see if the user is already in a room
+class UserInRoom(APIView):
+    def get(self,request,format=None):
+        # We are checking to see if the current user has an active session with the web server
+        if not self.request.session.exists(self.request.session.session_key):
+            # We will create a session for the user if they do not have an active one running
+            self.request.session.create()
+        #Here we will send to the room code attached to the users session (whether they have one or not)
+        data = {
+            'code': self.request.session.get('room_code')
+        }
+
+        return JsonResponse(data, status=status.HTTP_200_OK)

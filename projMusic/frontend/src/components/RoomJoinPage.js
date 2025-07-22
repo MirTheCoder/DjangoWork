@@ -6,8 +6,8 @@ export default class RoomJoinPage extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            roomCode: " ",
-            error: " ",
+            roomCode: "",
+            error: "",
         }
         /* Remember to add this so that you can use the "this" key word to reference the components state */
         this.changeCode = this.changeCode.bind(this);
@@ -16,12 +16,9 @@ export default class RoomJoinPage extends Component{
 
     changeCode(e){
         this.setState({
-            roomCode: e.target.value
+            roomCode: e.target.value,
+            error: "",
         })
-            this.setState({
-                error: " ",
-            })
-
     }
 
     roomButtonPressed() {
@@ -50,7 +47,7 @@ export default class RoomJoinPage extends Component{
 }
 
     render(){
-        return <Grid container spacing={1}>
+        return <Grid container spacing={1} direction="column">
             <Grid item xs={12} align="center">
                 <Typography variant="h4" component="h4">
                     Join a Room
