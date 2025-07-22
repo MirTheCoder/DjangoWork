@@ -24,26 +24,30 @@ export default class RoomJoinPage extends Component{
 
     }
 
-    roomButtonPressed(){
-        const requestOptions = {
-            method:  'POST',
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({
-                code: this.state.roomCode
-            })
-        };
-        fetch('/api/join-room', requestOptions
-        ).then((response) => {
-            if (response.ok){
-                window.href.location = "/room/" + this.state.roomCode
-            } else {
-                this.setState({error: "Room Code Not Found"})
-                this.setState({roomCode: " "})
-            }
-        }) . catch((error) => {
-            console.log(error);
+    roomButtonPressed() {
+    const requestOptions = {
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            code: this.state.roomCode
         })
-    }
+    };
+
+    fetch('/api/join-room', requestOptions)
+        .then((response) => {
+            if (response.ok) {
+                window.location.href = "/room/" + this.state.roomCode;
+            } else {
+                this.setState({
+                    error: "Room Code Not Found",
+                    roomCode: ""
+                });
+            }
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+}
 
     render(){
         return <Grid container spacing={1}>

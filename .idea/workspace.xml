@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="We have successfully set up the display page for the rooms, and also have made it so that the users are automatically sent to that page after they create a room" />
+    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="We have now set up the join page that allows users to join a room, however, we are still working out a few bugs with the join room and the api that handles the join room function" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,24 +46,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Python.manage.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/bossmanhomecomputer/PycharmProjects/DjangoWork/BASE_DIR/auction_media&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Python.manage.executor": "Debug",
+    "Python.views.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/Users/bossmanhomecomputer/PycharmProjects/DjangoWork/BASE_DIR/auction_media",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/BASE_DIR/auction_media" />
@@ -87,12 +88,13 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="C:\pythonProject\DjangoWork\projBlog" />
+      <option name="SDK_NAME" value="Python 3.12 (DjangoWork)" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/projMusic" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\pythonProject\DjangoWork\projBlog\manage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/projMusic/manage.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -139,14 +141,7 @@
       <workItem from="1752952122083" duration="2400000" />
       <workItem from="1752955375630" duration="896000" />
       <workItem from="1752975759807" duration="4913000" />
-    </task>
-    <task id="LOCAL-00001" summary="Started setting up my django project">
-      <option name="closed" value="true" />
-      <created>1744955331462</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1744955331462</updated>
+      <workItem from="1753153293407" duration="8630000" />
     </task>
     <task id="LOCAL-00002" summary="Started setting up my django project">
       <option name="closed" value="true" />
@@ -532,14 +527,21 @@
       <option name="project" value="LOCAL" />
       <updated>1752983708980</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="We have now set up the join page that allows users to join a room, however, we are still working out a few bugs with the join room and the api that handles the join room function">
+      <option name="closed" value="true" />
+      <created>1753164667995</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1753164667996</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="We have now given the user the ability to update and delete their blogs, however, we have a system in place that will make sure that the user in session is the one who created that blog before they can do anything to it. We also are making the update and delete options more accessible" />
     <MESSAGE value="We have added a paginator that splits up the blogs into different pages for the user to access" />
     <MESSAGE value="We have added an image attribute to allow users to add an image to their Post, and we are going to be working on hopefully adding an option in the users homepage to look at other users" />
     <MESSAGE value="We have added the option for people to look at the post of other users along with the ability to look at the post made by specific users as well. Next I hope to add a comment section for users to comment on post" />
@@ -564,7 +566,8 @@
     <MESSAGE value="We are now setting up a page to display teh details of a room" />
     <MESSAGE value="We are now setting up a page to display the details of a room" />
     <MESSAGE value="We have successfully set up the display page for the rooms, and also have made it so that the users are automatically sent to that page after they create a room" />
-    <option name="LAST_COMMIT_MESSAGE" value="We have successfully set up the display page for the rooms, and also have made it so that the users are automatically sent to that page after they create a room" />
+    <MESSAGE value="We have now set up the join page that allows users to join a room, however, we are still working out a few bugs with the join room and the api that handles the join room function" />
+    <option name="LAST_COMMIT_MESSAGE" value="We have now set up the join page that allows users to join a room, however, we are still working out a few bugs with the join room and the api that handles the join room function" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -584,5 +587,9 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/DjangoWork$manage.coverage" NAME="manage Coverage Results" MODIFIED="1753164177547" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projMusic" />
+    <SUITE FILE_PATH="coverage/DjangoWork$views.coverage" NAME="views Coverage Results" MODIFIED="1753164118428" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/projMusic/api" />
   </component>
 </project>
