@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Grid, Button, Typography} from "@mui/material"
+import CreateRoomPage from "./CreateRoomPage";
+import CreateRoomPageWrapper from "./CreateRoomPage";
 
 class Room extends Component {
     constructor(props) {
@@ -9,20 +11,24 @@ class Room extends Component {
             votesToSkip: 2,
             guestCanPause: false,
             isHost: false,
+            showSettings: false,
         };
         //We get the room code that is passed into our props and store it as the room code for this page
         this.roomCode = props.roomCode;
         //We call this function in order to receive all the room details based off of that code
         this.getRoomDetails()// passed from wrapper
         this.leaveButtonPressed = this.leaveButtonPressed.bind(this)
+        this.updateShowSettings = this.updateShowSettings.bind(this)
+        this.renderSettingsButton = this.renderSettingsButton.bind(this)
+        this.renderSettings = this.renderSettings.bind(this)
     }
 
     leaveButtonPressed(){
-        const reqeustOptions = {
+        const requestOptions = {
             method: "POST",
-            heders: {'Content-Type': 'application/json'}
+            headers: {'Content-Type': 'application/json'}
         };
-        fetch('/api/leave-room', reqeustOptions
+        fetch('/api/leave-room', requestOptions
         ).then((response) =>{
             if (response.ok){
                 /* after the user leaves the room, we will remove the room code from our homepage component so that
@@ -45,7 +51,7 @@ class Room extends Component {
             .then((response) => {
                 /* If we don't get a match for the roomCode, then we will just send the user back to the home page*/
                 if(!response.ok){
-                    this.props.leaveRoomCallback();
+                    this.props.leaveRoomCallBack();
                     window.location.href = "/"
                 }
                 /* make sure to jsonify the response in order to obtain the data from it*/
@@ -60,7 +66,44 @@ class Room extends Component {
             });
     }
 
+    updateShowSettings(value){
+        this.setState({
+            showSettings: value
+        })
+    }
+    /* We are doing an arrow function for the onclick for the button so that the button will only render once the
+    * function modifies the showSettings*/
+    renderSettingsButton(){
+        return(
+            <Grid item xs={12} align="center">
+                <Button variant="contained" color="primary" onClick={() => this.updateShowSettings(true)}>
+                    Settings
+                </Button>
+            </Grid>
+        )
+    }
+
+    renderSettings(){
+        return(
+            <Grid container spacing={1} direction="column">
+                <Grid item xs={12} align="center">
+                    <CreateRoomPageWrapper update={true} votesToSkip={this.state.votesToSkip}
+                                           guestCanPause={this.state.guestCanPause}
+                    roomCode={this.roomCode} updateCallBack={null}/>
+                </Grid>
+                <Grid item xs={12} align="center">
+                    <Button variant="contained" color="secondary" onClick={() => this.updateShowSettings(false)}>
+                        Close
+                    </Button>
+                </Grid>
+            </Grid>
+        )
+    }
+
     render() {
+        if(this.state.showSettings){
+            return this.renderSettings()
+        }
         return (
             <Grid container spacing={1} direction="column">
                 <Grid item xs={12} align='center'>
@@ -83,6 +126,7 @@ class Room extends Component {
                         Is Host: {this.state.isHost.toString()}
                     </Typography>
                 </Grid>
+                {this.state.isHost ? this.renderSettingsButton() : null}
                 <Grid item xs={12} align='center'>
                     <Button color="secondary" variant="contained" onClick={this.leaveButtonPressed}>
                         Leave Room
@@ -95,7 +139,10 @@ class Room extends Component {
 }
 
 /* We use this function to pass the room code into our component*/
-export default function RoomWrapper() {
+/* make sure to add props as a parameter so that you can pass the data and if that we receive from the homepage.js
+* to the Room.js file */
+export default function RoomWrapper(props) {
     const { roomCode } = useParams();
-    return <Room roomCode={roomCode} />;
+    /* This will allow us to ensure that we pass the function from the homepage.js to our Room component*/
+    return <Room {...props} roomCode={roomCode} />;
 }

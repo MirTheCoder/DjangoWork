@@ -13,7 +13,7 @@ import RoomJoinPage from "./RoomJoinPage";
 /* Component that will be used for creating a room*/
 
 
-export default class CreateRoomPage extends Component{
+class CreateRoomPage extends Component{
 
     defaultVotes = 2;
     constructor(props) {
@@ -30,6 +30,22 @@ export default class CreateRoomPage extends Component{
         this.handleRoomButtonPressed = this.handleRoomButtonPressed.bind(this)
         this.handleVotesChange = this.handleVotesChange.bind(this)
         this.handleGuestCanPauseChange = this.handleGuestCanPauseChange.bind(this)
+        if(props.update){
+            this.update = props.update
+        }
+        if(props.votesToSkip){
+            this.setState({
+                votesToSkip: props.votesToSkip
+            })
+        }
+        if(props.guestCanPause){
+            this.setState({
+                guestCanPause: props.guestCanPause
+            })
+        }
+        if(props.roomCode){
+            this.roomCode = props.roomCode
+        }
     }
     handleVotesChange(e) {
                 this.setState({
@@ -134,4 +150,8 @@ export default class CreateRoomPage extends Component{
 
         );
     }
+}
+
+export default function CreateRoomPageWrapper(props){
+    <CreateRoomPage {...props} />
 }

@@ -1,7 +1,7 @@
 from django.http import JsonResponse
 from django.shortcuts import render
 from rest_framework import generics, status
-from .serializers import RoomSerializer, CreateRoomSerializer
+from .serializers import RoomSerializer, CreateRoomSerializer, UpdateRoomSerializer
 from .models import Room
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -127,3 +127,39 @@ class LeaveRoom(APIView):
 
             return Response({"Message": "You have successfully been removed from the room"}, status=status.HTTP_200_OK)
         return Response({"Bad Request": "You are not currently in a room"}, status=status.HTTP_400_BAD_REQUEST)
+
+class UpdateRoom(APIView):
+    serializer_class = UpdateRoomSerializer
+
+    #Patch is another word for update, a way to update something that already exist (kind of like a put method)
+    def patch(self, request, format=None):
+        # We are checking to see if the current user has an active session with the web server
+        if not self.request.session.exists(self.request.session.session_key):
+            # We will create a session for the user if they do not have an active one running
+            self.request.session.create()
+        #Here we will get the data from the request and input it into our serializer_class in order to get the fields
+        #values corresponding to the data
+        serializer = self.serializer_class(data=request.data)
+        if serializer.is_valid():
+            guest_can_pause = serializer.data.get('guest_can_pause')
+            votes_to_skip = serializer.data.get('votes_to_skip')
+            code = serializer.data.get('code')
+
+            #Check to see if the room even exist
+            room = Room.objects.filter(code=code).first()
+            if not room:
+                return Response({"msg": "Room not found"}, status=status.HTTP_404_NOT_FOUND)
+
+            #Check to see if the person requesting to update the room is the host or not
+            user_id = self.request.session.session_key
+            if room.host is not user_id:
+                return Response({"Unauthorized": "You are not the host of this room"}, status=status.HTTP_403_FORBIDDEN)
+
+            #If the room exist and the person requesting to edit the room is the host then we will edit the values
+            #or fields of the room
+            room.guest_can_pause = guest_can_pause
+            room.votes_to_skip = votes_to_skip
+            room.save(update_fields=['guest_can_pause', 'votes_to_skip'])
+            return Response(RoomSerializer(room).data, status=status.HTTP_200_OK)
+
+        return Response({'Bad Request', "Invalid Data"}, status=status.HTTP_400_BAD_REQUEST)

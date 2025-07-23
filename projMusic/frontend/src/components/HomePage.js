@@ -5,7 +5,10 @@ import CreateRoomPage from "./CreateRoomPage";
 * higher */
 import { BrowserRouter as Router, Routes, Route, Link, Redirect, Navigate} from "react-router-dom"
 import Room from "./Room";
+/* We will need this in order to obtain any functions that are passed from the home page into the components rendering*/
+import RoomWrapper from "./Room";
 import {ButtonGroup, Button, Grid, Typography} from '@mui/material';
+import CreateRoomPageWrapper from "./CreateRoomPage";
 /* This component will be used to render our homepage */
 export default class HomePage extends Component {
 
@@ -80,11 +83,11 @@ export default class HomePage extends Component {
           }
         />
           <Route path='/join' element={<RoomJoinPage />} />
-          <Route path='/create' element={<CreateRoomPage />} />
+          <Route path='/create' element={<CreateRoomPageWrapper />} />
             {/* the '/:' just notifies the computer that an argument or variable will be passed in the url request*/}
             <Route
                 path='/room/:roomCode'
-                element={<Room leaveRoomCallBack={this.clearRoomCode} />}
+                element={<RoomWrapper leaveRoomCallBack={this.clearRoomCode} />}
             />
         </Routes>
       </Router>
