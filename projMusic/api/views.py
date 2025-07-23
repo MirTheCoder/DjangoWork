@@ -112,3 +112,18 @@ class UserInRoom(APIView):
         }
 
         return JsonResponse(data, status=status.HTTP_200_OK)
+
+class LeaveRoom(APIView):
+    def post(self,request, format=None):
+        #We will check and see if the room code is attached to the users session in order
+        #to remove the user from the room
+        if 'room_code' in self.request.session:
+            self.request.session.pop('room_code')
+            host_id = self.request.session.session_key
+            #If the user is the host of the room, then we will delete the room
+            room = Room.objects.filter(host=host_id).first()
+            if room:
+                room.delete()
+
+            return Response({"Message": "You have successfully been removed from the room"}, status=status.HTTP_200_OK)
+        return Response({"Bad Request": "You are not currently in a room"}, status=status.HTTP_400_BAD_REQUEST)

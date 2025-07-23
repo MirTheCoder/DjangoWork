@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="We have now set up the join page that allows users to join a room, however, we are still working out a few bugs with the join room and the api that handles the join room function">
+    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="We have now stylized our home page and are creating a check system to see if the user is already in a room so that we can just automatically send them to the room when the homepage renders">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projMusic/api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/api/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projMusic/api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/api/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projMusic/frontend/src/components/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/frontend/src/components/HomePage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/frontend/src/components/RoomJoinPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/frontend/src/components/RoomJoinPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/frontend/src/components/Room.js" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/frontend/src/components/Room.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projMusic/frontend/static/frontend/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/frontend/static/frontend/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projMusic/frontend/static/frontend/main.js.LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/frontend/static/frontend/main.js.LICENSE.txt" afterDir="false" />
     </list>
@@ -151,15 +151,8 @@
       <workItem from="1752975759807" duration="4913000" />
       <workItem from="1753153293407" duration="8630000" />
       <workItem from="1753199951194" duration="2696000" />
-      <workItem from="1753213231601" duration="4200000" />
-    </task>
-    <task id="LOCAL-00003" summary="Started setting up my django project">
-      <option name="closed" value="true" />
-      <created>1745117374774</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1745117374774</updated>
+      <workItem from="1753213231601" duration="4306000" />
+      <workItem from="1753235482888" duration="4006000" />
     </task>
     <task id="LOCAL-00004" summary="made some edits to my django project">
       <option name="closed" value="true" />
@@ -545,14 +538,21 @@
       <option name="project" value="LOCAL" />
       <updated>1753203448698</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="We have now stylized our home page and are creating a check system to see if the user is already in a room so that we can just automatically send them to the room when the homepage renders">
+      <option name="closed" value="true" />
+      <created>1753217770840</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1753217770840</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="We have added a paginator that splits up the blogs into different pages for the user to access" />
     <MESSAGE value="We have added an image attribute to allow users to add an image to their Post, and we are going to be working on hopefully adding an option in the users homepage to look at other users" />
     <MESSAGE value="We have added the option for people to look at the post of other users along with the ability to look at the post made by specific users as well. Next I hope to add a comment section for users to comment on post" />
     <MESSAGE value="Currently working on creating the comment database and also the ability for users to add comments to post" />
@@ -577,7 +577,8 @@
     <MESSAGE value="We are now setting up a page to display the details of a room" />
     <MESSAGE value="We have successfully set up the display page for the rooms, and also have made it so that the users are automatically sent to that page after they create a room" />
     <MESSAGE value="We have now set up the join page that allows users to join a room, however, we are still working out a few bugs with the join room and the api that handles the join room function" />
-    <option name="LAST_COMMIT_MESSAGE" value="We have now set up the join page that allows users to join a room, however, we are still working out a few bugs with the join room and the api that handles the join room function" />
+    <MESSAGE value="We have now stylized our home page and are creating a check system to see if the user is already in a room so that we can just automatically send them to the room when the homepage renders" />
+    <option name="LAST_COMMIT_MESSAGE" value="We have now stylized our home page and are creating a check system to see if the user is already in a room so that we can just automatically send them to the room when the homepage renders" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

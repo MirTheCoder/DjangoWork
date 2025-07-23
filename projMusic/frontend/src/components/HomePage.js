@@ -3,7 +3,7 @@ import RoomJoinPage from "./RoomJoinPage";
 import CreateRoomPage from "./CreateRoomPage";
 /* Make sure to use this BrowserRouter import format to import the React routes if you are using react-router-dom v6 or
 * higher */
-import { BrowserRouter as Router, Routes, Route, Link, Redirect} from "react-router-dom"
+import { BrowserRouter as Router, Routes, Route, Link, Redirect, Navigate} from "react-router-dom"
 import Room from "./Room";
 import {ButtonGroup, Button, Grid, Typography} from '@mui/material';
 /* This component will be used to render our homepage */
@@ -17,6 +17,7 @@ export default class HomePage extends Component {
       * redirected to the room they are in when the home page is rendered*/
       roomCode: null
     }
+    this.clearRoomCode = this.clearRoomCode.bind(this)
   }
 
   /* This is a life cycle method that allows us to make an action before the page renders.
@@ -29,6 +30,13 @@ export default class HomePage extends Component {
       this.setState({
         roomCode: data.code
       })
+    })
+  }
+
+  /* This will allow us to reset the room code to null for the homepage's 'this.roomCode' */
+  clearRoomCode(){
+    this.setState({
+      roomCode: null,
     })
   }
 
@@ -63,14 +71,21 @@ export default class HomePage extends Component {
     return (
       <Router>
         <Routes>
-          <Route path='/' render={() => {
-            return this.state.roomCode ? (<Redirect to={`/room/${this.state.roomCode}`}/>) :
-              ( this.renderHomePage() )
-          }} />
+          <Route
+          path="/"
+          element={
+            this.state.roomCode
+              ? <Navigate to={`/room/${this.state.roomCode}`} />
+              : this.renderHomePage()
+          }
+        />
           <Route path='/join' element={<RoomJoinPage />} />
           <Route path='/create' element={<CreateRoomPage />} />
             {/* the '/:' just notifies the computer that an argument or variable will be passed in the url request*/}
-            <Route path='/room/:roomCode' element={<Room />} />
+            <Route
+                path='/room/:roomCode'
+                element={<Room leaveRoomCallBack={this.clearRoomCode} />}
+            />
         </Routes>
       </Router>
     );
