@@ -20,7 +20,9 @@ Required Pip Installations for projMusic
 - Next, you need to install "npm install @babel/plugin-proposal-class-properties" to use async and await in our JavaScript code
 - Next, we will install "npm install react-router-dom" which will allow us to reroute our pages so that we can navigate to different pages from React
 - Next, we need to install "npm install @mui/icons-material" to get the icons required
+- Next, we need to install "npm install @mui/lab" to create alerts in our renderings
 
 
 More on ProjMusic
-- Make sure to change your directory to the frontend app within your project (your package.json file and package-lock.json should both be in that frontend app file) before you run "npm run dev"
+- Make sure to change your directory to the frontend app within your project (your package.json file and package-lock.json should both be in that frontend app file) before you run "npm run dev" or running anything
+  with npm
