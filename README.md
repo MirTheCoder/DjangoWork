@@ -24,7 +24,17 @@ Required Pip Installations for projMusic
 
 
 More on ProjMusic
-- Make sure to change your directory to the frontend app within your project (your package.json file and package-lock.json should both be in that frontend app file) before you run "npm run dev" or running anything
+- Make sure to change your directory to the frontend app within your project (your package.json file and package-lock.json should both be in that frontend app file) before you run "npm run dev" or anything
   with npm
-- Make sure that when you are installing react and react-dom, you are installing a version no newer or later than 18.2 since that is the newest version that is stable enough for this project, if you installed anything higher, you can run "npm install react@18.2.0 react-dom@18.2.0" to replace the newer version that you were using
-- also make sure to delete mode_modules and package.jason-lock if you had accidentally installed the newest version of react and installed a downgrade to fix the issue. once you delete both, reinstall by typing "npm install"
+- Make sure that when you are installing react and react-dom, you are installing a version no newer or later than 18.2, since that is the latest version that is stable enough for this project. If you installed anything higher, you can run "npm install react@18.2.0 react-dom@18.2.0" to replace the newer version that you were using
+- Also, make sure to delete mode_modules and package.jason-lock if you had accidentally installed the newest version of React and installed a downgrade to fix the issue. Once you delete both, reinstall by typing "npm install"
+
+Connection with Spotify:
+- Make sure to register your application with Spotify to request and access data on Spotify
+- You then also need to have the users of your application grant the application access to their Spotify data
+- When registering your application with Spotify, you need to present the scope (basically what exact info you want to get from Spotify) so that the user can grant the information
+- When the user gives the application access to their Spotify information, a token is formed so that the application can access their Spotify details whenever they log in
+
+
+Link to connect or register application with spotify:
+https://developer.spotify.com/
