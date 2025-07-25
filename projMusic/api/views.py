@@ -152,7 +152,8 @@ class UpdateRoom(APIView):
 
             #Check to see if the person requesting to update the room is the host or not
             user_id = self.request.session.session_key
-            if room.host is not user_id:
+            #Make sure to use '!=" in order to compare the session key string with the host value
+            if room.host != user_id:
                 return Response({"Unauthorized": "You are not the host of this room"}, status=status.HTTP_403_FORBIDDEN)
 
             #If the room exist and the person requesting to edit the room is the host then we will edit the values

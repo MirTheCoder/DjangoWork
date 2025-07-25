@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'spotify.apps.SpotifyConfig',
+    'csp'
 ]
 
 MIDDLEWARE = [
@@ -51,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'csp.middleware.CSPMiddleware',
 ]
 
 ROOT_URLCONF = 'projMusic.urls'
@@ -126,3 +129,58 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#We need this in order to tell our csp(content security policy) which websites can connect with our server since we are
+#only running this on a local server
+CONTENT_SECURITY_POLICY = {
+    "DIRECTIVES": {
+        "default-src": ["'self'"],
+
+        "script-src": [
+            "'self'",
+            "'unsafe-inline'",
+            "'unsafe-eval'",          # <-- Add this here
+            "https://www.google.com",
+            "https://www.gstatic.com",
+            "https://ajax.googleapis.com",
+        ],
+        "style-src": [
+            "'self'",
+            "'unsafe-inline'",
+            "https://fonts.googleapis.com",
+        ],
+        "font-src": [
+            "'self'",
+            "https://fonts.gstatic.com",
+        ],
+        "connect-src": [
+            "'self'",
+            "https://accounts.spotify.com",
+            "https://*.spotify.com",
+            "https://www.google.com",
+            "https://www.gstatic.com",
+            "https://www.google-analytics.com",
+            "https://www.googletagmanager.com",
+        ],
+        "frame-src": [
+            "https://www.google.com",
+        ],
+        "script-src-elem": [
+            "'self'",
+            "'unsafe-inline'",
+            "'unsafe-eval'",
+            "https://ajax.googleapis.com",
+            "https://www.google.com",
+            "https://www.gstatic.com",
+        ],
+        "style-src-elem": [
+            "'self'",
+            "'unsafe-inline'",
+            "https://fonts.googleapis.com",
+        ],
+    }
+}
+
+
+
+

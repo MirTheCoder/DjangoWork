@@ -23,4 +23,5 @@ urlpatterns = [
     path('api/', include('api.urls')),
     #The frontend urls will be urls that the user can see and interact with
     path('', include('frontend.urls')),
+    path('spotify/', include('spotify.urls')),
 ]

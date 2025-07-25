@@ -12,6 +12,7 @@ class Room extends Component {
             guestCanPause: false,
             isHost: false,
             showSettings: false,
+            spotifyAuthenticated: false,
         };
         //We get the room code that is passed into our props and store it as the room code for this page
         this.roomCode = props.roomCode;
@@ -21,6 +22,9 @@ class Room extends Component {
         this.updateShowSettings = this.updateShowSettings.bind(this)
         this.renderSettingsButton = this.renderSettingsButton.bind(this)
         this.renderSettings = this.renderSettings.bind(this)
+        this.getRoomDetails = this.getRoomDetails.bind(this)
+        this.getRoomDetails()
+        this.authenticateSpotify = this.authenticateSpotify.bind(this)
     }
 
     leaveButtonPressed(){
@@ -63,6 +67,9 @@ class Room extends Component {
                     guestCanPause: data.guest_can_pause,
                     isHost: data.is_host,
                 });
+                if(this.state.isHost) {
+                    this.authenticateSpotify()
+                }
             });
     }
 
@@ -89,7 +96,7 @@ class Room extends Component {
                 <Grid item xs={12} align="center">
                     <CreateRoomPageWrapper update={true} votesToSkip={this.state.votesToSkip}
                                            guestCanPause={this.state.guestCanPause}
-                    roomCode={this.roomCode} updateCallBack={null}/>
+                    roomCode={this.roomCode} updateCallBack={this.getRoomDetails}/>
                 </Grid>
                 <Grid item xs={12} align="center">
                     <Button variant="contained" color="secondary" onClick={() => this.updateShowSettings(false)}>
@@ -98,6 +105,29 @@ class Room extends Component {
                 </Grid>
             </Grid>
         )
+    }
+
+    authenticateSpotify(){
+        /* Here we are going to check and see if the user is authenticated or not*/
+        fetch('/spotify/is-authenticated').then((response) => response.json
+        ).then((data) =>{
+            /* set the spotify is authenticated state to whatever the api call gives us*/
+            this.setState({
+                spotifyAuthenticated: data.status
+            })
+            /* if the user is not authenticated, then we will authenticate them */
+            if(!data.status){
+                fetch('/spotify/get-auth-url'
+                ).then((response) => response.json()
+                ).then((data) => {
+                    console.log("you have now been authenticated")
+                    /* Here we will redirect the user to the spotify callback */
+                    window.location.replace(data.url)
+                })
+            } else {
+                console.log("True")
+            }
+        })
     }
 
     render() {

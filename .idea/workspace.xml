@@ -4,8 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="We are editing the code so that when the user does leave the room or if the room no longer exist, we will wipe it from the homepage so that they won't accidentally be sent there. Stil working out a few bugs though">
+    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="We are working on creating an update page to allow users to update the fields of the current room">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/api/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/api/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/frontend/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/frontend/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/frontend/src/components/CreateRoomPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/frontend/src/components/CreateRoomPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/frontend/src/components/Room.js" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/frontend/src/components/Room.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/frontend/static/frontend/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/frontend/static/frontend/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/frontend/static/frontend/main.js.LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/frontend/static/frontend/main.js.LICENSE.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/frontend/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/frontend/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,8 +82,8 @@
       <recent name="C:\pythonProject\DjangoWork\AUCTION_MEDIA_FOLDER\media\profile_pics" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/projMusic/frontend" />
       <recent name="$PROJECT_DIR$/projMusic" />
+      <recent name="$PROJECT_DIR$/projMusic/frontend" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/BASE_DIR/auction_media" />
       <recent name="$PROJECT_DIR$/BASE_DIR" />
@@ -149,14 +158,10 @@
       <workItem from="1753235482888" duration="4006000" />
       <workItem from="1753247083059" duration="4104000" />
       <workItem from="1753251481682" duration="18000" />
-    </task>
-    <task id="LOCAL-00005" summary="added some bootstrap and css stuff to my base html file">
-      <option name="closed" value="true" />
-      <created>1745179291507</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1745179291507</updated>
+      <workItem from="1753296478887" duration="5976000" />
+      <workItem from="1753337817075" duration="454000" />
+      <workItem from="1753372025399" duration="4961000" />
+      <workItem from="1753395177471" duration="3915000" />
     </task>
     <task id="LOCAL-00006" summary="added some bootstrap and css stuff to my base html file">
       <option name="closed" value="true" />
@@ -542,14 +547,21 @@
       <option name="project" value="LOCAL" />
       <updated>1753251460445</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="We are working on creating an update page to allow users to update the fields of the current room">
+      <option name="closed" value="true" />
+      <created>1753306484147</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1753306484148</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="We have added the option for people to look at the post of other users along with the ability to look at the post made by specific users as well. Next I hope to add a comment section for users to comment on post" />
     <MESSAGE value="Currently working on creating the comment database and also the ability for users to add comments to post" />
     <MESSAGE value="Cuwe have given users the ability to comment on post, still working out a bug though on the return url after the user submits the comment" />
     <MESSAGE value="Fixed the issues relating to the comments attribute" />
@@ -574,7 +586,8 @@
     <MESSAGE value="We have now set up the join page that allows users to join a room, however, we are still working out a few bugs with the join room and the api that handles the join room function" />
     <MESSAGE value="We have now stylized our home page and are creating a check system to see if the user is already in a room so that we can just automatically send them to the room when the homepage renders" />
     <MESSAGE value="We are editing the code so that when the user does leave the room or if the room no longer exist, we will wipe it from the homepage so that they won't accidentally be sent there. Stil working out a few bugs though" />
-    <option name="LAST_COMMIT_MESSAGE" value="We are editing the code so that when the user does leave the room or if the room no longer exist, we will wipe it from the homepage so that they won't accidentally be sent there. Stil working out a few bugs though" />
+    <MESSAGE value="We are working on creating an update page to allow users to update the fields of the current room" />
+    <option name="LAST_COMMIT_MESSAGE" value="We are working on creating an update page to allow users to update the fields of the current room" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

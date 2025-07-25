@@ -10,6 +10,10 @@ import Radio from '@mui/material/Radio'
 import RadioGroup from '@mui/material/RadioGroup'
 import FormControlLabel from '@mui/material/FormControlLabel'
 import RoomJoinPage from "./RoomJoinPage";
+/* Allows you to show something on the screen*/
+import  Collapse  from "@mui/material/Collapse"
+/* Alert has been moved to the '@mui/material' package instead of the '@mui/lab' package */
+import Alert from "@mui/material/Alert"
 /* Component that will be used for creating a room*/
 
 
@@ -23,13 +27,18 @@ class CreateRoomPage extends Component{
         * it will then save the values that the user had inputted */
         this.state = {
             guestCanPause: true,
-            votesToSkip: this.defaultVotes
+            votesToSkip: this.defaultVotes,
+            successMsg: false,
+            errorMsg: false,
         }
         /* binding the method to this class allows whatever value that calls the button press method to have access to
         * the 'this' keyword*/
         this.handleRoomButtonPressed = this.handleRoomButtonPressed.bind(this)
         this.handleVotesChange = this.handleVotesChange.bind(this)
         this.handleGuestCanPauseChange = this.handleGuestCanPauseChange.bind(this)
+        this.renderUpdateButtons = this.renderUpdateButtons.bind(this)
+        this.renderCreateButton = this.renderCreateButton.bind(this)
+        this.handleUpdateButtonPressed = this.handleUpdateButtonPressed.bind(this)
         if(props.update){
             this.update = props.update
         }
@@ -79,7 +88,67 @@ class CreateRoomPage extends Component{
 
             }
 
+    renderCreateButton(){
+        return(<Grid container spacing={1} direction="column">
+            <Grid item xs={12} align="center">
+                    <Button color="secondary" variant="contained" onClick={this.handleRoomButtonPressed}>
+                        Create A Room
+                    </Button>
+                </Grid>
+                <Grid item xs={12} align="center">
+                    <Button color="primary" variant="contained" to="/" component={Link}>
+                        Back
+                    </Button>
+                </Grid>
+        </Grid>)
+    }
+
+    handleUpdateButtonPressed(){
+        const requestOptions = {
+                    method: 'PATCH',
+                    /* This just tells us the type of data we are passing via request*/
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        votes_to_skip: this.state.votesToSkip,
+                        guest_can_pause: this.state.guestCanPause,
+                        code: this.roomCode
+                    }),
+                };
+                /* here is where we call the create room method from the frontend and feed it the data that the user has
+                * typed in so that the api cna create the room*/
+                fetch('/api/update-room', requestOptions)
+                .then((response) => {
+                    if(response.ok) {
+                        this.setState({
+                            successMsg: "Room Updated successfully"
+                        })
+                    } else{
+                        this.setState({
+                            errorMsg: "Error updating room..."
+                        })
+                        console.log("You are not authorized to edit this room")
+                    }
+                    /* Make sure to add this within the last '.then' statement so that it doesn't mess up the
+                    * fetch method*/
+                    this.props.updateCallBack()
+                })
+
+
+    }
+
+    renderUpdateButtons(){
+        return(
+            <Grid item xs={12} align="center">
+                    <Button color="primary" variant="contained" onClick={this.handleUpdateButtonPressed}>
+                        Update Room
+                    </Button>
+                </Grid>
+        )
+    }
+
     render(){
+
+        const title = this.props.update ? "Update Room" : "Create A Room"
         /* A grid is used in material UI to align items horizontally or vertically, (kind of like flexbox in css)*/
         /* This by default would align the items vertically and the spacing shows how much space we put between each
         * item in the Grid. (1 means 8 pixels, 2 means 16 pixels, 3 means 32 pixels, and so on*/
@@ -87,10 +156,16 @@ class CreateRoomPage extends Component{
             <Grid container direction="column" spacing={2}>
             {/* When the size of the screen is extra small, then we want to let the computer know that this item should
             *be size 12. We basically are using this to fill out the maximum grid space */}
+                <Grid item xs={12} align='center'>
+                <Collapse in={Boolean(this.state.errorMsg) || Boolean(this.state.successMsg)}>
+                    {this.state.successMsg ?
+                        (<Alert severity="success" onClose={() => {this.setState({successMsg: false})}}>{this.state.successMsg}</Alert>): (<Alert severity="error" onClose={() => {this.setState({errorMsg: false})}}>{this.state.errorMsg}</Alert>)}
+                </Collapse>
+            </Grid>
             <Grid item xs={12} align='center'>
                 {/* This is used to create a title for the page rendering */}
                 <Typography component= 'h4' variant='h4'>
-                    Create A Room
+                    {title}
                 </Typography>
             </Grid>
             <Grid item xs={12} align='center'>
@@ -102,7 +177,7 @@ class CreateRoomPage extends Component{
                         </div>
                     </FormHelperText>
                     {/* This is where we will store our radio buttons, and we will have them lined up in a row*/}
-                    <RadioGroup row defaultValue="true" onChange={this.handleGuestCanPauseChange}>
+                    <RadioGroup row defaultValue={this.state.guestCanPause.toString()} onChange={this.handleGuestCanPauseChange}>
                         {/* We use this to add a label to our radio buttons*/}
                         {/* We will have two radio buttons with one having a value of true and one being false
                         that they don't have control*/}
@@ -124,7 +199,7 @@ class CreateRoomPage extends Component{
                     data input by the user*/}
                     <FormControl>
                         <TextField required={true} type={"number"} onChange={this.handleVotesChange}
-                                   defaultValue={this.defaultVotes}
+                                   defaultValue={this.state.votesToSkip}
                         inputProps={{
                             min:1,
                             style: { textAlign: "center"},
@@ -136,16 +211,7 @@ class CreateRoomPage extends Component{
                         </FormHelperText>
                     </FormControl>
                 </Grid>
-                <Grid item xs={12} align="center">
-                    <Button color="secondary" variant="contained" onClick={this.handleRoomButtonPressed}>
-                        Create A Room
-                    </Button>
-                </Grid>
-                <Grid item xs={12} align="center">
-                    <Button color="primary" variant="contained" to="/" component={Link}>
-                        Back
-                    </Button>
-                </Grid>
+                {this.update ? this.renderUpdateButtons() : this.renderCreateButton()}
             </Grid>
 
         );
@@ -153,5 +219,5 @@ class CreateRoomPage extends Component{
 }
 
 export default function CreateRoomPageWrapper(props){
-    <CreateRoomPage {...props} />
+    return <CreateRoomPage {...props} />
 }
