@@ -14,6 +14,7 @@ class Auction(models.Model):
     auctioneer = models.ForeignKey(User, on_delete=models.CASCADE)
     startPrice = models.IntegerField(default=0)
     date = models.DateTimeField(default=timezone.now)
+    stock = models.IntegerField(default=1)
 
     def get_absolute_url(self):
         # This will be used in order to call the auction-home url in order to go to the home page to view all auctions
@@ -41,3 +42,17 @@ class Bids(models.Model):
     bidder = models.ForeignKey(User, on_delete=models.CASCADE)
     amount = models.IntegerField()
     date = models.DateTimeField(default=timezone.now)
+
+class Reviews(models.Model):
+    auction = models.ForeignKey(Auction, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    reviewReason = models.TextField(default="Description is not provided")
+    reviewRating = models.IntegerField(blank=True, null=True)
+
+class BidLog(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    auction = models.ForeignKey(Auction, on_delete=models.SET_NULL, null=True, blank=True)
+    image = models.ImageField(default='default.jpg')
+    title = models.CharField(default="Auction")
+    created_at = models.DateTimeField(default=timezone.now)
+    winPrice = models.IntegerField(default=0)

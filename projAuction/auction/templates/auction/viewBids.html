@@ -8,10 +8,17 @@
     <div style="display: flex; margin-top: 15px">
     <img class="rounded-circle article-img" src="{{auction.auctioneer.profile.image.url}}" alt="Bidders Image">
     {% if bid.bidder.code.codeName %}
-    <h4 style="margin-left: 20px">Bidder: {{bid.bidder.code.codeName}}</h4>
+    <h4 style="margin-left: 20px">Bidder ID: {{bid.bidder.code.codeName}}</h4>
     {% endif %}
     </div>
     <h5 style="margin-top: 30px">Amount: ${{bid.amount}}</h5>
+    <button type="button" class="btn btn-outline" style="background-color:  #4CAF50">
+        Select Bid
+    </button>
+    <button type="button" class="btn btn-outline" style="background-color: #428bca">
+        Contact Bidder
+    </button>
+
 </div>
 {% endif %}
 {% endfor %}

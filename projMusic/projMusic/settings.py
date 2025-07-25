@@ -157,6 +157,8 @@ CONTENT_SECURITY_POLICY = {
             "'self'",
             "https://accounts.spotify.com",
             "https://*.spotify.com",
+            'https://accounts.spotify.com/api/token',
+            "https://accounts.spotify.com/authorize",
             "https://www.google.com",
             "https://www.gstatic.com",
             "https://www.google-analytics.com",

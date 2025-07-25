@@ -4,17 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="We are working on creating an update page to allow users to update the fields of the current room">
+    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="We have now added an api that is able to connect with spotify, we however are encountering some issues with our security which is blocking spotify from connecting with our local server to give us our data of interest, so we will be working on that to see how we can have the security allow a connection with spotify">
+      <change afterPath="$PROJECT_DIR$/projMusic/spotify/credentials.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/api/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/api/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/frontend/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/frontend/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/frontend/src/components/CreateRoomPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/frontend/src/components/CreateRoomPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/frontend/src/components/Room.js" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/frontend/src/components/Room.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/frontend/static/frontend/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/frontend/static/frontend/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/frontend/static/frontend/main.js.LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/frontend/static/frontend/main.js.LICENSE.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/frontend/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/frontend/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projAuction/auction/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/auction/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projAuction/auction/templates/auction/auctionDetails.html" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/auction/templates/auction/auctionDetails.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projAuction/auction/templates/auction/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/auction/templates/auction/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projAuction/auction/templates/auction/viewBids.html" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/auction/templates/auction/viewBids.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projAuction/auction/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/auction/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projAuction/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/users/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/projMusic/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/projMusic/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,8 +25,8 @@
       <list>
         <option value="package.json" />
         <option value="HTML File" />
-        <option value="Python Script" />
         <option value="JavaScript File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -73,6 +72,7 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Applications/PyCharm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -162,22 +162,8 @@
       <workItem from="1753337817075" duration="454000" />
       <workItem from="1753372025399" duration="4961000" />
       <workItem from="1753395177471" duration="3915000" />
-    </task>
-    <task id="LOCAL-00006" summary="added some bootstrap and css stuff to my base html file">
-      <option name="closed" value="true" />
-      <created>1745192074158</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1745192074158</updated>
-    </task>
-    <task id="LOCAL-00007" summary="added some css design along with some changes to my home.html and base.html.">
-      <option name="closed" value="true" />
-      <created>1745368157448</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1745368157448</updated>
+      <workItem from="1753408321004" duration="11161000" />
+      <workItem from="1753470229352" duration="11660000" />
     </task>
     <task id="LOCAL-00008" summary="added a new table to our sql database">
       <option name="closed" value="true" />
@@ -555,14 +541,29 @@
       <option name="project" value="LOCAL" />
       <updated>1753306484148</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="We have now added an api that is able to connect with spotify, we however are encountering some issues with our security which is blocking spotify from connecting with our local server to give us our data of interest, so we will be working on that to see how we can have the security allow a connection with spotify">
+      <option name="closed" value="true" />
+      <created>1753426101987</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1753426101988</updated>
+    </task>
+    <task id="LOCAL-00056" summary="We have now added an api that is able to connect with spotify, we however are encountering some issues with our security which is blocking spotify from connecting with our local server to give us our data of interest, so we will be working on that to see how we can have the security allow a connection with spotify">
+      <option name="closed" value="true" />
+      <created>1753426524632</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1753426524632</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Currently working on creating the comment database and also the ability for users to add comments to post" />
     <MESSAGE value="Cuwe have given users the ability to comment on post, still working out a bug though on the return url after the user submits the comment" />
     <MESSAGE value="Fixed the issues relating to the comments attribute" />
     <MESSAGE value="Added a chat feature in which users can chat with other users so long as they are logged in" />
@@ -587,7 +588,8 @@
     <MESSAGE value="We have now stylized our home page and are creating a check system to see if the user is already in a room so that we can just automatically send them to the room when the homepage renders" />
     <MESSAGE value="We are editing the code so that when the user does leave the room or if the room no longer exist, we will wipe it from the homepage so that they won't accidentally be sent there. Stil working out a few bugs though" />
     <MESSAGE value="We are working on creating an update page to allow users to update the fields of the current room" />
-    <option name="LAST_COMMIT_MESSAGE" value="We are working on creating an update page to allow users to update the fields of the current room" />
+    <MESSAGE value="We have now added an api that is able to connect with spotify, we however are encountering some issues with our security which is blocking spotify from connecting with our local server to give us our data of interest, so we will be working on that to see how we can have the security allow a connection with spotify" />
+    <option name="LAST_COMMIT_MESSAGE" value="We have now added an api that is able to connect with spotify, we however are encountering some issues with our security which is blocking spotify from connecting with our local server to give us our data of interest, so we will be working on that to see how we can have the security allow a connection with spotify" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

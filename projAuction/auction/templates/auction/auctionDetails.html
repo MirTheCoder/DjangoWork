@@ -4,6 +4,171 @@
     .hide{
        display: none;
     }
+    body {
+  font-family: 'Segoe UI', Roboto, Helvetica, sans-serif;
+  background-color: #f5f6fa;
+  padding: 40px 20px;
+  color: #2c3e50;
+}
+
+/* Section title with flair */
+.section-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  position: relative;
+  color: #222;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  height: 4px;
+  width: 80px;
+  background: #f1c40f; /* gold bar */
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* Container for all bids */
+.bid-list {
+  background-color: #fff;
+  border-radius: 10px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Individual bid card */
+.bid-card {
+  background: #f9f9f9;
+  border-left: 6px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.bid-card:hover {
+  background: #f1f7ff;
+  transform: translateY(-2px);
+}
+
+/* Highlight for current user’s bid */
+.bid-card.highlight {
+  border-left-color: #2ecc71; /* green */
+  background-color: #e8f8f5;
+}
+
+.bid-header h4,
+.bidder-info h4 {
+  margin: 0;
+  font-size: 16px;
+  color: #34495e;
+}
+
+.amount,
+.bidder {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 5px;
+  color: #2c3e50;
+}
+
+/* Message if no bids */
+.no-bids {
+  text-align: center;
+  color: #888;
+  font-style: italic;
+}
+
+/* Container for all reviews */
+.review-section {
+  max-width: 800px;
+  margin: 30px auto;
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* Section heading */
+.section-title {
+  text-align: center;
+  font-size: 28px;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  font-weight: 600;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 80px;
+  background: #3498db;
+  margin: 10px auto 0;
+  border-radius: 5px;
+}
+
+/* Individual review card */
+.review-card {
+  background: white;
+  border-left: 5px solid #3498db;
+  border-radius: 10px;
+  padding: 20px 25px;
+  margin-bottom: 20px;
+  transition: transform 0.2s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-3px);
+  background-color: #f0f8ff;
+}
+
+/* Header with reviewer info */
+.review-header h5,
+.review-header h6 {
+  margin: 0;
+  color: #34495e;
+}
+
+/* Rating section */
+.review-rating h5 {
+  margin-top: 15px;
+  font-size: 18px;
+  color: #2c3e50;
+}
+
+/* Reason section */
+.review-reason h5 {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #2c3e50;
+}
+
+.review-reason p {
+  background: #ecf5ff;
+  border: 2px solid #428bca;
+  border-radius: 8px;
+  padding: 12px 15px;
+  color: #333;
+  margin-top: 8px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* No reviews message */
+.no-reviews {
+  text-align: center;
+  color: #888;
+  font-style: italic;
+}
+
+
 </style>
 {% if auction %}
 <div class="content-section">
@@ -20,7 +185,10 @@
             <h4 style="margin-top: 35px">Description</h4>
             <p class="content-section" style="text-align: center;">{{auction.description}}</p>
         </div>
-        <h4>Starting Bid Price: ${{auction.startPrice}}</h4>
+        <h5>Starting Bid Price: ${{auction.startPrice}}</h5>
+        <h5>In Stock: {{auction.stock}}</h5>
+        <!-- We will first check and see if the user is logged in before we give them the option to place a bid-->
+        {% if user.is_authenticated %}
         {% if user != auction.auctioneer %}
         <button id="placeBid" type="button" class="btn btn-outline" style="background-color: #4CAF50">Place Bid</button>
         {% endif %}
@@ -29,6 +197,10 @@
             <button id="viewBids" type="button" class="btn btn-outline" style="background-color: #5f788a">View Bids</button>
         </a>
         {% endif %}
+        {% endif %}
+          <button id="seeReviews" type="button" class="btn btn-outline">
+              See Reviews
+          </button>
         <form method="post" action="{% url 'createBid' %}" enctype="multipart/form-data" class="hide" id="bidForm">
             {% csrf_token %}
             $<input type="number" min="{{auction.startPrice}}" name="bidNum" required>
@@ -36,19 +208,89 @@
             <button type="submit" class="btn btn-outline">Submit Bid</button>
         </form>
 </div>
+{% if user != auction.auctioneer %}
+<h2 class="section-title">🎯 Leading Bid List</h2>
+
+<div class="bid-list">
+    {% if winning %}
+        {% for win in winning %}
+            <div class="bid-card {% if win.bidder == user %}highlight{% endif %}">
+                <div class="bid-header">
+                    <h4>💰 Winning Bid</h4>
+                    <p class="amount">${{ win.amount }}</p>
+                </div>
+                <div class="bidder-info">
+                    <h4>👤 Bidder</h4>
+                    <p class="bidder">
+                        {% if win.bidder == user %}
+                            You ({{ user.username }})
+                        {% else %}
+                            {{ win.user.code }}
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p class="no-bids">No bids yet. Be the first to bid!</p>
+    {% endif %}
+</div>
+{% endif %}
+
+<div id="review" class="review-section hide">
+  <h3 class="section-title"> &#128064; See Reviews</h3>
+
+  {% if reviews %}
+    {% for review in reviews %}
+      <div class="review-card">
+        <div class="review-header">
+          <h5>👤 <strong>Reviewer</strong></h5>
+          <h6>Bidder: {{ review.user.code }}</h6>
+        </div>
+
+        <div class="review-rating">
+          <h5><strong>⭐ Review: {{ review.reviewRating }}</strong></h5>
+        </div>
+
+        <div class="review-reason">
+          <h5><u>Reason</u></h5>
+          <p>{{ review.reviewReason }}</p>
+        </div>
+      </div>
+    {% endfor %}
+  {% else %}
+    <p class="no-reviews">No reviews yet</p>
+  {% endif %}
+</div>
+
+
 {% endif %}
 
 <script>
     addBid = document.getElementById('placeBid')
+    seeReview = document.getElementById('review')
+    unhideReviews = document.getElementById('seeReviews')
     submitBid = document.getElementById('bidForm')
-    addBid.addEventListener("click", function(){
-        if(submitBid.classList.contains("hide")){
-            submitBid.classList.remove('hide')
-            addBid.textContent = "Show less"
+    if(addBid) {
+        addBid.addEventListener("click", function () {
+            if (submitBid.classList.contains("hide")) {
+                submitBid.classList.remove('hide')
+                addBid.textContent = "Show less"
+            } else {
+                submitBid.classList.add("hide")
+                addBid.textContent = "Place Bid"
+            }
+        })
+    }
+    unhideReviews.addEventListener("click", function(){
+        if(seeReview.classList.contains('hide')){
+            seeReview.classList.remove('hide')
+            unhideReviews.textContent = "Click to hide"
         } else {
-            submitBid.classList.add("hide")
-            addBid.textContent = "Place Bid"
+            seeReview.classList.add('hide')
+            unhideReviews.textContent = "See Reviews"
         }
     })
+
 </script>
 {% endblock %}

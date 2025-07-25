@@ -7,7 +7,7 @@ from django.urls import reverse
 from django.http import HttpResponse
 from django.template.context_processors import request
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from .models import Auction, Bids
+from .models import Auction, Bids, Reviews, BidLog
 
 def home(request):
     return render(request,'auction/home.html')
@@ -39,6 +39,26 @@ class ViewAuctionDetails(DetailView):
     template_name = "auction/auctionDetails.html"
     context_object_name = "auction"
 
+    def get_context_data(self, **kwargs):
+        #This will allow us to create and fill a context dictionary that can be used in our template with default values
+        context = super().get_context_data(**kwargs)
+        auction = get_object_or_404(Auction,id=self.kwargs.get('pk'))
+        bid_list = Bids.objects.filter(auction=auction)
+        bid_amount = 0
+        winningBids = []
+        review_list = Reviews.objects.filter(auction=auction)
+        context['reviews'] = review_list
+        if bid_list:
+            for bid in bid_list:
+                if bid.amount > bid_amount:
+                    bid_amount = bid.amount
+                    winningBids = []
+                    winningBids.append(bid)
+                elif bid.amount == bid_amount:
+                    winningBids.append(bid)
+            context["winning"] = winningBids
+        return context
+
 
 def createBid(request):
     if request.method == "POST":
@@ -57,7 +77,7 @@ class viewBids(LoginRequiredMixin,ListView):
     context_object_name = 'bids'
     template_name = 'auction/viewBids.html'
 
-    #We wull get the id number passed to find out which auction we want to see the bids of in order to let our html
+    #We will get the id number passed to find out which auction we want to see the bids of in order to let our html
     #page know so that it can display the bids of interest
     def get_context_data(self, **kwargs):
         #This will allow us to create and fill a context dictionary that can be used in our template with default values
@@ -66,4 +86,9 @@ class viewBids(LoginRequiredMixin,ListView):
         #Fetches parameter from our url and stores it within our context dictionary
         context['auction'] = auction
         return context
+
+#Here we are passing pk as an argument in order to receive the correct id for the auction
+def passAuction(request, pk):
+    auction = Auction.objects.filter(id=pk).first()
+    BidLog.objects.create()
 
