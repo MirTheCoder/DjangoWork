@@ -66,7 +66,7 @@
 }
 </style>
 {% if logs %}
-<h3 class="bids-heading" style="color: #333333">&#x1F3C6; Here are your bids</h3>
+<h3 class="bids-heading" style="color: #333333">&#x1F3C6; Here are the auctions that you won</h3>
 {% for log in logs %}
 <div class="bid-card">
     <div class="bid-header">
@@ -82,7 +82,7 @@
         <img class="bid-image" src="{{ log.image.url }}" alt="image of auction item">
     </div>
     {% endif %}
-  <a href="#">
+  <a href="{% url 'addReview' log.auction.id %}">
   <button type="button" class="btn btn-outline">
     Leave A Review
   </button>

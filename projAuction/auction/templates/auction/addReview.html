@@ -1,0 +1,75 @@
+{% extends 'auction/base.html' %}
+{% block content %}
+<style>
+    .hidden{
+        display: none;
+    }
+
+    .move{
+        margin-top: 1px;
+    }
+</style>
+
+<form name="" enctype="multipart/form-data" method="POST" action="#">
+    <div id="holdContent" class="move">
+    <h4>Enter your review here</h4>
+        <p id="codeName">{{person.code}}</p>
+    <input type="text" name="code" style="display: none" id="code">
+    <label for="rating">
+        <h4>Item Rating</h4>
+    </label>
+    <input type="number" min="0" max="5" name="reviewRating" id="rating" required>
+    <label for="reason">
+        <h4>Reason for rating</h4>
+    </label>
+    <textarea name="reviewReason" placeholder="Enter your reason for your rating here" id="reason"></textarea>
+    </div>
+
+    <div id="save" class="content-section hidden" style="border: solid 2px #428bca; border-radius: 7px">
+    <p id="reviewRatingTag"></p>
+    <p id="reviewReasonTag"></p>
+    </div>
+
+    <div>
+    <button type="button" onclick="" class="btn btn-outline" id="data">
+        Save
+    </button>
+    <button class="hidden" type="submit" id="submit">
+        Submit
+    </button>
+    </div>
+
+</form>
+
+<script>
+    submit = document.getElementById("submit")
+    reviewSave = document.getElementById("reviewRatingTag")
+    reasonSave = document.getElementById("reviewReasonTag")
+    saveClass = document.getElementById("save")
+    code = document.getElementById("code")
+    codeName = document.getElementById("codeName")
+    rating = document.getElementById("rating")
+    reason = document.getElementById("reason")
+    data = document.getElementById("data")
+    content = document.getElementById("holdContent")
+
+    data.addEventListener("click", function (){
+        if(!content.classList.contains("hidden")){
+            content.classList.add("hidden")
+            saveClass.classList.remove("hidden")
+            data.textContent = "Edit"
+            code.value = codeName.textContent.trim()
+            reviewSave.textContent = rating.textContent.trim()
+            reasonSave.textContent = reason.textContent.trim()
+
+            submit.classList.remove("hidden")
+        } else {
+            content.classList.remove("hidden")
+            saveClass.classList.add("hidden")
+            data.textContent = "Save"
+            submit.classList.add("hidden")
+        }
+    })
+</script>
+
+{% endblock %}

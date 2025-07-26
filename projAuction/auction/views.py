@@ -128,3 +128,27 @@ def seeBidLog(request):
     user = request.user
     logs = BidLog.objects.filter(user=user)
     return render(request, "auction/BidLog.html", {'logs': logs})
+
+#Here we will be creating the review that is posted by a user on a post, however, they must have had won the object in a
+#previous auction
+class addReview(LoginRequiredMixin,CreateView):
+    model = Reviews
+    template_name = "auction/addReview.html"
+    fields = ['code','reviewReason','reviewRating']
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        person = self.request.user
+        context['person'] = person
+        return context
+
+
+    #We will get the auction by looking for which auction matches the id value passed in the url
+    # and auto setting the user to the user who submitted the form
+    def form_valid(self, form, **kwargs):
+        user = self.request.user
+        auction = get_object_or_404(Auction, id=self.kwargs.get('pk'))
+        form.instance.user = user
+        form.instance.auction = auction
+        # This runs the form_valid method but now will ensure that the author is listed as the current user
+        return super().form_valid(form)
