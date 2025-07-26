@@ -1,5 +1,5 @@
 from django.contrib import messages
-
+from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.shortcuts import render, redirect, get_object_or_404
@@ -88,7 +88,32 @@ class viewBids(LoginRequiredMixin,ListView):
         return context
 
 #Here we are passing pk as an argument in order to receive the correct id for the auction
-def passAuction(request, pk):
+def passAuction(request, pk, bid_id):
     auction = Auction.objects.filter(id=pk).first()
-    BidLog.objects.create()
+    bid = Bids.objects.filter(id=bid_id).first()
+    if bid:
+        try:
+            user = bid.bidder
+            newLog = BidLog.objects.create(image=auction.image.url, user=user, auction=auction, title=auction.title,winPrice=bid.amount)
+            newLog.save()
+            #Once we save the bid, we will just redirect the user back to the view bids page
+            val = changeStock(pk)
+            return redirect('auction-home')
+        except Exception as e:
+            print('Error:', e)
+    print("the passing of the auction was unsuccessful")
+    return redirect('auction-home')
 
+#In this function we will check to see how much of the item is in stock, and if there are no more in stock, we will
+#remove the auction
+def changeStock(id):
+    auction = Auction.objects.filter(id=id).first()
+    if auction.stock > 0:
+        stock = auction.stock
+        stock -= 1
+        auction.stock = stock
+        auction.save(update_fields=['stock'])
+    elif auction.stock == 0:
+        auction.delete()
+
+    return True

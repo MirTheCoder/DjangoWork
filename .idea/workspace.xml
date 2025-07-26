@@ -4,16 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="We have now added an api that is able to connect with spotify, we however are encountering some issues with our security which is blocking spotify from connecting with our local server to give us our data of interest, so we will be working on that to see how we can have the security allow a connection with spotify">
+    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="We have made edits to the auction page, added some styling, we have also added a review page to allow users to see review, we have also allowed users to see the highest current bid. We have created a binlog in our database which will allow users to track the auctions that they have won  (still a work in progress). We also will develop a chat feature as well as we have made the buttons for the auctioneer to chat with the user and select a bid that wins">
       <change afterPath="$PROJECT_DIR$/projMusic/spotify/credentials.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projAuction/auction/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/auction/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/auction/templates/auction/auctionDetails.html" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/auction/templates/auction/auctionDetails.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/auction/templates/auction/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/auction/templates/auction/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projAuction/auction/templates/auction/viewBids.html" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/auction/templates/auction/viewBids.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projAuction/auction/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/auction/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projAuction/auction/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/auction/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/users/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/projMusic/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/projMusic/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,15 +160,8 @@
       <workItem from="1753372025399" duration="4961000" />
       <workItem from="1753395177471" duration="3915000" />
       <workItem from="1753408321004" duration="11161000" />
-      <workItem from="1753470229352" duration="11660000" />
-    </task>
-    <task id="LOCAL-00008" summary="added a new table to our sql database">
-      <option name="closed" value="true" />
-      <created>1745431541776</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1745431541776</updated>
+      <workItem from="1753470229352" duration="12259000" />
+      <workItem from="1753485403726" duration="1580000" />
     </task>
     <task id="LOCAL-00009" summary="Made some edits to my django blog project. Still have some errors that I have to fix, may potentially have to restart the project">
       <option name="closed" value="true" />
@@ -557,14 +547,21 @@
       <option name="project" value="LOCAL" />
       <updated>1753426524632</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="We have made edits to the auction page, added some styling, we have also added a review page to allow users to see review, we have also allowed users to see the highest current bid. We have created a binlog in our database which will allow users to track the auctions that they have won  (still a work in progress). We also will develop a chat feature as well as we have made the buttons for the auctioneer to chat with the user and select a bid that wins">
+      <option name="closed" value="true" />
+      <created>1753485201849</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1753485201850</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Cuwe have given users the ability to comment on post, still working out a bug though on the return url after the user submits the comment" />
     <MESSAGE value="Fixed the issues relating to the comments attribute" />
     <MESSAGE value="Added a chat feature in which users can chat with other users so long as they are logged in" />
     <MESSAGE value="creation of chat table and its modifications" />
@@ -589,7 +586,8 @@
     <MESSAGE value="We are editing the code so that when the user does leave the room or if the room no longer exist, we will wipe it from the homepage so that they won't accidentally be sent there. Stil working out a few bugs though" />
     <MESSAGE value="We are working on creating an update page to allow users to update the fields of the current room" />
     <MESSAGE value="We have now added an api that is able to connect with spotify, we however are encountering some issues with our security which is blocking spotify from connecting with our local server to give us our data of interest, so we will be working on that to see how we can have the security allow a connection with spotify" />
-    <option name="LAST_COMMIT_MESSAGE" value="We have now added an api that is able to connect with spotify, we however are encountering some issues with our security which is blocking spotify from connecting with our local server to give us our data of interest, so we will be working on that to see how we can have the security allow a connection with spotify" />
+    <MESSAGE value="We have made edits to the auction page, added some styling, we have also added a review page to allow users to see review, we have also allowed users to see the highest current bid. We have created a binlog in our database which will allow users to track the auctions that they have won  (still a work in progress). We also will develop a chat feature as well as we have made the buttons for the auctioneer to chat with the user and select a bid that wins" />
+    <option name="LAST_COMMIT_MESSAGE" value="We have made edits to the auction page, added some styling, we have also added a review page to allow users to see review, we have also allowed users to see the highest current bid. We have created a binlog in our database which will allow users to track the auctions that they have won  (still a work in progress). We also will develop a chat feature as well as we have made the buttons for the auctioneer to chat with the user and select a bid that wins" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

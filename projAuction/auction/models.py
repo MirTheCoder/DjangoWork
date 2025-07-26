@@ -49,6 +49,8 @@ class Reviews(models.Model):
     reviewReason = models.TextField(default="Description is not provided")
     reviewRating = models.IntegerField(blank=True, null=True)
 
+#We are adding the same or almost all the same fields in bid log as in auction to ensure that we have the auction info
+#even if the auctioneer decides to take down the auction
 class BidLog(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     auction = models.ForeignKey(Auction, on_delete=models.SET_NULL, null=True, blank=True)

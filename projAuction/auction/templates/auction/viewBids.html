@@ -12,9 +12,13 @@
     {% endif %}
     </div>
     <h5 style="margin-top: 30px">Amount: ${{bid.amount}}</h5>
+    <!-- Here we will be sending the auction id and the bid id to the passBid function in order to register that item
+    under the selected user -->
+    <a href="{% url 'passBid' pk=auction.id  bid_id=bid.id %}">
     <button type="button" class="btn btn-outline" style="background-color:  #4CAF50">
         Select Bid
     </button>
+    </a>
     <button type="button" class="btn btn-outline" style="background-color: #428bca">
         Contact Bidder
     </button>
