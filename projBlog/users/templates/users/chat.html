@@ -98,7 +98,7 @@
         {% for chat in convo %}
             {% if chat.user1 == user and chat.user2 == person %}
                 <div class="message right">
-                    <small style="font-size: 10px; margin-right: 50px">{{ chat.date_posted|date:" F d, Y" }} at {{ chat.date_posted|date:"h:ia" }}</small>
+                    <small style="font-size: 10px; margin-right: 50px">{{ chat.date_posted|date:"F d, Y" }} at {{ chat.date_posted|date:"h:ia" }}</small>
                 </div>
                 <div class="message right"> <!-- Sent by current user -->
                     <div class="bubble">{{chat.text}}</div>

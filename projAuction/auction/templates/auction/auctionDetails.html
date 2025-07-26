@@ -168,9 +168,16 @@
   font-style: italic;
 }
 
+.flexBod{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
 
 </style>
 {% if auction %}
+<div class="flexBod">
 <div class="content-section">
         <div>
             <h2>{{auction.title}}</h2>
@@ -208,6 +215,34 @@
             <button type="submit" class="btn btn-outline">Submit Bid</button>
         </form>
 </div>
+
+<div id="review" class="review-section hide">
+  <h3 class="section-title"> &#128064; See Reviews</h3>
+
+  {% if reviews %}
+    {% for review in reviews %}
+      <div class="review-card">
+        <div class="review-header">
+          <h5>👤 <strong>Reviewer</strong></h5>
+          <h6>Bidder: {{ review.user.code }}</h6>
+        </div>
+
+        <div class="review-rating">
+          <h5><strong>⭐ Review: {{ review.reviewRating }}</strong></h5>
+        </div>
+
+        <div class="review-reason">
+          <h5><u>Reason</u></h5>
+          <p>{{ review.reviewReason }}</p>
+        </div>
+      </div>
+    {% endfor %}
+  {% else %}
+    <p class="no-reviews">No reviews yet</p>
+  {% endif %}
+</div>
+    </div>
+
 {% if user != auction.auctioneer %}
 <h2 class="section-title">🎯 Leading Bid List</h2>
 
@@ -236,32 +271,6 @@
     {% endif %}
 </div>
 {% endif %}
-
-<div id="review" class="review-section hide">
-  <h3 class="section-title"> &#128064; See Reviews</h3>
-
-  {% if reviews %}
-    {% for review in reviews %}
-      <div class="review-card">
-        <div class="review-header">
-          <h5>👤 <strong>Reviewer</strong></h5>
-          <h6>Bidder: {{ review.user.code }}</h6>
-        </div>
-
-        <div class="review-rating">
-          <h5><strong>⭐ Review: {{ review.reviewRating }}</strong></h5>
-        </div>
-
-        <div class="review-reason">
-          <h5><u>Reason</u></h5>
-          <p>{{ review.reviewReason }}</p>
-        </div>
-      </div>
-    {% endfor %}
-  {% else %}
-    <p class="no-reviews">No reviews yet</p>
-  {% endif %}
-</div>
 
 
 {% endif %}

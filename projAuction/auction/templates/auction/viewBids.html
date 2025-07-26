@@ -1,8 +1,9 @@
 {% extends "auction/base.html" %}
 {% block content %}
+
+{% if related %}
+{% for bid in related %}
 <h3>Here are the bids for {{auction.title}}</h3>
-{% for bid in bids %}
-{% if bid.auction == auction %}
 <div class="content-section" style="border: dashed 3px; margin-top: 25px">
     <small style="margin-left: 10px">{{bid.date}}</small>
     <div style="display: flex; margin-top: 15px">
@@ -14,7 +15,7 @@
     <h5 style="margin-top: 30px">Amount: ${{bid.amount}}</h5>
     <!-- Here we will be sending the auction id and the bid id to the passBid function in order to register that item
     under the selected user -->
-    <a href="{% url 'passBid' pk=auction.id  bid_id=bid.id %}">
+    <a href="{% url 'passBid' bid_id=bid.id %}">
     <button type="button" class="btn btn-outline" style="background-color:  #4CAF50">
         Select Bid
     </button>
@@ -24,6 +25,8 @@
     </button>
 
 </div>
-{% endif %}
 {% endfor %}
+{% else %}
+<h3>There are currently no bids for {{auction.title}}</h3>
+{% endif %}
 {% endblock %}

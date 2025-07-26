@@ -18,7 +18,7 @@ def home(request):
 #This class view will create the new auction that the user is making and store it in the auction table
 class PostAnAuction(LoginRequiredMixin,CreateView):
     model = Auction
-    fields = ['title', 'description','startPrice','image']
+    fields = ['title', 'description','startPrice','image','stock']
     template_name = 'auction/createAuction.html'
 
     #Here we override the form valid to make the auctioneer requirement for an auction to be automatically equal to
@@ -85,19 +85,22 @@ class viewBids(LoginRequiredMixin,ListView):
         auction = get_object_or_404(Auction,id=self.kwargs.get('pk'))
         #Fetches parameter from our url and stores it within our context dictionary
         context['auction'] = auction
+        context['related'] = Bids.objects.filter(auction=auction)
         return context
 
-#Here we are passing pk as an argument in order to receive the correct id for the auction
-def passAuction(request, pk, bid_id):
-    auction = Auction.objects.filter(id=pk).first()
+#Here we are passing bid id as an argument in order to get the correct bid or the bid that the user selects
+#in order to see whom they are passing the auction to
+@login_required()
+def passAuction(request, bid_id):
     bid = Bids.objects.filter(id=bid_id).first()
+    auction = bid.auction
     if bid:
         try:
             user = bid.bidder
             newLog = BidLog.objects.create(image=auction.image.url, user=user, auction=auction, title=auction.title,winPrice=bid.amount)
             newLog.save()
             #Once we save the bid, we will just redirect the user back to the view bids page
-            val = changeStock(pk)
+            val = changeStock(bid_id)
             return redirect('auction-home')
         except Exception as e:
             print('Error:', e)
@@ -107,13 +110,21 @@ def passAuction(request, pk, bid_id):
 #In this function we will check to see how much of the item is in stock, and if there are no more in stock, we will
 #remove the auction
 def changeStock(id):
-    auction = Auction.objects.filter(id=id).first()
-    if auction.stock > 0:
+    bid = Bids.objects.filter(id=id).first()
+    auction = bid.auction
+    if auction.stock > 1:
         stock = auction.stock
         stock -= 1
         auction.stock = stock
         auction.save(update_fields=['stock'])
-    elif auction.stock == 0:
+    elif auction.stock == 1:
         auction.delete()
 
     return True
+
+#Here we are getting all off the bids or auctions that the user won and compiling it into a list for them to view
+@login_required()
+def seeBidLog(request):
+    user = request.user
+    logs = BidLog.objects.filter(user=user)
+    return render(request, "auction/BidLog.html", {'logs': logs})

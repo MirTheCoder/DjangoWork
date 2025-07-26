@@ -33,7 +33,7 @@ def register(request):
             messages.success(request, f"Account created for {username}")
             voice = f"Account created for{username}"
             if persona:
-                #Here we will cretae a profile and a bidding code for each user who registers and makes an account
+                #Here we will create a profile and a bidding code for each user who registers and makes an account
                 Profile.objects.create(person=persona)
                 Code.objects.create(user=persona)
             return render(request, "users/register.html", {"form": form, "voice": voice})

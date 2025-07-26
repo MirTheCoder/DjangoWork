@@ -1,0 +1,96 @@
+{% extends 'auction/base.html' %}
+{% block content %}
+<style>
+  .bids-heading {
+    font-size: 2rem;
+    text-align: center;
+    color: #f0f0f0;
+    text-decoration: underline;
+    margin-bottom: 20px;
+}
+
+.bid-card {
+    background: linear-gradient(to right, #2c3e50, #34495e);
+    border: 2px solid #fff;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    color: white;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bid-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.profile-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    object-fit: cover;
+}
+
+.bid-title {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.timestamp {
+    color: #ccc;
+    margin-left: 4px;
+}
+
+.bid-image-container {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.bid-image {
+    max-width: 100%;
+    height: auto;
+    border: 5px solid #fff;
+    border-radius: 8px;
+}
+
+.no-bids {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #ccc;
+}
+</style>
+{% if logs %}
+<h3 class="bids-heading" style="color: #333333">&#x1F3C6; Here are your bids</h3>
+{% for log in logs %}
+<div class="bid-card">
+    <div class="bid-header">
+        <img class="profile-img" src="{{ log.user.profile.image.url }}" alt="Auctioneer's image">
+        <div>
+            <h2 class="bid-title" style="color: white">&#x2714; {{ log.title }}</h2>
+            <small class="timestamp">Time received: {{ log.created_at }}</small>
+        </div>
+    </div>
+
+    {% if log.image %}
+    <div class="bid-image-container">
+        <img class="bid-image" src="{{ log.image.url }}" alt="image of auction item">
+    </div>
+    {% endif %}
+  <a href="#">
+  <button type="button" class="btn btn-outline">
+    Leave A Review
+  </button>
+  </a>
+</div>
+{% endfor %}
+{% else %}
+  <h3 class="no-bids" style="color: #222222"><b>You haven't won any auctions yet</b></h3>
+{% endif %}
+
+{% endblock %}

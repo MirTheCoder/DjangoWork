@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="We have made edits to the auction page, added some styling, we have also added a review page to allow users to see review, we have also allowed users to see the highest current bid. We have created a binlog in our database which will allow users to track the auctions that they have won  (still a work in progress). We also will develop a chat feature as well as we have made the buttons for the auctioneer to chat with the user and select a bid that wins">
+    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="We are working on setting uo the process where the auctioneer can give the item to whoever wins the auction or whomever he deems to win the auction. Sorting out some bugs currently though">
+      <change afterPath="$PROJECT_DIR$/projAuction/BASE_DIR/auction_media/auction_photos/Find_your_inner_song.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projAuction/BASE_DIR/auction_media/default.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projAuction/BASE_DIR/media/default.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projAuction/auction/migrations/0011_alter_bidlog_created_at.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/projMusic/spotify/credentials.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/auction/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/auction/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/auction/templates/auction/viewBids.html" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/auction/templates/auction/viewBids.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/auction/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/auction/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/auction/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/auction/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,28 +52,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Python.manage.executor&quot;: &quot;Debug&quot;,
-    &quot;Python.views.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/bossmanhomecomputer/PycharmProjects/DjangoWork/BASE_DIR/auction_media&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Applications/PyCharm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Python.manage.executor": "Debug",
+    "Python.views.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/Users/bossmanhomecomputer/PycharmProjects/DjangoWork/projAuction",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "ts.external.directory.path": "/Applications/PyCharm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/projAuction" />
       <recent name="$PROJECT_DIR$/BASE_DIR/auction_media" />
       <recent name="C:\pythonProject\DjangoWork\AUCTION_MEDIA_FOLDER\media\profile_pics" />
     </key>
@@ -162,22 +162,7 @@
       <workItem from="1753408321004" duration="11161000" />
       <workItem from="1753470229352" duration="12259000" />
       <workItem from="1753485403726" duration="1580000" />
-    </task>
-    <task id="LOCAL-00009" summary="Made some edits to my django blog project. Still have some errors that I have to fix, may potentially have to restart the project">
-      <option name="closed" value="true" />
-      <created>1750396861520</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1750396861520</updated>
-    </task>
-    <task id="LOCAL-00010" summary="We are redoing the django project, first doing a walkthrough to get familiar with it, and then we will begin to build from there. Right now we have successfully created our app and set up our url patterns, we have just added our blog app to our list of installed apps to begin accessing HTML templates for rendering">
-      <option name="closed" value="true" />
-      <created>1750454423676</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1750454423676</updated>
+      <workItem from="1753494367838" duration="3076000" />
     </task>
     <task id="LOCAL-00011" summary="So I have established the users app and a template where users can now register (however, I haven't yet created a system in which the users input data is saved to the database). I have made some edits to the url patterns to include the users app and making navigation a little smoother.">
       <option name="closed" value="true" />
@@ -555,14 +540,29 @@
       <option name="project" value="LOCAL" />
       <updated>1753485201850</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="We are working on setting uo the process where the auctioneer can give the item to whoever wins the auction or whomever he deems to win the auction. Sorting out some bugs currently though">
+      <option name="closed" value="true" />
+      <created>1753497323727</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1753497323728</updated>
+    </task>
+    <task id="LOCAL-00059" summary="We are working on setting uo the process where the auctioneer can give the item to whoever wins the auction or whomever he deems to win the auction. Sorting out some bugs currently though">
+      <option name="closed" value="true" />
+      <created>1753497353015</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1753497353015</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed the issues relating to the comments attribute" />
     <MESSAGE value="Added a chat feature in which users can chat with other users so long as they are logged in" />
     <MESSAGE value="creation of chat table and its modifications" />
     <MESSAGE value="We are starting a project in which we will be developing and auctioning system" />
@@ -587,7 +587,8 @@
     <MESSAGE value="We are working on creating an update page to allow users to update the fields of the current room" />
     <MESSAGE value="We have now added an api that is able to connect with spotify, we however are encountering some issues with our security which is blocking spotify from connecting with our local server to give us our data of interest, so we will be working on that to see how we can have the security allow a connection with spotify" />
     <MESSAGE value="We have made edits to the auction page, added some styling, we have also added a review page to allow users to see review, we have also allowed users to see the highest current bid. We have created a binlog in our database which will allow users to track the auctions that they have won  (still a work in progress). We also will develop a chat feature as well as we have made the buttons for the auctioneer to chat with the user and select a bid that wins" />
-    <option name="LAST_COMMIT_MESSAGE" value="We have made edits to the auction page, added some styling, we have also added a review page to allow users to see review, we have also allowed users to see the highest current bid. We have created a binlog in our database which will allow users to track the auctions that they have won  (still a work in progress). We also will develop a chat feature as well as we have made the buttons for the auctioneer to chat with the user and select a bid that wins" />
+    <MESSAGE value="We are working on setting uo the process where the auctioneer can give the item to whoever wins the auction or whomever he deems to win the auction. Sorting out some bugs currently though" />
+    <option name="LAST_COMMIT_MESSAGE" value="We are working on setting uo the process where the auctioneer can give the item to whoever wins the auction or whomever he deems to win the auction. Sorting out some bugs currently though" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

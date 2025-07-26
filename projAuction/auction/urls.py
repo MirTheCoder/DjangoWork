@@ -2,7 +2,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from . import views
-from .views import PostAnAuction, ViewAuctions, ViewAuctionDetails, viewBids, passAuction
+from .views import PostAnAuction, ViewAuctions, ViewAuctionDetails, viewBids, passAuction,seeBidLog
 
 
 
@@ -14,5 +14,6 @@ urlpatterns = [
     path('auctionDetails/<int:pk>/',ViewAuctionDetails.as_view(), name = 'auctionDetails'),
     path('newBid/',views.createBid, name = 'createBid'),
     path('viewBids/<int:pk>/',viewBids.as_view(), name = 'viewBids'),
-    path('passBid/<int:pk>/<int:bid_id>',passAuction, name="passBid")
+    path('passBid/<int:bid_id>',passAuction, name="passBid"),
+    path('seeBidLog/',seeBidLog, name="seeBidLog"),
 ]
