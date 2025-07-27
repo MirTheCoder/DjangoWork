@@ -1,75 +1,118 @@
 {% extends 'auction/base.html' %}
 {% block content %}
 <style>
-    .hidden{
+    /* In css styling, the hashtags are style classes that are applicable to id's*/
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: #f5f7fa;
+        display: flex;
+        justify-content: center;
+        padding: 50px;
+    }
+
+    .hidden {
         display: none;
     }
 
-    .move{
-        margin-top: 1px;
+    #reviewForm {
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        max-width: 600px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    #reviewForm h4 {
+        margin-bottom: 10px;
+        color: #2c3e50;
+    }
+
+    label {
+        font-weight: 600;
+        color: #34495e;
+        margin-top: 10px;
+    }
+
+    input[type="number"],
+    textarea {
+        padding: 12px 16px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        width: 100%;
+        box-sizing: border-box;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    input[type="number"]:focus,
+    textarea:focus {
+        border-color: #428bca;
+        outline: none;
+        box-shadow: 0 0 5px rgba(66, 139, 202, 0.4);
+    }
+
+    #codeName {
+        font-size: 15px;
+        color: #888;
+        margin-bottom: 10px;
+    }
+
+    #submit {
+        background: #428bca;
+        color: white;
+        border: none;
+        border-radius: 12px;
+        font-size: 16px;
+        padding: 14px 20px;
+        cursor: pointer;
+        transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    #submit:hover {
+        background: #3071a9;
+        transform: translateY(-2px);
+    }
+
+    #submit:active {
+        transform: scale(0.98);
     }
 </style>
 
-<form name="" enctype="multipart/form-data" method="POST" action="#">
-    <div id="holdContent" class="move">
-    <h4>Enter your review here</h4>
-        <p id="codeName">{{person.code}}</p>
+<form id="reviewForm" enctype="multipart/form-data" method="POST"  action="{% url 'addReview' auction.id %}">
+    {% csrf_token %}
+    <div id="holdContent" class="flexBod">
+        <h4>Enter your review here</h4>
+        <p id="codeName">{{ person.code }}</p>
+
+        <label for="rating">Item Rating</label>
+        <input type="number" min="0" max="5" name="reviewRating" id="rating" placeholder="0" required>
+
+        <label for="reason">Reason for Rating</label>
+        <textarea name="reviewReason" placeholder="Enter your reason for your rating here" id="reason" rows="5" required></textarea>
+    </div>
+
     <input type="text" name="code" style="display: none" id="code">
-    <label for="rating">
-        <h4>Item Rating</h4>
-    </label>
-    <input type="number" min="0" max="5" name="reviewRating" id="rating" required>
-    <label for="reason">
-        <h4>Reason for rating</h4>
-    </label>
-    <textarea name="reviewReason" placeholder="Enter your reason for your rating here" id="reason"></textarea>
-    </div>
 
-    <div id="save" class="content-section hidden" style="border: solid 2px #428bca; border-radius: 7px">
-    <p id="reviewRatingTag"></p>
-    <p id="reviewReasonTag"></p>
-    </div>
-
-    <div>
-    <button type="button" onclick="" class="btn btn-outline" id="data">
-        Save
-    </button>
-    <button class="hidden" type="submit" id="submit">
+    <button class="btn btn-outline" type="button" onclick="addCode()">
         Submit
     </button>
-    </div>
-
 </form>
 
 <script>
-    submit = document.getElementById("submit")
-    reviewSave = document.getElementById("reviewRatingTag")
-    reasonSave = document.getElementById("reviewReasonTag")
-    saveClass = document.getElementById("save")
-    code = document.getElementById("code")
-    codeName = document.getElementById("codeName")
-    rating = document.getElementById("rating")
-    reason = document.getElementById("reason")
-    data = document.getElementById("data")
-    content = document.getElementById("holdContent")
-
-    data.addEventListener("click", function (){
-        if(!content.classList.contains("hidden")){
-            content.classList.add("hidden")
-            saveClass.classList.remove("hidden")
-            data.textContent = "Edit"
-            code.value = codeName.textContent.trim()
-            reviewSave.textContent = rating.textContent.trim()
-            reasonSave.textContent = reason.textContent.trim()
-
-            submit.classList.remove("hidden")
-        } else {
-            content.classList.remove("hidden")
-            saveClass.classList.add("hidden")
-            data.textContent = "Save"
-            submit.classList.add("hidden")
-        }
-    })
+    person = document.getElementById('codeName')
+    code = document.getElementById('code')
+    doc = document.getElementById('reviewForm')
+    function addCode(){
+        code.value = person.textContent.trim()
+        /* Once the function finishes executing, we will then submit the form from our javascript, and this form of
+        * submission will bypass any onsubmit listeners so that we won't trigger this function again*/
+        doc.submit(); /* Before you submit, make sure there is no element in the form that has a submit
+        id or is given the job to submit the form or else if will negate this submit function*/
+    }
 </script>
 
 {% endblock %}

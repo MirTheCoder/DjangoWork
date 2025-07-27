@@ -45,15 +45,15 @@ class Bids(models.Model):
 
 class Reviews(models.Model):
     auction = models.ForeignKey(Auction, on_delete=models.CASCADE)
-    username = models.CharField(default="user")
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     code = models.CharField(null=True, blank=True)
     reviewReason = models.TextField(default="Description is not provided")
     reviewRating = models.IntegerField(blank=True, null=True)
 
     def get_absolute_url(self, **kwargs):
-        # This will be used in order to call the auction-home url in order to go to the home page to view all auctions
-        return reverse('auctionDetails', kwargs={'pk':self.pk})
+        # This will be used in order to call the auctionDetails url in order to go to the details of
+        # the auction of interest page to view the auctions details
+        return reverse('seeBidLog')
 
 #We are adding the same or almost all the same fields in bid log as in auction to ensure that we have the auction info
 #even if the auctioneer decides to take down the auction
