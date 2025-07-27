@@ -86,7 +86,7 @@
     {% csrf_token %}
     <div id="holdContent" class="flexBod">
         <h4>Enter your review here</h4>
-        <p id="codeName">{{ person.code }}</p>
+        <p id="codeName">{{person.code.codeName}}</p>
 
         <label for="rating">Item Rating</label>
         <input type="number" min="0" max="5" name="reviewRating" id="rating" placeholder="0" required>

@@ -168,17 +168,20 @@
   font-style: italic;
 }
 
-.flexBod{
+.flexBod {
     display: flex;
     flex-direction: row;
     gap: 30px;
 }
 
+/* Here we have the child class that follows the flex-bod style but now each child is given an equal split of space*/
+
+
 
 </style>
 {% if auction %}
 <div class="flexBod">
-<div class="content-section">
+<div class="content-section "style="flex: 0 0 500px">
         <div>
             <h2>{{auction.title}}</h2>
             <small style="margin-left: 10px">{{auction.date}}</small>
@@ -216,7 +219,7 @@
         </form>
 </div>
 
-<div id="review" class="review-section hide">
+<div id="review" class="review-section hide child" style=" flex: 0 0 450px">
   <h3 class="section-title"> &#128064; See Reviews</h3>
 
   {% if reviews %}
@@ -224,7 +227,7 @@
       <div class="review-card">
         <div class="review-header">
           <h5>👤 <strong>Reviewer</strong></h5>
-          <h6>Bidder: {{ review.user.code }}</h6>
+          <h6>Bidder: {{ review.user.code.codeName }}</h6>
         </div>
 
         <div class="review-rating">
@@ -244,9 +247,9 @@
     </div>
 
 {% if user != auction.auctioneer %}
-<h2 class="section-title">🎯 Leading Bid List</h2>
 
-<div class="bid-list">
+<div class="bid-list" style="">
+    <h2 class="section-title">🎯 Leading Bid List</h2>
     {% if winning %}
         {% for win in winning %}
             <div class="bid-card {% if win.bidder == user %}highlight{% endif %}">

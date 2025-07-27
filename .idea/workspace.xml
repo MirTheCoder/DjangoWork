@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="We are currently working on the review page, we have set up the backend function that will handle all the reviews that are submitted, now we just need to set up the frontend where the user can submit their review to the system." />
+    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="We have successfully added the reviews section, and later we will be adding a feature that allows users to see all the reviews" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -158,14 +158,7 @@
       <workItem from="1753485403726" duration="1580000" />
       <workItem from="1753494367838" duration="3076000" />
       <workItem from="1753530083865" duration="15823000" />
-    </task>
-    <task id="LOCAL-00013" summary="We have structured the login and logout pages for the users along with a profile page for the user as well. We have also made it so that whenever a user is made, a default profile will automatically be made for them as well">
-      <option name="closed" value="true" />
-      <created>1750561510289</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1750561510289</updated>
+      <workItem from="1753577226690" duration="4133000" />
     </task>
     <task id="LOCAL-00014" summary="We have structured the login and logout pages for the users along with a profile page for the user as well. We have also made it so that whenever a user is made, a default profile will automatically be made for them as well">
       <option name="closed" value="true" />
@@ -551,14 +544,21 @@
       <option name="project" value="LOCAL" />
       <updated>1753561237566</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="We have successfully added the reviews section, and later we will be adding a feature that allows users to see all the reviews">
+      <option name="closed" value="true" />
+      <created>1753581645044</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1753581645044</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="We are starting a project in which we will be developing and auctioning system" />
     <MESSAGE value="We have successfully given the user the ability to add an auction, to be able to also log in and register. The next goal is to display the auctions on the page" />
     <MESSAGE value="We are still making edits to our auction page. We have edited the register function in our views so that it automatically creates a profile for each registered user. We also are working on the profile page to allow users to view their profile. More aspects to come as this is just a rough draft" />
     <MESSAGE value="We have created a template for updating the users profile, we are still working out a few bugs and playing around with the media roots as well.Once we get the profile stuff done, the goal is to start working on the bidding system." />
@@ -583,7 +583,8 @@
     <MESSAGE value="We are working on setting uo the process where the auctioneer can give the item to whoever wins the auction or whomever he deems to win the auction. Sorting out some bugs currently though" />
     <MESSAGE value="We have successfully set upt the bid log feature and are now going to see if we can start working on the reviews feature and are adding some css styling as well to make the website looking more appealing" />
     <MESSAGE value="We are currently working on the review page, we have set up the backend function that will handle all the reviews that are submitted, now we just need to set up the frontend where the user can submit their review to the system." />
-    <option name="LAST_COMMIT_MESSAGE" value="We are currently working on the review page, we have set up the backend function that will handle all the reviews that are submitted, now we just need to set up the frontend where the user can submit their review to the system." />
+    <MESSAGE value="We have successfully added the reviews section, and later we will be adding a feature that allows users to see all the reviews" />
+    <option name="LAST_COMMIT_MESSAGE" value="We have successfully added the reviews section, and later we will be adding a feature that allows users to see all the reviews" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
