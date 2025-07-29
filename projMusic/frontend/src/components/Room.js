@@ -13,6 +13,8 @@ class Room extends Component {
             isHost: false,
             showSettings: false,
             spotifyAuthenticated: false,
+            /* Here we will store song within our state*/
+            song: {}
         };
         //We get the room code that is passed into our props and store it as the room code for this page
         this.roomCode = props.roomCode;
@@ -23,7 +25,8 @@ class Room extends Component {
         this.renderSettingsButton = this.renderSettingsButton.bind(this)
         this.renderSettings = this.renderSettings.bind(this)
         this.getRoomDetails = this.getRoomDetails.bind(this)
-        this.getRoomDetails()
+        this.getRoomDetails();
+        this.getCurrentSong();
         this.authenticateSpotify = this.authenticateSpotify.bind(this)
     }
 
@@ -47,6 +50,17 @@ class Room extends Component {
             console.log(error)
         })
     };
+
+    getCurrentSong(){
+        fetch('/spotify/current-song').then((response) => {
+            if(!response.ok){
+                console.log("No song data")
+                return {}
+            } else {
+                return response.json()
+            }
+        }).then((data) => this.setState({song: data}));
+    }
 
     getRoomDetails() {
         //Here we have the call to the api, sending it the room code in exchange for the information pertaining to the
@@ -109,7 +123,7 @@ class Room extends Component {
 
     authenticateSpotify(){
         /* Here we are going to check and see if the user is authenticated or not*/
-        fetch('/spotify/is-authenticated').then((response) => response.json
+        fetch('/spotify/is-authenticated').then((response) => response.json()
         ).then((data) =>{
             /* set the spotify is authenticated state to whatever the api call gives us*/
             this.setState({
@@ -142,21 +156,7 @@ class Room extends Component {
                         Code: {this.roomCode}
                     </Typography>
                 </Grid>
-                <Grid item xs={12} align='center'>
-                    <Typography variant="h6" component="h6">
-                        Votes: {this.state.votesToSkip}
-                    </Typography>
-                </Grid>
-                <Grid item xs={12} align='center'>
-                    <Typography variant="h6" component="h6">
-                        Guest Can Pause: {this.state.guestCanPause.toString()}
-                    </Typography>
-                </Grid>
-                <Grid item xs={12} align='center'>
-                    <Typography variant="h6" component="h6">
-                        Is Host: {this.state.isHost.toString()}
-                    </Typography>
-                </Grid>
+                {this.state.song}
                 {this.state.isHost ? this.renderSettingsButton() : null}
                 <Grid item xs={12} align='center'>
                     <Button color="secondary" variant="contained" onClick={this.leaveButtonPressed}>
