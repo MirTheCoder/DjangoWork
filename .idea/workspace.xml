@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="We have fixed the authentication issues with spotify and connecting to the server. Users can now log in and have their music data read by the code, but we are working out an issue regarding displaying the actual data retrieved from the users spotify account and trying to fix a reloading error">
+    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="We have fixed the displaying of the spotify data, now we are just tweaking the format to edit how we are presenting the data.">
       <change afterPath="$PROJECT_DIR$/projMusic/spotify/credentials.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -163,14 +163,7 @@
       <workItem from="1753577226690" duration="4133000" />
       <workItem from="1753619102684" duration="4144000" />
       <workItem from="1753655799207" duration="21778000" />
-    </task>
-    <task id="LOCAL-00016" summary="We have now given the user the ability to update and delete their blogs, however, we have a system in place that will make sure that the user in session is the one who created that blog before they can do anything to it. We also are making the update and delete options more accessible">
-      <option name="closed" value="true" />
-      <created>1750649925895</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1750649925895</updated>
+      <workItem from="1753808531454" duration="3508000" />
     </task>
     <task id="LOCAL-00017" summary="We have added a paginator that splits up the blogs into different pages for the user to access">
       <option name="closed" value="true" />
@@ -556,14 +549,21 @@
       <option name="project" value="LOCAL" />
       <updated>1753766372064</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="We have fixed the displaying of the spotify data, now we are just tweaking the format to edit how we are presenting the data.">
+      <option name="closed" value="true" />
+      <created>1753812373805</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1753812373806</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="We have created a template for updating the users profile, we are still working out a few bugs and playing around with the media roots as well.Once we get the profile stuff done, the goal is to start working on the bidding system." />
     <MESSAGE value="We have successfully fixed the update form for the users profile and are now working on the bid attribute of the project, allowing users to place their bids on auctions of their choice." />
     <MESSAGE value="We have created a page where the auctioneer can see all the bids on their auction, and we have set the view bids button option to appear only if it is the auctioneer that is logged in, and we have set the place bid button to appear if only if anyone other than the auctioneer is logged in. Next we will try to give the users anonymous names and also potentially give the bidders the ability to see the current winning bid" />
     <MESSAGE value="We have started a new project, following a tutorial and learning how to use rest_framework in django code" />
@@ -588,7 +588,8 @@
     <MESSAGE value="We have successfully added the reviews section, and later we will be adding a feature that allows users to see all the reviews" />
     <MESSAGE value="We made some edits to the review class and also edited how the details page looks a little bit" />
     <MESSAGE value="We have fixed the authentication issues with spotify and connecting to the server. Users can now log in and have their music data read by the code, but we are working out an issue regarding displaying the actual data retrieved from the users spotify account and trying to fix a reloading error" />
-    <option name="LAST_COMMIT_MESSAGE" value="We have fixed the authentication issues with spotify and connecting to the server. Users can now log in and have their music data read by the code, but we are working out an issue regarding displaying the actual data retrieved from the users spotify account and trying to fix a reloading error" />
+    <MESSAGE value="We have fixed the displaying of the spotify data, now we are just tweaking the format to edit how we are presenting the data." />
+    <option name="LAST_COMMIT_MESSAGE" value="We have fixed the displaying of the spotify data, now we are just tweaking the format to edit how we are presenting the data." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

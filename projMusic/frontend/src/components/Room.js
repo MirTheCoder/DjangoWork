@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { Grid, Button, Typography} from "@mui/material"
 import CreateRoomPage from "./CreateRoomPage";
 import CreateRoomPageWrapper from "./CreateRoomPage";
+import MusicPlayerWrapper from "./MusicPlayer"
 
 class Room extends Component {
     constructor(props) {
@@ -25,9 +26,23 @@ class Room extends Component {
         this.renderSettingsButton = this.renderSettingsButton.bind(this)
         this.renderSettings = this.renderSettings.bind(this)
         this.getRoomDetails = this.getRoomDetails.bind(this)
+        this.getCurrentSong = this.getCurrentSong.bind(this)
         this.getRoomDetails();
         this.getCurrentSong();
         this.authenticateSpotify = this.authenticateSpotify.bind(this)
+    }
+
+    /* This will allow us to check the details of the current song playing so that we can accurately display the current
+    * status of the song within the playlist that we have access to*/
+    componentDidMount() {
+        /* here we are asking th file to call this.current song every 1000 milliseconds in order for it to provide
+        * a routine check on teh song within the users playlist*/
+        this.interval = setInterval(this.getCurrentSong, 1000)
+    }
+
+    /* This will be used to stop the interval once the component 'Room.js' is closed or stopped*/
+    componentWillUnmount() {
+        clearInterval(this.interval);
     }
 
     leaveButtonPressed(){
@@ -59,7 +74,10 @@ class Room extends Component {
             } else {
                 return response.json()
             }
-        }).then((data) => this.setState({song: data}));
+        }).then((data) => {
+            this.setState({song: data});
+            console.log(data)
+        });
     }
 
     getRoomDetails() {
@@ -156,7 +174,11 @@ class Room extends Component {
                         Code: {this.roomCode}
                     </Typography>
                 </Grid>
-                {this.state.song}
+                {/* This will ensure that we first get the song details before rendering the Music Player*/}
+                {this.state.song? (<MusicPlayerWrapper song = {this.state.song}/>):(
+                    <Typography>Loading current song...</Typography>
+                )
+                }
                 {this.state.isHost ? this.renderSettingsButton() : null}
                 <Grid item xs={12} align='center'>
                     <Button color="secondary" variant="contained" onClick={this.leaveButtonPressed}>
