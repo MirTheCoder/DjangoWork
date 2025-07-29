@@ -115,8 +115,11 @@ class Room extends Component {
             this.setState({
                 spotifyAuthenticated: data.status
             })
+            console.log("Already Authenticated")
             /* if the user is not authenticated, then we will authenticate them */
-            if(!data.status){
+            if(data.status){
+                console.log(data.status)
+            } else {
                 fetch('/spotify/get-auth-url'
                 ).then((response) => response.json()
                 ).then((data) => {
@@ -124,8 +127,6 @@ class Room extends Component {
                     /* Here we will redirect the user to the spotify callback */
                     window.location.replace(data.url)
                 })
-            } else {
-                console.log("True")
             }
         })
     }
