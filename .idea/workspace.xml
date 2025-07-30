@@ -4,8 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="We have fixed the displaying of the spotify data, now we are just tweaking the format to edit how we are presenting the data.">
+    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="We are adding the pause, skip, and play function attributes">
+      <change afterPath="$PROJECT_DIR$/projMusic/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projMusic/frontend/src/components/info.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/projMusic/spotify/credentials.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/frontend/src/components/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/frontend/src/components/HomePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/frontend/src/components/MusicPlayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/frontend/src/components/MusicPlayer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/frontend/static/frontend/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/frontend/static/frontend/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/frontend/static/frontend/main.js.LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/frontend/static/frontend/main.js.LICENSE.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/frontend/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/frontend/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/projMusic/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/projMusic/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,9 +24,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="package.json" />
-        <option value="JavaScript File" />
         <option value="HTML File" />
         <option value="Python Script" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -164,14 +172,7 @@
       <workItem from="1753619102684" duration="4144000" />
       <workItem from="1753655799207" duration="21778000" />
       <workItem from="1753808531454" duration="3508000" />
-    </task>
-    <task id="LOCAL-00017" summary="We have added a paginator that splits up the blogs into different pages for the user to access">
-      <option name="closed" value="true" />
-      <created>1750654559054</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1750654559054</updated>
+      <workItem from="1753814034793" duration="28313000" />
     </task>
     <task id="LOCAL-00018" summary="We have added an image attribute to allow users to add an image to their Post, and we are going to be working on hopefully adding an option in the users homepage to look at other users">
       <option name="closed" value="true" />
@@ -557,14 +558,21 @@
       <option name="project" value="LOCAL" />
       <updated>1753812373806</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="We are adding the pause, skip, and play function attributes">
+      <option name="closed" value="true" />
+      <created>1753827354251</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1753827354251</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="We have successfully fixed the update form for the users profile and are now working on the bid attribute of the project, allowing users to place their bids on auctions of their choice." />
     <MESSAGE value="We have created a page where the auctioneer can see all the bids on their auction, and we have set the view bids button option to appear only if it is the auctioneer that is logged in, and we have set the place bid button to appear if only if anyone other than the auctioneer is logged in. Next we will try to give the users anonymous names and also potentially give the bidders the ability to see the current winning bid" />
     <MESSAGE value="We have started a new project, following a tutorial and learning how to use rest_framework in django code" />
     <MESSAGE value="We have started to install our required installations from npm as per the tutorial." />
@@ -589,7 +597,8 @@
     <MESSAGE value="We made some edits to the review class and also edited how the details page looks a little bit" />
     <MESSAGE value="We have fixed the authentication issues with spotify and connecting to the server. Users can now log in and have their music data read by the code, but we are working out an issue regarding displaying the actual data retrieved from the users spotify account and trying to fix a reloading error" />
     <MESSAGE value="We have fixed the displaying of the spotify data, now we are just tweaking the format to edit how we are presenting the data." />
-    <option name="LAST_COMMIT_MESSAGE" value="We have fixed the displaying of the spotify data, now we are just tweaking the format to edit how we are presenting the data." />
+    <MESSAGE value="We are adding the pause, skip, and play function attributes" />
+    <option name="LAST_COMMIT_MESSAGE" value="We are adding the pause, skip, and play function attributes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -11,7 +11,11 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+from spotify.credentials import IP_ADDRESS
 import os
+
+IP_ADDRESS = os.getenv("IP_ADDRESS")
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,8 +29,13 @@ SECRET_KEY = 'django-insecure-xa!uzul^=mvs#y1=fgrvsn31chmigp&nm5@0zvo6h0wk==tqvd
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = []
+#This tells our code that we are allowing it to run the code on our local network and on our local host/server
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "0.0.0.0",
+    IP_ADDRESS,
+]
 
 
 # Application definition

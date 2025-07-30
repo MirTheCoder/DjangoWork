@@ -75,7 +75,7 @@ class MusicPlayer extends Component{
                            </IconButton>
                            {/* We use the arrow functions in order to bypass needing to bind our function to the this key word so that we can by default just use the this keyword*/}
                             <IconButton onClick={() => this.skipSong()}>
-                               {<SkipNextIcon/>}
+                               {<SkipNextIcon/>}  {this.props.song.votes}/{this.props.song.votes_required}
                            </IconButton>
                        </div>
                    </Grid>

@@ -9,6 +9,8 @@ import Room from "./Room";
 import RoomWrapper from "./Room";
 import {ButtonGroup, Button, Grid, Typography} from '@mui/material';
 import CreateRoomPageWrapper from "./CreateRoomPage";
+/* Make sure to import your componets with the first letter being upper case*/
+import Info from "./info"
 /* This component will be used to render our homepage */
 export default class HomePage extends Component {
 
@@ -61,6 +63,9 @@ export default class HomePage extends Component {
               <Button color="primary" to='/join' component={Link}>
                 Join a Room
               </Button>
+              <Button color="default" to='/info' component={Link}>
+                Info
+              </Button>
               <Button color="secondary" to='/create' component={Link}>
                 Create a Room
               </Button>
@@ -83,6 +88,7 @@ export default class HomePage extends Component {
           }
         />
           <Route path='/join' element={<RoomJoinPage />} />
+          <Route path='/info' element={<Info/>}/>
           <Route path='/create' element={<CreateRoomPageWrapper />} />
             {/* the '/:' just notifies the computer that an argument or variable will be passed in the url request*/}
             <Route
