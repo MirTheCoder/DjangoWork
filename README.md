@@ -21,6 +21,7 @@ Required Pip Installations for projMusic
 - Next, we will install "npm install react-router-dom" which will allow us to reroute our pages so that we can navigate to different pages from React
 - Next, we need to install "npm install @mui/icons-material" to get the icons required
 - Next, we need to install "npm install @mui/lab" to create alerts in our renderings
+- Next, install 'python-dotenv' by running "pip install python-dotenv"
 
 
 More on ProjMusic
@@ -28,6 +29,18 @@ More on ProjMusic
   with npm
 - Make sure that when you are installing react and react-dom, you are installing a version no newer or later than 18.2, since that is the latest version that is stable enough for this project. If you installed anything higher, you can run "npm install react@18.2.0 react-dom@18.2.0" to replace the newer version that you were using
 - Also, make sure to delete mode_modules and package.jason-lock if you had accidentally installed the newest version of React and installed a downgrade to fix the issue. Once you delete both, reinstall by typing "npm install"
+- To run on the local network or to allow connections to this website from other devices, run "python manage.py runserver 0.0.0.0:8000"
+
+  
+- Remember, to add the client_id and client_secret as environment variables, you can do this by creating a .env text file, which will hold all the true values of your variables
+- Write this:
+
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+-to load all the environment variables within your .env file
 
 Connection with Spotify:
 - Make sure to register your application with Spotify to request and access data on Spotify
