@@ -75,7 +75,6 @@ def refresh_spotify_token(session_id):
 def execute_spotify_api_request(session_id, endpoint, post_=False, put_=False):
     tokens = get_user_tokens(session_id)
     #Used to send the authorization token to spotify
-
     headers = {'Content-Type': "application/json", 'Authorization':"Bearer " + tokens.access_token}
 
     #Make sure to use a chain of if and elif statements to ensure that you are only sending the request of interest
@@ -88,6 +87,7 @@ def execute_spotify_api_request(session_id, endpoint, post_=False, put_=False):
         response = put(BASE_URL + endpoint, headers=headers)
         print(response.text)
     else:
+        print(f"Access Token: {tokens.access_token}")
         response = get(BASE_URL + endpoint, {}, headers=headers)
     #This is in case we encounter an error when we try to get the json data of our get request
     try:
