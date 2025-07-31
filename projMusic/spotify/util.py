@@ -32,7 +32,6 @@ def update_or_create_user_tokens(session_id, access_token, token_type,expires_in
         tokens.save(update_fields=['access_token', 'refresh_token','expires_in','token_type'])
     else:
         #If the user does not have a token then we will just create one for them
-        print("Session id: " + session_id)
         tokens = SpotifyToken(user=session_id,access_token=access_token,refresh_token=refresh_token,token_type=token_type,expires_in=expires_in)
         tokens.save()
 
@@ -87,7 +86,6 @@ def execute_spotify_api_request(session_id, endpoint, post_=False, put_=False):
         response = put(BASE_URL + endpoint, headers=headers)
         print(response.text)
     else:
-        print(f"Access Token: {tokens.access_token}")
         response = get(BASE_URL + endpoint, {}, headers=headers)
     #This is in case we encounter an error when we try to get the json data of our get request
     try:

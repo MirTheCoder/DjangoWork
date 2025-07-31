@@ -37,4 +37,4 @@ const appDiv = document.getElementById('app')
 const root = createRoot(appDiv)
 /* Here we are just placing the App class in the div class in our index html labeled app so that whatever we render
 * in our App class will be rendered in the div class*/
-root.render(<App />, appDiv)
+root.render(<App />)

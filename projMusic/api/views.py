@@ -2,7 +2,7 @@ from django.http import JsonResponse
 from django.shortcuts import render
 from rest_framework import generics, status
 from .serializers import RoomSerializer, CreateRoomSerializer, UpdateRoomSerializer
-from .models import Room
+from .models import Room, Requests, UsersInRoom
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
@@ -34,22 +34,24 @@ class CreateRoomView(APIView):
         if serializer.is_valid():
             guest_can_pause = serializer.validated_data.get('guest_can_pause')
             votes_to_skip = serializer.validated_data.get('votes_to_skip')
+            admit_required = serializer.validated_data.get('admit_required')
+            print(f"Admit Value: {admit_required}")
             host = self.request.session.session_key
             #Here, we check and see, if the user who is currently active has a room already made, and if they do then we
             #will just transport them back to their room but with the 'guest_can_pause' and 'votes_to_skip' details
             #being changed
-            queryset = Room.objects.filter(host=host)
-            if queryset.exists():
-                room = queryset[0]
+            room = Room.objects.filter(host=host).first()
+            if room:
                 room.guest_can_pause = guest_can_pause
                 room.votes_to_skip = votes_to_skip
+                room.admit_required = admit_required
                 #We use this line of code to update and existing room within our Rooms table in our database
-                room.save(update_fields=['guest_can_pause', 'votes_to_skip'])
+                room.save(update_fields=['guest_can_pause', 'votes_to_skip','admit_required'])
                 self.request.session['room_code'] = room.code
                 return Response(RoomSerializer(room).data, status=status.HTTP_200_OK)
             else:
                 #We will just create a new room if the user in session does not already have an active room
-                room = Room(host=host, guest_can_pause=guest_can_pause, votes_to_skip=votes_to_skip)
+                room = Room(host=host, guest_can_pause=guest_can_pause, votes_to_skip=votes_to_skip, admit_required=admit_required)
                 room.save()
                 self.request.session['room_code'] = room.code
              #This will send the room data using the RoomSerializer for formatting purposes
@@ -93,7 +95,11 @@ class JoinRoom(APIView):
             room = Room.objects.filter(code=code).first()
             if room:
                 #We wil use this to ensure that the system knows that this user has successfully joined the room
-                self.request.session['room_code'] = code
+                if not room.admit_required:
+                    self.request.session['room_code'] = code
+                    in_room = UsersInRoom(room=room,user=self.request.session,)
+                else:
+                    makeRequest(self.request.session,room)
                 return Response({'message': 'Room Joined'}, status=status.HTTP_200_OK)
             else:
                 return Response({"BadRequest": "Invalid Room Code"}, status=status.HTTP_400_BAD_REQUEST)
@@ -164,3 +170,6 @@ class UpdateRoom(APIView):
             return Response(RoomSerializer(room).data, status=status.HTTP_200_OK)
 
         return Response({'Bad Request', "Invalid Data"}, status=status.HTTP_400_BAD_REQUEST)
+
+def makeRequest(session_id, room):
+    requesting = Requests(session_id,room)

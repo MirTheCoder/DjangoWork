@@ -67,7 +67,7 @@ def spotify_callback(request,format=None):
         'client_id': CLIENT_ID,
 
     }).json() #We will convert the response we receive from our post request into json data
-    print("Spotify token response:", response)
+
 
     #We will store within variables the various fields of our response that we get from spotify after sending
     #our post request
@@ -92,7 +92,6 @@ def spotify_callback(request,format=None):
 class IsAuthenticated(APIView):
     def get(self,request, format=None):
         is_authenticated = is_spotify_authenticated(self.request.session.session_key)
-        print(f"Authenticated: {is_authenticated}")
         return Response({'status':is_authenticated}, status=status.HTTP_200_OK)
 
 class CurrentSong(APIView):

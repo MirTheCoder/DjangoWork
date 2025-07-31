@@ -87,11 +87,13 @@ class Room extends Component {
             .then((response) => {
                 /* If we don't get a match for the roomCode, then we will just send the user back to the home page*/
                 if(!response.ok){
+                    console.log("Room Not Found")
                     this.props.leaveRoomCallBack();
                     window.location.href = "/"
+                } else {
+                    /* make sure to jsonify the response in order to obtain the data from it*/
+                    return response.json()
                 }
-                /* make sure to jsonify the response in order to obtain the data from it*/
-                return response.json()
             }).then((data) => {
                 console.log(data)
                 this.setState({

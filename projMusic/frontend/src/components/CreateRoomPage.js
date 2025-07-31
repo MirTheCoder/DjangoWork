@@ -30,6 +30,7 @@ class CreateRoomPage extends Component{
             votesToSkip: this.defaultVotes,
             successMsg: false,
             errorMsg: false,
+            admit: false
         }
         /* binding the method to this class allows whatever value that calls the button press method to have access to
         * the 'this' keyword*/
@@ -39,6 +40,7 @@ class CreateRoomPage extends Component{
         this.renderUpdateButtons = this.renderUpdateButtons.bind(this)
         this.renderCreateButton = this.renderCreateButton.bind(this)
         this.handleUpdateButtonPressed = this.handleUpdateButtonPressed.bind(this)
+        this.handleAdmitChange = this.handleAdmitChange.bind(this)
         if(props.update){
             this.update = props.update
         }
@@ -55,6 +57,11 @@ class CreateRoomPage extends Component{
         if(props.roomCode){
             this.roomCode = props.roomCode
         }
+        if(props.admit){
+            this.setState({
+                admit: props.admit
+            })
+        }
     }
     handleVotesChange(e) {
                 this.setState({
@@ -69,6 +76,13 @@ class CreateRoomPage extends Component{
                 });
             }
 
+            handleAdmitChange(e) {
+                this.setState({
+                    /* Checks to see if the string input is true, and if not then we will set guestCanPause to false*/
+                   admit: e.target.value === "true",
+                });
+            }
+
             handleRoomButtonPressed(){
                 const requestOptions = {
                     method: 'POST',
@@ -77,14 +91,20 @@ class CreateRoomPage extends Component{
                     body: JSON.stringify({
                         votes_to_skip: this.state.votesToSkip,
                         guest_can_pause: this.state.guestCanPause,
+                        admit_required: this.state.admit,
                     }),
                 };
                 /* here is where we call the create room method from the frontend and feed it the data that the user has
                 * typed in so that the api cna create the room*/
                 fetch('/api/create-room', requestOptions)
-                .then((response) => response.json())
-                .then((data) => window.location.href="/room/" + data.code)
-                .catch((error) => console.error('Error:', error));
+                .then((response) => {
+                    console.log("Raw request body:", response.body)
+                    return response.json()
+                })
+                .then((data) => {
+                    console.log("Parsed request data:", data)
+                    window.location.href="/room/" + data.code
+                }).catch((error) => console.error('Error:', error));
 
             }
 
@@ -111,7 +131,8 @@ class CreateRoomPage extends Component{
                     body: JSON.stringify({
                         votes_to_skip: this.state.votesToSkip,
                         guest_can_pause: this.state.guestCanPause,
-                        code: this.roomCode
+                        code: this.roomCode,
+                        admit: this.state.admit,
                     }),
                 };
                 /* here is where we call the create room method from the frontend and feed it the data that the user has
@@ -189,6 +210,28 @@ class CreateRoomPage extends Component{
                         <FormControlLabel value="false" control={<Radio color="secondary"/>} label="No control"
                         labelPlacement="bottom">
                         </FormControlLabel>
+
+                    </RadioGroup>
+                    {/* This will handle the users choice for whether not they would want a public or private room*/}
+                    <FormHelperText>
+                        <div align="center">
+                            Control of room being public or private
+                        </div>
+                    </FormHelperText>
+                    <RadioGroup row defaultValue={this.state.admit.toString()} onChange={this.handleAdmitChange}>
+                        {/* We use this to add a label to our radio buttons*/}
+                        {/* We will have two radio buttons with one having a value of true and one being false
+                        that they don't have control*/}
+                        <div align="center">
+                        <FormControlLabel value="true" control={<Radio color="primary"/>} label="private"
+                        labelPlacement="bottom">
+                        </FormControlLabel>
+                        {/* In this one we are creating a button that the user cna select if they don't want the users to have
+                        control over pausing or playing the music*/}
+                        <FormControlLabel value="false" control={<Radio color="secondary"/>} label="public"
+                        labelPlacement="bottom">
+                        </FormControlLabel>
+                        </div>
 
                     </RadioGroup>
                 </FormControl>

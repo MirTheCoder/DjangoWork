@@ -59,12 +59,12 @@ class MusicPlayer extends Component{
                <Grid container alignItems="center" direction="column">
                    {/* We have xs = to 4 so that the album cover is aligned to the left, takes up 1/3 of the grid*/}
                    <Grid item align="center" xs={4}>
-                       <img src={this.props.song.image_url?this.props.song.image_url: null} height="100%" width="100%"/>
+                       <img src={this.props.song.image_url?this.props.song.image_url: null} height="80%" width="80%"/>
                    </Grid>
                    {/* This will take up 2/3 of the grid*/}
                    <Grid item align="center" xs={8}>
                        <Typography component="h5" variant="h5">
-                           {this.props.song.title?this.props.title: "Title Not Given"}
+                           {this.props.song.title?this.props.song.title: "Title Not Given"}
                        </Typography>
                        <Typography color="textSecondary" variant="subtitle1">
                            {this.props.song.artist?this.props.song.artist: "Artist Not Provided"}
