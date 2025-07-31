@@ -4,16 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="We are adding the pause, skip, and play function attributes">
+    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="We have added the pause and play elements, and have set up our environment variables to help better conceal our info or important info strings. We have edited our allowed host so that it will run on our local network as well. We will play around with the code to see what other features we can add and how we can increase the interactiveness of the code as well">
       <change afterPath="$PROJECT_DIR$/projMusic/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projMusic/frontend/src/components/info.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projMusic/spotify/credentials.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/frontend/src/components/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/frontend/src/components/HomePage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projMusic/frontend/src/components/MusicPlayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/frontend/src/components/MusicPlayer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projMusic/frontend/static/frontend/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/frontend/static/frontend/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/frontend/static/frontend/main.js.LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/frontend/static/frontend/main.js.LICENSE.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/frontend/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/frontend/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/projMusic/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/projMusic/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/spotify/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/spotify/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
