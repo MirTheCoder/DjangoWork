@@ -11,6 +11,22 @@ def generate_unique_code():
             break
     return code
 
+def generate_unique_number():
+    length = 8
+    i = 0
+    code = ""
+    while True:
+        while i < length:
+            #This will add a random value between 0 and 9 (with 0 and 9 included) to add to our code string
+            code += str(random.randrange(10))
+            i += 1
+        code = int(code)
+        if UsersInRoom.objects.filter(user_code=code).count() == 0:
+            break
+        else:
+            code = ""
+    return code
+
 # Create your models here.
 class Room(models.Model):
     #Whenever we create a new room, the table will by default call 'generate_unique_code' to create a default code
@@ -32,6 +48,8 @@ class UsersInRoom(models.Model):
     #This tells our database table to automatically save the current time stamp at the creation of an instance within
     # this datatable to the created_at field in this datatable
     created_at = models.DateTimeField(auto_now_add=True)
+    #Each user when added to a room will get a unique number
+    user_code = models.IntegerField(default=generate_unique_number, unique=True)
 
 class Requests(models.Model):
     #This is required in order to store the session data of a user

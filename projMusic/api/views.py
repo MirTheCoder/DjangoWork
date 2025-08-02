@@ -89,18 +89,22 @@ class JoinRoom(APIView):
         if not self.request.session.exists(self.request.session.session_key):
             # We will create a session for the user if they do not have an active one running
             self.request.session.create()
-
         code = request.data.get(self.lookup_url_kwarg)
         if code is not None:
             room = Room.objects.filter(code=code).first()
             if room:
                 #We wil use this to ensure that the system knows that this user has successfully joined the room
-                if not room.admit_required:
-                    self.request.session['room_code'] = code
-                    in_room = UsersInRoom(room=room,user=self.request.session,)
-                else:
+                if room.admit_required:
                     makeRequest(self.request.session,room)
-                return Response({'message': 'Room Joined'}, status=status.HTTP_200_OK)
+                    return Response({'message': 'Join Room Pending'}, status=status.HTTP_200_OK)
+                else:
+                    self.request.session['room_code'] = code
+                    #Make sure to turn the session data into a dictionary
+                    session_dict = dict(request.session.items())
+                    # This will log this specific user to this room
+                    in_room = UsersInRoom(room=room, user=session_dict)
+                    in_room.save()
+                    return Response({'message': 'Room Joined'}, status=status.HTTP_200_OK)
             else:
                 return Response({"BadRequest": "Invalid Room Code"}, status=status.HTTP_400_BAD_REQUEST)
         return Response({'BadRequest': "Invalid post data, did not find a 'code key'"}, status=status.HTTP_400_BAD_REQUEST)
@@ -173,3 +177,21 @@ class UpdateRoom(APIView):
 
 def makeRequest(session_id, room):
     requesting = Requests(session_id,room)
+
+class GetUsersInRoom(APIView):
+    def get(self,request,format=None):
+        code = request.data.get('code')
+        room = Room.objects.filter(code=code).first()
+        if room:
+            guest_list = UsersInRoom.objects.filter(room=room)
+            if guest_list:
+                room_list = []
+                for guest in guest_list:
+                    room_list.append(guest.user_code)
+                return Response(room_list,status=status.HTTP_200_OK)
+            else:
+                return Response({"No Members": "You have no current members in your room"}, status=status.HTTP_404_NOT_FOUND)
+        return Response({"Invalid Room": "Room does not exist"}, status=status.HTTP_400_BAD_REQUEST)
+
+
+

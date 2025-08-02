@@ -14,6 +14,7 @@ class Room extends Component {
             isHost: false,
             showSettings: false,
             spotifyAuthenticated: false,
+            members: {},
             /* Here we will store song within our state*/
             song: {}
         };
@@ -23,22 +24,28 @@ class Room extends Component {
         this.getRoomDetails()// passed from wrapper
         this.leaveButtonPressed = this.leaveButtonPressed.bind(this)
         this.updateShowSettings = this.updateShowSettings.bind(this)
-        this.renderSettingsButton = this.renderSettingsButton.bind(this)
-        this.renderSettings = this.renderSettings.bind(this)
-        this.getRoomDetails = this.getRoomDetails.bind(this)
-        this.getCurrentSong = this.getCurrentSong.bind(this)
-        this.getRoomDetails();
-        this.getCurrentSong();
-        this.authenticateSpotify = this.authenticateSpotify.bind(this)
-    }
+            this.renderSettingsButton = this.renderSettingsButton.bind(this)
+            this.renderSettings = this.renderSettings.bind(this)
+            this.getRoomDetails = this.getRoomDetails.bind(this)
+            this.getCurrentSong = this.getCurrentSong.bind(this)
+            this.getUsersInRoom = this.getUsersInRoom.bind(this)
+            this.renderUsersInRoom = this.renderUsersInRoom.bind(this)
+            this.getRoomDetails();
+            this.getCurrentSong();
+            this.authenticateSpotify = this.authenticateSpotify.bind(this)
+        }
 
-    /* This will allow us to check the details of the current song playing so that we can accurately display the current
-    * status of the song within the playlist that we have access to*/
+        /* This will allow us to check the details of the current song playing so that we can accurately display the current
+        * status of the song within the playlist that we have access to*/
     componentDidMount() {
         /* here we are asking th file to call this.current song every 1000 milliseconds in order for it to provide
         * a routine check on teh song within the users playlist*/
-        this.interval = setInterval(this.getCurrentSong, 1000)
-    }
+            this.interval = setInterval(() => {
+                this.getCurrentSong();
+                this.getUsersInRoom()
+            }, 1000);
+        }
+
 
     /* This will be used to stop the interval once the component 'Room.js' is closed or stopped*/
     componentWillUnmount() {
@@ -78,6 +85,47 @@ class Room extends Component {
             this.setState({song: data});
             console.log(data)
         });
+    }
+
+    getUsersInRoom(){
+        const requestOptions = {
+            method: "POST",
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                code: this.roomCode
+            }),
+        }
+
+        fetch('/api/users-in-room', requestOptions)
+            .then((response) => {
+                if(response.ok){
+                    return response.json()
+                }else{
+                    return {}
+                }
+
+            })
+            .then((data) => {
+                this.setState({
+                    members: data
+                })
+            }) .catch((error) => {
+                console.log("Request was unsuccessful: ", error)
+        })
+    }
+
+    renderUsersInRoom(){
+        const items = []
+        for (let i = 0; i < this.members.length; i++) {
+            items.push(
+                <li value={this.members[i]} key={i}>User {this.members[i]}</li>
+            );
+        }
+        return(
+            <div>
+                <ul>items</ul>
+            </div>
+        )
     }
 
     getRoomDetails() {
@@ -182,6 +230,7 @@ class Room extends Component {
                 )
                 }
                 {this.state.isHost ? this.renderSettingsButton() : null}
+                {this.state.members ? this.renderUsersInRoom(): null}
                 <Grid item xs={12} align='center'>
                     <Button color="secondary" variant="contained" onClick={this.leaveButtonPressed}>
                         Leave Room
