@@ -87,46 +87,7 @@ class Room extends Component {
         });
     }
 
-    getUsersInRoom(){
-        const requestOptions = {
-            method: "POST",
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
-                code: this.roomCode
-            }),
-        }
 
-        fetch('/api/users-in-room', requestOptions)
-            .then((response) => {
-                if(response.ok){
-                    return response.json()
-                }else{
-                    return {}
-                }
-
-            })
-            .then((data) => {
-                this.setState({
-                    members: data
-                })
-            }) .catch((error) => {
-                console.log("Request was unsuccessful: ", error)
-        })
-    }
-
-    renderUsersInRoom(){
-        const items = []
-        for (let i = 0; i < this.members.length; i++) {
-            items.push(
-                <li value={this.members[i]} key={i}>User {this.members[i]}</li>
-            );
-        }
-        return(
-            <div>
-                <ul>items</ul>
-            </div>
-        )
-    }
 
     getRoomDetails() {
         //Here we have the call to the api, sending it the room code in exchange for the information pertaining to the
@@ -230,7 +191,6 @@ class Room extends Component {
                 )
                 }
                 {this.state.isHost ? this.renderSettingsButton() : null}
-                {this.state.members ? this.renderUsersInRoom(): null}
                 <Grid item xs={12} align='center'>
                     <Button color="secondary" variant="contained" onClick={this.leaveButtonPressed}>
                         Leave Room

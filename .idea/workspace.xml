@@ -4,14 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="We are now working on an admit system that will give the user the ability to make their room public or private, and we have created a UsersInRoom data table that will keep track of who is in what room">
+    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="we are working on displaying all the users within a music room">
       <change afterPath="$PROJECT_DIR$/projMusic/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/api/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/api/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/api/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/api/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/frontend/src/components/Room.js" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/frontend/src/components/Room.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/frontend/static/frontend/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/frontend/static/frontend/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,14 +170,7 @@
       <workItem from="1753991988827" duration="8394000" />
       <workItem from="1754010314987" duration="5231000" />
       <workItem from="1754151007698" duration="123000" />
-    </task>
-    <task id="LOCAL-00020" summary="We have added the option for people to look at the post of other users along with the ability to look at the post made by specific users as well. Next I hope to add a comment section for users to comment on post">
-      <option name="closed" value="true" />
-      <created>1750735692645</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1750735692646</updated>
+      <workItem from="1754157218724" duration="93000" />
     </task>
     <task id="LOCAL-00021" summary="Currently working on creating the comment database and also the ability for users to add comments to post">
       <option name="closed" value="true" />
@@ -569,14 +556,21 @@
       <option name="project" value="LOCAL" />
       <updated>1753942404930</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="we are working on displaying all the users within a music room">
+      <option name="closed" value="true" />
+      <created>1754157276173</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1754157276174</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="We have started a new project, following a tutorial and learning how to use rest_framework in django code" />
     <MESSAGE value="We have started to install our required installations from npm as per the tutorial." />
     <MESSAGE value="We have set up our index.html page for rendering, we have also set up a new app called frontend, and we have also set up our React file page as well and set up a div class that the React file can render its stuff inside of" />
     <MESSAGE value="We have now set up a routing system in our HomePage.js in order to flip through the various components that we render. We are also creating a serializer that will check and see if the post request made for the creation of a room is valid so that we can send over the details requested for this creation of the room" />
@@ -601,7 +595,8 @@
     <MESSAGE value="We have fixed the displaying of the spotify data, now we are just tweaking the format to edit how we are presenting the data." />
     <MESSAGE value="We are adding the pause, skip, and play function attributes" />
     <MESSAGE value="We are now working on an admit system that will give the user the ability to make their room public or private, and we have created a UsersInRoom data table that will keep track of who is in what room" />
-    <option name="LAST_COMMIT_MESSAGE" value="We are now working on an admit system that will give the user the ability to make their room public or private, and we have created a UsersInRoom data table that will keep track of who is in what room" />
+    <MESSAGE value="we are working on displaying all the users within a music room" />
+    <option name="LAST_COMMIT_MESSAGE" value="we are working on displaying all the users within a music room" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
