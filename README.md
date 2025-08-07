@@ -4,6 +4,11 @@ Required pip installations for Django Projects
 3. pillow
 4. crispy-bootstrap4
 
+Required Steps for projAuction
+1. If you are using Python interpreter 3.12 or higher, make sure to open your terminal and run "/Applications/Python\ 3.12/Install\ Certificates.command, to manually install the required certifications for using Gmail from your website to send stuff
+2. You will also need to generate an app password that you will use as your Gmail account (the one you will allow your website to use to send emails) password for the website to have access to.
+3. Here is the link to generate the required app password: https://myaccount.google.com/apppasswords
+
 Required Pip Installations for projMusic
 1. django
 2. rest_framework
