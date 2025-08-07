@@ -4,6 +4,8 @@ import { Grid, Button, Typography} from "@mui/material"
 import CreateRoomPage from "./CreateRoomPage";
 import CreateRoomPageWrapper from "./CreateRoomPage";
 import MusicPlayerWrapper from "./MusicPlayer"
+import MembersWrapper from "./Members";
+import {BrowserRouter as Router,Route} from "react-router-dom";
 
 class Room extends Component {
     constructor(props) {
@@ -28,11 +30,10 @@ class Room extends Component {
             this.renderSettings = this.renderSettings.bind(this)
             this.getRoomDetails = this.getRoomDetails.bind(this)
             this.getCurrentSong = this.getCurrentSong.bind(this)
-            this.getUsersInRoom = this.getUsersInRoom.bind(this)
-            this.renderUsersInRoom = this.renderUsersInRoom.bind(this)
             this.getRoomDetails();
             this.getCurrentSong();
             this.authenticateSpotify = this.authenticateSpotify.bind(this)
+            this.seeMembersPressed = this.seeMembersPressed.bind(this)
         }
 
         /* This will allow us to check the details of the current song playing so that we can accurately display the current
@@ -42,7 +43,6 @@ class Room extends Component {
         * a routine check on teh song within the users playlist*/
             this.interval = setInterval(() => {
                 this.getCurrentSong();
-                this.getUsersInRoom()
             }, 1000);
         }
 
@@ -85,6 +85,12 @@ class Room extends Component {
             this.setState({song: data});
             console.log(data)
         });
+    }
+
+    seeMembersPressed(){
+        return <Grid item xs={12} align="center">
+            <MembersWrapper roomCode={this.roomCode}/>
+        </Grid>
     }
 
 
@@ -191,6 +197,11 @@ class Room extends Component {
                 )
                 }
                 {this.state.isHost ? this.renderSettingsButton() : null}
+                <Grid item xs={12} align='center'>
+                    <Button color="primary" variant="contained" onClick={this.seeMembersPressed}>
+                        See Members
+                    </Button>
+                </Grid>
                 <Grid item xs={12} align='center'>
                     <Button color="secondary" variant="contained" onClick={this.leaveButtonPressed}>
                         Leave Room

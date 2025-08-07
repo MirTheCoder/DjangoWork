@@ -12,5 +12,5 @@ urlpatterns = [
     path('join', index, name= 'frontend-home'),
     path('create', index, name= 'frontend-home'),
     path('room/<str:roomCode>', index, name= 'frontend-home'),
-    path("info", index, name="info")
+    path("info", index, name="info"),
 ]

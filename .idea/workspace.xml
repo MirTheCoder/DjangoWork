@@ -4,8 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="we are working on displaying all the users within a music room">
+    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="we are working on displaying all the users within a music room via a new component">
       <change afterPath="$PROJECT_DIR$/projMusic/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/frontend/src/components/Room.js" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/frontend/src/components/Room.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/frontend/src/components/members.js" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/frontend/src/components/Members.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/frontend/static/frontend/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/frontend/static/frontend/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/frontend/static/frontend/main.js.LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/frontend/static/frontend/main.js.LICENSE.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/frontend/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/frontend/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,14 +177,8 @@
       <workItem from="1754010314987" duration="5231000" />
       <workItem from="1754151007698" duration="123000" />
       <workItem from="1754157218724" duration="93000" />
-    </task>
-    <task id="LOCAL-00021" summary="Currently working on creating the comment database and also the ability for users to add comments to post">
-      <option name="closed" value="true" />
-      <created>1750788367651</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1750788367651</updated>
+      <workItem from="1754455941512" duration="1431000" />
+      <workItem from="1754508411333" duration="8242000" />
     </task>
     <task id="LOCAL-00022" summary="Cuwe have given users the ability to comment on post, still working out a bug though on the return url after the user submits the comment">
       <option name="closed" value="true" />
@@ -564,14 +564,21 @@
       <option name="project" value="LOCAL" />
       <updated>1754157276174</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="we are working on displaying all the users within a music room via a new component">
+      <option name="closed" value="true" />
+      <created>1754456439103</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1754456439104</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="We have started to install our required installations from npm as per the tutorial." />
     <MESSAGE value="We have set up our index.html page for rendering, we have also set up a new app called frontend, and we have also set up our React file page as well and set up a div class that the React file can render its stuff inside of" />
     <MESSAGE value="We have now set up a routing system in our HomePage.js in order to flip through the various components that we render. We are also creating a serializer that will check and see if the post request made for the creation of a room is valid so that we can send over the details requested for this creation of the room" />
     <MESSAGE value="We have established a create view where users can now create rooms, and we have some validity and session checks that are also put into place as well" />
@@ -596,7 +603,8 @@
     <MESSAGE value="We are adding the pause, skip, and play function attributes" />
     <MESSAGE value="We are now working on an admit system that will give the user the ability to make their room public or private, and we have created a UsersInRoom data table that will keep track of who is in what room" />
     <MESSAGE value="we are working on displaying all the users within a music room" />
-    <option name="LAST_COMMIT_MESSAGE" value="we are working on displaying all the users within a music room" />
+    <MESSAGE value="we are working on displaying all the users within a music room via a new component" />
+    <option name="LAST_COMMIT_MESSAGE" value="we are working on displaying all the users within a music room via a new component" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
