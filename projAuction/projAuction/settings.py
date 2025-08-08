@@ -12,6 +12,17 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+#Here we are going to load our email and password from our environment variables in order to use it for sending emails
+EMAIL_USERNAME = os.getenv('EMAIL_USERNAME')
+#You have to first generate an app passowrd by looking up app password on google and clicking the link, and then
+#following the instructions to create the app password that you will need. That password is what you will store in
+#the email_password variable
+EMAIL_PASSWORD = os.getenv('EMAIL_PASSWORD')
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,6 +38,8 @@ SECRET_KEY = 'django-insecure-d&_er1zxo9)sf(m-k&9xg=@0cj!*s!_mtonv222=769pjm%!ll
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+DEFAULT_FROM_EMAIL = 'mirthecoder@gmail.com'
 
 
 # Application definition
@@ -142,3 +155,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = 'users-home'
 LOGIN_URL = 'login'
 LOGOUT_REDIRECT_URL = 'logout'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#This tells our system what type of email platform we will be using to send our emails
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = EMAIL_USERNAME
+EMAIL_HOST_PASSWORD = EMAIL_PASSWORD

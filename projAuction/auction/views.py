@@ -8,6 +8,22 @@ from django.http import HttpResponse
 from django.template.context_processors import request
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Auction, Bids, Reviews, BidLog
+import logging
+from django.contrib.auth.views import PasswordResetView
+
+logger = logging.getLogger(__name__)
+
+class LoggingPasswordResetView(PasswordResetView):
+    def form_valid(self, form):
+        email = form.cleaned_data.get('email')
+        print(f"The email used for password reset is: {email}")
+        try:
+            response = super().form_valid(form)
+            print("response: ", response)
+            return response
+        except Exception as e:
+            print("Error: ", e)
+
 
 def home(request):
     return render(request,'auction/home.html')

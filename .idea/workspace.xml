@@ -5,13 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="we are working on displaying all the users within a music room via a new component">
+      <change afterPath="$PROJECT_DIR$/projAuction/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projAuction/users/templates/users/password_reset.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projAuction/users/templates/users/password_reset_complete.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projAuction/users/templates/users/password_reset_confirm.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projAuction/users/templates/users/password_reset_done.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/projMusic/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/frontend/src/components/Room.js" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/frontend/src/components/Room.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/frontend/src/components/members.js" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/frontend/src/components/Members.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/frontend/static/frontend/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/frontend/static/frontend/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/frontend/static/frontend/main.js.LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/frontend/static/frontend/main.js.LICENSE.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/frontend/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/frontend/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projAuction/projAuction/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/projAuction/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projAuction/projAuction/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/projAuction/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,9 +23,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="package.json" />
-        <option value="HTML File" />
         <option value="Python Script" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -179,14 +180,7 @@
       <workItem from="1754157218724" duration="93000" />
       <workItem from="1754455941512" duration="1431000" />
       <workItem from="1754508411333" duration="8242000" />
-    </task>
-    <task id="LOCAL-00022" summary="Cuwe have given users the ability to comment on post, still working out a bug though on the return url after the user submits the comment">
-      <option name="closed" value="true" />
-      <created>1750810658147</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1750810658147</updated>
+      <workItem from="1754599007512" duration="6289000" />
     </task>
     <task id="LOCAL-00023" summary="Fixed the issues relating to the comments attribute">
       <option name="closed" value="true" />
@@ -572,7 +566,15 @@
       <option name="project" value="LOCAL" />
       <updated>1754456439104</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="we are working on displaying all the users within a music room via a new component">
+      <option name="closed" value="true" />
+      <created>1754599191963</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1754599191963</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
