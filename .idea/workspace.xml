@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="we are working on displaying all the users within a music room via a new component">
+    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="Working on an email system for my auction website to allow users to reset their password if they would like">
       <change afterPath="$PROJECT_DIR$/projAuction/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projAuction/users/templates/users/password_reset.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projAuction/users/templates/users/password_reset_complete.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projAuction/users/templates/users/password_reset_confirm.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projAuction/users/templates/users/password_reset_done.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/projMusic/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/projAuction/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/projAuction/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/projAuction/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/projAuction/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,14 +175,7 @@
       <workItem from="1754455941512" duration="1431000" />
       <workItem from="1754508411333" duration="8242000" />
       <workItem from="1754599007512" duration="6289000" />
-    </task>
-    <task id="LOCAL-00023" summary="Fixed the issues relating to the comments attribute">
-      <option name="closed" value="true" />
-      <created>1750825935096</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1750825935096</updated>
+      <workItem from="1754618397752" duration="6995000" />
     </task>
     <task id="LOCAL-00024" summary="Added a chat feature in which users can chat with other users so long as they are logged in">
       <option name="closed" value="true" />
@@ -574,14 +561,21 @@
       <option name="project" value="LOCAL" />
       <updated>1754599191963</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="Working on an email system for my auction website to allow users to reset their password if they would like">
+      <option name="closed" value="true" />
+      <created>1754628305541</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1754628305542</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="We have set up our index.html page for rendering, we have also set up a new app called frontend, and we have also set up our React file page as well and set up a div class that the React file can render its stuff inside of" />
     <MESSAGE value="We have now set up a routing system in our HomePage.js in order to flip through the various components that we render. We are also creating a serializer that will check and see if the post request made for the creation of a room is valid so that we can send over the details requested for this creation of the room" />
     <MESSAGE value="We have established a create view where users can now create rooms, and we have some validity and session checks that are also put into place as well" />
     <MESSAGE value="We are working on creating the page for the frontend in which the user can interact with the UI to create their room" />
@@ -606,7 +600,8 @@
     <MESSAGE value="We are now working on an admit system that will give the user the ability to make their room public or private, and we have created a UsersInRoom data table that will keep track of who is in what room" />
     <MESSAGE value="we are working on displaying all the users within a music room" />
     <MESSAGE value="we are working on displaying all the users within a music room via a new component" />
-    <option name="LAST_COMMIT_MESSAGE" value="we are working on displaying all the users within a music room via a new component" />
+    <MESSAGE value="Working on an email system for my auction website to allow users to reset their password if they would like" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working on an email system for my auction website to allow users to reset their password if they would like" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

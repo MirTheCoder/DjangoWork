@@ -60,7 +60,7 @@ class Reviews(models.Model):
 class BidLog(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     auction = models.ForeignKey(Auction, on_delete=models.SET_NULL, null=True, blank=True)
-    image = models.ImageField(default='default.jpg')
+    image = models.ImageField(upload_to="bid_win_photos" ,null=True, blank=True)
     title = models.CharField(default="Auction")
     created_at = models.DateTimeField(default=timezone.now)
     winPrice = models.IntegerField(default=0)

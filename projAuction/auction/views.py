@@ -10,6 +10,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from .models import Auction, Bids, Reviews, BidLog
 import logging
 from django.contrib.auth.views import PasswordResetView
+from .emails import *
 
 logger = logging.getLogger(__name__)
 
@@ -113,10 +114,16 @@ def passAuction(request, bid_id):
     if bid:
         try:
             user = bid.bidder
-            newLog = BidLog.objects.create(image=auction.image.url, user=user, auction=auction, title=auction.title,winPrice=bid.amount)
-            newLog.save()
+            if auction.image.url:
+                newLog = BidLog.objects.create(image=auction.image.url, user=user, auction=auction, title=auction.title,winPrice=bid.amount)
+                newLog.save()
+            else:
+                newLog = BidLog.objects.create(user=user, auction=auction, title=auction.title,winPrice=bid.amount)
+                newLog.save()
             #Once we save the bid, we will just redirect the user back to the view bids page
             val = changeStock(bid_id)
+            notify_of_win(auction, bid_id)
+            bid.delete()
             return redirect('auction-home')
         except Exception as e:
             print('Error:', e)
@@ -170,3 +177,4 @@ class addReview(LoginRequiredMixin,CreateView):
         form.instance.auction = auction
         # This runs the form_valid method but now will ensure that the author is listed as the current user
         return super().form_valid(form)
+
