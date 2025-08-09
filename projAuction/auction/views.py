@@ -114,7 +114,8 @@ def passAuction(request, bid_id):
     if bid:
         try:
             user = bid.bidder
-            if auction.image.url:
+            #Safe way to check and see if a valid image is being used for the auction
+            if auction.image and auction.image.name:
                 newLog = BidLog.objects.create(image=auction.image.url, user=user, auction=auction, title=auction.title,winPrice=bid.amount)
                 newLog.save()
             else:
@@ -122,8 +123,7 @@ def passAuction(request, bid_id):
                 newLog.save()
             #Once we save the bid, we will just redirect the user back to the view bids page
             val = changeStock(bid_id)
-            notify_of_win(auction, bid_id)
-            bid.delete()
+            notify_of_win(auction, bid)
             return redirect('auction-home')
         except Exception as e:
             print('Error:', e)

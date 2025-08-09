@@ -138,7 +138,7 @@ STATIC_URL = 'static/'
 
 #This is where we will save all the images of our users
 #Make sure to start the path off with "BASE_DIR" since that is the root of the project
-MEDIA_ROOT = os.path.join('BASE_DIR','auction_media')
+MEDIA_ROOT = os.path.join(BASE_DIR,'auction_media')
 MEDIA_URL = '/auction_media/'
 
 
@@ -155,7 +155,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = 'users-home'
 LOGIN_URL = 'login'
 LOGOUT_REDIRECT_URL = 'logout'
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 #This tells our system what type of email platform we will be using to send our emails
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587

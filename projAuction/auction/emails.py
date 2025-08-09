@@ -11,43 +11,39 @@ def generate_unique_code():
     return str(uuid.uuid4())
 
 
-def notify_of_win(auction, bid_num):
-    bid = Bids.objects.filter(id=bid_num).first()
-    if bid:
+def notify_of_win(auction, bid):
+    if not bid:
+        print("Bid does not exist")
+        return False
+
+    try:
         name = bid.bidder.username
         auction_title = auction.title
         winner_email = bid.bidder.profile.email
+    except Exception as e:
+        print("Error getting auction/bid info:", e)
+        return False
 
-        subject = "Auction won notification"
-
-        #Remember to use 'f""""' in order to have free rein of how you structure your string lines
-        message = f"""
-        "Greetings {name},"
+    subject = "Auction won notification"
+    message = f"""
+        Greetings {name},
         
-        "We are happy to inform you that you have been chosen as the winner of the auction titled {auction_title}, please 
-        enter into your account to see the auction that is now within your bid log. Thank you and have a blessed rest of your
-        day. Congratulations once again"
+        We are happy to inform you that you have been chosen as the winner of the auction titled {auction_title}.
+        Please enter into your account to see the auction now within your bid log.
         
-        """""
-        email_from = settings.EMAIL_HOST_USER
-        recipient_list = [winner_email]
+        Thank you and have a blessed rest of your day. Congratulations once again!
+        """
 
-        #We want to first make sure that all our values are valid before we send our email
-        if name and auction_title and winner_email:
-            try:
-                #This will do the actual sending of the email to the winner of the auction if the above criteria is met
-                send_mail(
-                    subject,
-                    message,
-                    email_from,
-                    recipient_list,
-                    #This ensures that if an error does appear, the computer will let us know instead of being silent
-                    fail_silently=False
-                )
-                print("Message Successfully sent")
-                return True
-            except Exception as e:
-                print("Error: ", e)
-                return False
-    print("Bid does not exist")
-    return False
+    try:
+        send_mail(
+            subject,
+            message,
+            settings.EMAIL_HOST_USER,
+            [winner_email],
+            fail_silently=False
+        )
+        print("Message Successfully sent")
+        return True
+    except Exception as e:
+        print("Error sending email:", e)
+        return False
