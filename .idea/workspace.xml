@@ -176,14 +176,7 @@
       <workItem from="1754508411333" duration="8242000" />
       <workItem from="1754599007512" duration="6289000" />
       <workItem from="1754618397752" duration="6995000" />
-    </task>
-    <task id="LOCAL-00024" summary="Added a chat feature in which users can chat with other users so long as they are logged in">
-      <option name="closed" value="true" />
-      <created>1750991291986</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1750991291986</updated>
+      <workItem from="1754701404286" duration="2440000" />
     </task>
     <task id="LOCAL-00025" summary="creation of chat table and its modifications">
       <option name="closed" value="true" />
@@ -569,7 +562,15 @@
       <option name="project" value="LOCAL" />
       <updated>1754628305542</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="Working on an email system for my auction website to allow users to reset their password if they would like">
+      <option name="closed" value="true" />
+      <created>1754712768449</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1754712768450</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

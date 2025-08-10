@@ -43,6 +43,7 @@ def notify_of_win(auction, bid):
             fail_silently=False
         )
         print("Message Successfully sent")
+        bid.delete()
         return True
     except Exception as e:
         print("Error sending email:", e)

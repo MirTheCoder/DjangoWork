@@ -101,6 +101,17 @@ class viewBids(LoginRequiredMixin,ListView):
         context = super().get_context_data(**kwargs)
         auction = get_object_or_404(Auction,id=self.kwargs.get('pk'))
         #Fetches parameter from our url and stores it within our context dictionary
+        bidList = Bids.objects.filter(auction=auction)
+        orderList = []
+        num = 0
+        obj = None
+        for bid in bidList:
+            for val in bidList:
+                if val.amount > num:
+                    num = val.amount
+                    obj = val
+            orderList.append(obj)
+            bidList.remove(obj)
         context['auction'] = auction
         context['related'] = Bids.objects.filter(auction=auction)
         return context
