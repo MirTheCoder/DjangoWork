@@ -258,7 +258,7 @@
                     <p class="amount">${{ win.amount }}</p>
                 </div>
                 <div class="bidder-info">
-                    <h4>👤 Bidder</h4>
+                    <h4>👤 Bidder: {{win.bidder.code.codeName}}</h4>
                     <p class="bidder">
                         {% if win.bidder == user %}
                             You ({{ user.username }})

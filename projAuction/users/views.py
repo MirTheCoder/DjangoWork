@@ -55,10 +55,17 @@ class editProfile(LoginRequiredMixin,UpdateView):
 
 @login_required()
 #This will allow the user to access their profile
+#If the user doesn't have a profile (will most likely just be applicable to the creation of a superuser instead of the
+#traditional registration way), then we will automatically generate one for them
 def viewProfile(request):
     #This will cross-reference the Profile table with the user making the request to see if there is a match and then
     #return the matching profile to us
-    character = get_object_or_404(Profile, person=request.user)
+    character = Profile.objects.filter(person=request.user).first()
+
+    if not character:
+        profile = Profile.objects.create(person=request.user)
+        profile.save()
+        character = get_object_or_404(Profile, person=request.user)
     # Fetches parameter from our url and stores it within our context dictionary
     return render(request, "users/profile.html", {"profile": character})
 

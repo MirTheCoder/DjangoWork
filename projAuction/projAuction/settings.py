@@ -138,7 +138,7 @@ STATIC_URL = 'static/'
 
 #This is where we will save all the images of our users
 #Make sure to start the path off with "BASE_DIR" since that is the root of the project
-MEDIA_ROOT = os.path.join(BASE_DIR,'auction_media')
+MEDIA_ROOT = os.path.join('BASE_DIR','auction_media')
 MEDIA_URL = '/auction_media/'
 
 
