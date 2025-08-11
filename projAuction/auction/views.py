@@ -101,19 +101,14 @@ class viewBids(LoginRequiredMixin,ListView):
         context = super().get_context_data(**kwargs)
         auction = get_object_or_404(Auction,id=self.kwargs.get('pk'))
         #Fetches parameter from our url and stores it within our context dictionary
-        bidList = Bids.objects.filter(auction=auction)
-        orderList = []
-        num = 0
-        obj = None
-        for bid in bidList:
-            for val in bidList:
-                if val.amount > num:
-                    num = val.amount
-                    obj = val
-            orderList.append(obj)
-            bidList.remove(obj)
+
+        #This will order the bids for the specific auction item according to the amount each bid is set at
+        #(from highest to lowest)
+        #Make sure to add the '-' to order it from highest to lowest
+        bidList = Bids.objects.filter(auction=auction).order_by('-amount')
+
         context['auction'] = auction
-        context['related'] = Bids.objects.filter(auction=auction)
+        context['related'] = bidList
         return context
 
 #Here we are passing bid id as an argument in order to get the correct bid or the bid that the user selects
