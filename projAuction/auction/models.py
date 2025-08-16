@@ -15,6 +15,7 @@ class Auction(models.Model):
     startPrice = models.IntegerField(default=0)
     date = models.DateTimeField(default=timezone.now)
     stock = models.IntegerField(default=1)
+    expire_date = models.DateTimeField(null=True, blank=True)
 
     def get_absolute_url(self):
         # This will be used in order to call the auction-home url in order to go to the home page to view all auctions

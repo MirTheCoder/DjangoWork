@@ -8,10 +8,6 @@
       <change afterPath="$PROJECT_DIR$/projAuction/.env" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/projMusic/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/auction/templates/auction/auctionDetails.html" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/auction/templates/auction/auctionDetails.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/auction/templates/auction/viewBids.html" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/auction/templates/auction/viewBids.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/projAuction/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/projAuction/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/users/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +113,6 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-PY-251.26927.90" />
         <option value="bundled-python-sdk-41e8cd69c857-64d779b69b7a-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.26927.90" />
       </set>
     </attachedChunks>
@@ -183,15 +178,7 @@
       <workItem from="1754618397752" duration="6995000" />
       <workItem from="1754701404286" duration="2440000" />
       <workItem from="1754825526489" duration="1338000" />
-      <workItem from="1754882256135" duration="4177000" />
-    </task>
-    <task id="LOCAL-00026" summary="We are starting a project in which we will be developing and auctioning system">
-      <option name="closed" value="true" />
-      <created>1751237888308</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1751237888308</updated>
+      <workItem from="1754882256135" duration="4480000" />
     </task>
     <task id="LOCAL-00027" summary="We are starting a project in which we will be developing and auctioning system">
       <option name="closed" value="true" />
@@ -577,7 +564,15 @@
       <option name="project" value="LOCAL" />
       <updated>1754830238978</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="Working on having the bid list ordered for the auctioneer to see, they will be ordered according to the amount the bid is set at">
+      <option name="closed" value="true" />
+      <created>1754888331713</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1754888331715</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

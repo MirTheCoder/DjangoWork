@@ -14,7 +14,6 @@ from pathlib import Path
 from spotify.credentials import IP_ADDRESS
 import os
 
-IP_ADDRESS = os.getenv("IP_ADDRESS")
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.

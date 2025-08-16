@@ -35,7 +35,7 @@ def home(request):
 #This class view will create the new auction that the user is making and store it in the auction table
 class PostAnAuction(LoginRequiredMixin,CreateView):
     model = Auction
-    fields = ['title', 'description','startPrice','image','stock']
+    fields = ['title', 'description','startPrice','image','stock', 'expire_date']
     template_name = 'auction/createAuction.html'
 
     #Here we override the form valid to make the auctioneer requirement for an auction to be automatically equal to
