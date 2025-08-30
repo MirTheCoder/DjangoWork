@@ -18,7 +18,7 @@ load_dotenv()
 
 #Here we are going to load our email and password from our environment variables in order to use it for sending emails
 EMAIL_USERNAME = os.getenv('EMAIL_USERNAME')
-#You have to first generate an app passowrd by looking up app password on google and clicking the link, and then
+#You have to first generate an app password by looking up app password on google and clicking the link, and then
 #following the instructions to create the app password that you will need. That password is what you will store in
 #the email_password variable
 EMAIL_PASSWORD = os.getenv('EMAIL_PASSWORD')

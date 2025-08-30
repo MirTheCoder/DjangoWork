@@ -1,6 +1,18 @@
 from django.core.mail import send_mail
 from django.conf import settings
 import uuid
+import smtplib, ssl
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
+#Here we are going to load our email and password from our environment variables in order to use it for sending emails
+EMAIL_USERNAME = os.getenv('EMAIL_USERNAME')
+#You have to first generate an app password by looking up app password on google and clicking the link, and then
+#following the instructions to create the app password that you will need. That password is what you will store in
+#the email_password variable
+EMAIL_PASSWORD = os.getenv('EMAIL_PASSWORD')
+
 
 from rest_framework.response import Response
 
@@ -33,18 +45,37 @@ def notify_of_win(auction, bid):
         
         Thank you and have a blessed rest of your day. Congratulations once again!
         """
-
+    print(EMAIL_USERNAME)
+    print(EMAIL_PASSWORD)
+    print(winner_email)
     try:
-        send_mail(
-            subject,
-            message,
-            settings.EMAIL_HOST_USER,
-            [winner_email],
-            fail_silently=False
-        )
+        context = ssl.create_default_context()
+        context.check_hostname = False
+        context.verify_mode = ssl.CERT_NONE
+
+        with smtplib.SMTP('smtp.gmail.com', 587) as server:
+            server.ehlo()
+            server.starttls(context=context)
+            server.ehlo()
+            server.login(EMAIL_USERNAME, EMAIL_PASSWORD)
+            server.sendmail(EMAIL_USERNAME,winner_email, message)
         print("Message Successfully sent")
         bid.delete()
         return True
     except Exception as e:
-        print("Error sending email:", e)
-        return False
+         print("Error sending email:", e)
+         return False
+    #try:
+        #send_mail(
+            #subject,
+            #message,
+            #settings.EMAIL_HOST_USER,
+            #[winner_email],
+            #fail_silently=False
+        #)
+        #print("Message Successfully sent")
+        #bid.delete()
+        #return True
+    #except Exception as e:
+        #print("Error sending email:", e)
+        #return False
