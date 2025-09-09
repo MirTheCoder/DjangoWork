@@ -6,13 +6,14 @@ from.models import Profile
 #We are creating a form that inherits
 class UserRegisterForm(UserCreationForm):
     #We are adding an email field for the user to input their email when creating their account
-    email = forms.EmailField(required=False)
+    email = forms.EmailField(required=True)
+    number = forms.IntegerField(required=True)
 
     #Specifies the model or database this form interacts with
     class Meta:
         model = User
         #This shows the fields the user needs to fill out in order to create their account
-        fields = ["username", "email", "password1", "password2"]
+        fields = ["username", "email", "password1", "password2", "number"]
 
 #This will be used to allow the user to update their username and password
 class UserUpdateForm(forms.ModelForm):

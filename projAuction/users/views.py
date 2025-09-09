@@ -29,12 +29,15 @@ def register(request):
             #If it is valid, then we will get the username and send a message alert to the user to let them know it was
             #successful
             username = form.cleaned_data.get('username')
+            #This is used to get the email from the form the user submits for registration
+            email = form.cleaned_data.get('email')
+            number = form.cleaned_data.get('number')
             persona = User.objects.filter(username=username).first()
             messages.success(request, f"Account created for {username}")
             voice = f"Account created for{username}"
             if persona:
                 #Here we will create a profile and a bidding code for each user who registers and makes an account
-                Profile.objects.create(person=persona)
+                Profile.objects.create(person=persona, email=email, phone=number)
                 Code.objects.create(user=persona)
             return render(request, "users/register.html", {"form": form, "voice": voice})
         else:

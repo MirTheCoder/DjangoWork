@@ -11,10 +11,13 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
-from spotify.credentials import IP_ADDRESS
+from spotify.credentials import IP_ADDRESS, CLIENT_ID, CLIENT_SECRET
 import os
 
 
+print(IP_ADDRESS)
+print(CLIENT_ID)
+print(CLIENT_SECRET)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent

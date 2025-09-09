@@ -7,7 +7,7 @@ from auction.views import LoggingPasswordResetView
 
 urlpatterns = [
     #Url's starting with admin will be handled by admin
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls, name="admin"),
     #By default, when the program is run, the auction app will take the user to its default page
     path('', include('auction.urls')),
     #This url is for all user related things so that the users app can handle it

@@ -5,21 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="Working on an email system for my auction website to allow users to reset their password if they would like">
+      <change afterPath="$PROJECT_DIR$/projAuction/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projAuction/auction/messaging.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projMusic/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/auction/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/auction/migrations/0002_auction_image.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/auction/migrations/0003_auction_date.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/auction/migrations/0004_auction_startprice.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/auction/migrations/0005_alter_auction_image.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/auction/migrations/0006_bids.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/auction/migrations/0007_bids_date_alter_auction_image.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/auction/migrations/0008_auction_stock.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/auction/migrations/0009_reviews.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/auction/migrations/0010_bidlog.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/auction/migrations/0011_alter_bidlog_created_at.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/auction/migrations/0012_reviews_code_alter_reviews_user.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/auction/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/auction/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projAuction/auction/emails.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/auction/emails.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projAuction/auction/templates/auction/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/auction/templates/auction/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projAuction/auction/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/auction/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projAuction/projAuction/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/projAuction/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projAuction/users/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/users/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projAuction/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/users/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/api/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/api/migrations/0002_room_host_alter_room_code.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/api/migrations/0003_rename_vote_to_skip_room_votes_to_skip_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/api/migrations/0004_alter_room_host.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/api/migrations/0005_room_current_song.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/api/migrations/0006_room_admit_required_requests_userinroom.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/api/migrations/0007_alter_requests_user_requesting_alter_userinroom_user.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/api/migrations/0008_rename_userinroom_usersinroom.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/api/migrations/0009_alter_room_admit_required.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/api/migrations/0010_usersinroom_user_code.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/api/migrations/0011_alter_usersinroom_user_code.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/api/migrations/0012_alter_usersinroom_user_code.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/projMusic/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/projMusic/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/spotify/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/spotify/migrations/0002_spotifytoken_access_token.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/spotify/migrations/0003_alter_spotifytoken_refresh_token.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/spotify/migrations/0004_alter_spotifytoken_token_type.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/spotify/migrations/0005_alter_spotifytoken_access_token_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/spotify/migrations/0006_alter_spotifytoken_refresh_token.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/spotify/migrations/0007_vote.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,9 +45,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="package.json" />
-        <option value="Python Script" />
         <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -48,7 +63,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/MirTheCoder/DjangoWork.git&quot;,
-    &quot;accountId&quot;: &quot;bc70367c-b1f7-4eef-b8aa-a377a482a018&quot;
+    &quot;accountId&quot;: &quot;32bf1a16-cea4-419c-8506-e8bd4a4713b1&quot;
   }
 }</component>
   <component name="ProblemsViewState">
@@ -126,8 +141,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-PY-251.26927.90" />
-        <option value="bundled-python-sdk-41e8cd69c857-64d779b69b7a-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.26927.90" />
+        <option value="bundled-python-sdk-6a3326d57233-c546a90a8094-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-242.24807.21" />
       </set>
     </attachedChunks>
   </component>
@@ -628,6 +642,15 @@
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/projAuction/users/models.py</url>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/projAuction/projAuction/urls.py</url>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/projAuction/auction/messaging.py</url>
+          <line>34</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

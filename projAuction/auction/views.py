@@ -7,6 +7,8 @@ from django.urls import reverse
 from django.http import HttpResponse
 from django.template.context_processors import request
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+
+from .messaging import send_sms
 from .models import Auction, Bids, Reviews, BidLog
 import logging
 from django.contrib.auth.views import PasswordResetView
@@ -130,6 +132,9 @@ def passAuction(request, bid_id):
             #Once we save the bid, we will just redirect the user back to the view bids page
             val = changeStock(bid_id)
             notify_of_win(auction, bid)
+            if bid.bidder.profile.phone:
+                phone = bid.bidder.profile.phone
+                send_sms(phone,auction,bid)
             return redirect('auction-home')
         except Exception as e:
             print('Error:', e)
