@@ -88,6 +88,15 @@
   cursor: pointer;
 }
 
+.rtext{
+
+ }
+
+ .ltext{
+
+ }
+
+
 </style>
 
 <p id="">  </p>
@@ -100,7 +109,7 @@
                 <div class="message right">
                     <small style="font-size: 10px; margin-right: 50px">{{ chat.date_posted|date:"F d, Y" }} at {{ chat.date_posted|date:"h:ia" }}</small>
                 </div>
-                <div class="message right"> <!-- Sent by current user -->
+                <div class="message right rtext"> <!-- Sent by current user -->
                     <div class="bubble">{{chat.text}}</div>
                      <img src="{{user.profile.image.url}}" alt="User" class="avatar">
                 </div>
@@ -108,7 +117,7 @@
                 <div class="message left">
                     <small style="font-size: 10px; margin-left: 50px">{{ chat.date_posted|date:" F d, Y" }} at {{ chat.date_posted|date:"h:ia" }}</small>
                 </div>
-                <div class="message left"> <!-- Received from other user -->
+                <div class="message left ltext"> <!-- Received from other user -->
                     <img src="{{person.profile.image.url}}" alt="Person" class="avatar">
                     <div class="bubble">{{chat.text}}</div>
                 </div>

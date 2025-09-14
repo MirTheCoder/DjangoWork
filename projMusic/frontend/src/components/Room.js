@@ -161,13 +161,17 @@ class Room extends Component {
         fetch('/spotify/is-authenticated').then((response) => response.json()
         ).then((data) =>{
             /* set the spotify is authenticated state to whatever the api call gives us*/
-            this.setState({
-                spotifyAuthenticated: data.status
-            })
-            console.log("Already Authenticated")
-            /* if the user is not authenticated, then we will authenticate them */
             if(data.status){
-                console.log(data.status)
+                this.setState({
+                    spotifyAuthenticated: data.status
+                })
+            } else {
+                spotifyAuthenticated: "None"
+            }
+
+            if (data.status){
+                console.log("Already Authenticated")
+            /* if the user is not authenticated, then we will authenticate them */
             } else {
                 fetch('/spotify/get-auth-url'
                 ).then((response) => response.json()

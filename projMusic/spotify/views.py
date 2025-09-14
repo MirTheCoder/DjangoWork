@@ -92,10 +92,15 @@ def spotify_callback(request,format=None):
 class IsAuthenticated(APIView):
     def get(self,request, format=None):
         is_authenticated = is_spotify_authenticated(self.request.session.session_key)
-        return Response({'status':is_authenticated}, status=status.HTTP_200_OK)
+        if is_authenticated:
+            return Response({'status':"is authenticated"}, status=status.HTTP_200_OK)
+        else:
+            return False
 
 class CurrentSong(APIView):
     def get(self,request,format=json):
+        if not request.session.exists:
+            request.session.create()
         #This is made to check exactly which room the user is in
         room_code = self.request.session.get('room_code')
         room = Room.objects.filter(code=room_code).first()

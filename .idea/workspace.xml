@@ -4,37 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="Working on an email system for my auction website to allow users to reset their password if they would like">
+    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="We have set up the email system to notify bidders when a winner has been chosen for respective auction, and we are now working on a sms text system currently">
       <change afterPath="$PROJECT_DIR$/projAuction/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projAuction/auction/messaging.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/projMusic/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projAuction/auction/emails.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/auction/emails.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/auction/templates/auction/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/auction/templates/auction/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/auction/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/auction/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/projAuction/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/projAuction/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/users/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/users/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/users/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/api/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/api/migrations/0002_room_host_alter_room_code.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/api/migrations/0003_rename_vote_to_skip_room_votes_to_skip_and_more.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/api/migrations/0004_alter_room_host.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/api/migrations/0005_room_current_song.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/api/migrations/0006_room_admit_required_requests_userinroom.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/api/migrations/0007_alter_requests_user_requesting_alter_userinroom_user.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/api/migrations/0008_rename_userinroom_usersinroom.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/api/migrations/0009_alter_room_admit_required.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/api/migrations/0010_usersinroom_user_code.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/api/migrations/0011_alter_usersinroom_user_code.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/api/migrations/0012_alter_usersinroom_user_code.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/projMusic/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/projMusic/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/spotify/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/spotify/migrations/0002_spotifytoken_access_token.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/spotify/migrations/0003_alter_spotifytoken_refresh_token.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/spotify/migrations/0004_alter_spotifytoken_token_type.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/spotify/migrations/0005_alter_spotifytoken_access_token_and_more.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/spotify/migrations/0006_alter_spotifytoken_refresh_token.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/spotify/migrations/0007_vote.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projAuction/auction/messaging.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/auction/messaging.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projAuction/projAuction/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/projAuction/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projBlog/users/templates/users/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/projBlog/users/templates/users/chat.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/frontend/src/components/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/frontend/src/components/HomePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/frontend/src/components/Room.js" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/frontend/src/components/Room.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/frontend/templates/frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/frontend/templates/frontend/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/spotify/util.py" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/spotify/util.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projMusic/spotify/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/spotify/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,14 +187,6 @@
       <workItem from="1754599007512" duration="6289000" />
       <workItem from="1754618397752" duration="6995000" />
       <workItem from="1754701404286" duration="2440000" />
-    </task>
-    <task id="LOCAL-00025" summary="creation of chat table and its modifications">
-      <option name="closed" value="true" />
-      <created>1750991479771</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1750991479771</updated>
     </task>
     <task id="LOCAL-00026" summary="We are starting a project in which we will be developing and auctioning system">
       <option name="closed" value="true" />
@@ -598,14 +572,21 @@
       <option name="project" value="LOCAL" />
       <updated>1754712768450</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="We have set up the email system to notify bidders when a winner has been chosen for respective auction, and we are now working on a sms text system currently">
+      <option name="closed" value="true" />
+      <created>1757389705018</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1757389705019</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="We have now set up a routing system in our HomePage.js in order to flip through the various components that we render. We are also creating a serializer that will check and see if the post request made for the creation of a room is valid so that we can send over the details requested for this creation of the room" />
     <MESSAGE value="We have established a create view where users can now create rooms, and we have some validity and session checks that are also put into place as well" />
     <MESSAGE value="We are working on creating the page for the frontend in which the user can interact with the UI to create their room" />
     <MESSAGE value="We have successfully created the room creation front end page, and we have also connected the frontend to the back end api that will create the room based off of the users input" />
@@ -630,7 +611,8 @@
     <MESSAGE value="we are working on displaying all the users within a music room" />
     <MESSAGE value="we are working on displaying all the users within a music room via a new component" />
     <MESSAGE value="Working on an email system for my auction website to allow users to reset their password if they would like" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working on an email system for my auction website to allow users to reset their password if they would like" />
+    <MESSAGE value="We have set up the email system to notify bidders when a winner has been chosen for respective auction, and we are now working on a sms text system currently" />
+    <option name="LAST_COMMIT_MESSAGE" value="We have set up the email system to notify bidders when a winner has been chosen for respective auction, and we are now working on a sms text system currently" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -648,9 +630,8 @@
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/projAuction/auction/messaging.py</url>
-          <line>34</line>
-          <option name="timeStamp" value="6" />
+          <url>file://$PROJECT_DIR$/projMusic/spotify/util.py</url>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 import os
 from dotenv import load_dotenv
+import ssl
 
 load_dotenv()
 
@@ -164,3 +165,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = EMAIL_USERNAME
 EMAIL_HOST_PASSWORD = EMAIL_PASSWORD
+
+EMAIL_SSL_CERTFILE = None
+EMAIL_SSL_KEYFILE = None
+EMAIL_USE_SSL = False

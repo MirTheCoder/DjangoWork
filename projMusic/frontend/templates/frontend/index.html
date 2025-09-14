@@ -15,6 +15,12 @@
     <link rel="stylesheet" type="text/css" href="{% static "css/index.css" %}"
     />
   </head>
+    <style>
+        body{
+            /* This will help to make the color change smoother and more natural*/
+            transition: background-color 2s ease;
+        }
+    </style>
   <body>
     <div id="main">
         <!-- This div class will hold all the html code that is handled by React
@@ -23,7 +29,16 @@
     </div>
 
     <script src="{% static "frontend/main.js"%}" > </script>
-
+    <script>
+        /* This will change the color of the background every two*/
+        setInterval(colorChange, 2000);
+        function colorChange(){
+            val1 = Math.floor(Math.random() * 255)
+            val2 = Math.floor(Math.random() * 255)
+            val3 = Math.floor(Math.random() * 255)
+            document.body.style.backgroundColor = `rgb(${val1}, ${val2}, ${val3})`;
+        }
+    </script>
 
 
 </body>

@@ -3,6 +3,7 @@ from django.conf import settings
 from dotenv import load_dotenv
 import os
 import smtplib, ssl
+from email.message import EmailMessage
 
 load_dotenv()
 
@@ -29,14 +30,14 @@ def send_sms(to_number, auction, bid):
     name = bid.bidder.username
     phone = f"{to_number}@tmomail.net"
 
-    message = f"""\
-    From: {EMAIL_USERNAME}
-    To: {phone}
-    Subject: Auction Winner Notification
-
-    Congrats {name}, you have won the auction for {auction.title}
-    """
+    #We use this to give the message itself a cleaner format before sending it
+    message = EmailMessage()
+    message["From"] = EMAIL_USERNAME
+    message["To"] = phone
+    message["Subject"] = "Auction win notification"
+    message.set_content(f"Winner Notification test message")
     try:
+        print(phone)
         with smtplib.SMTP('smtp.gmail.com', 587) as server:
             server.ehlo()
             # This is where we set the plain text we are sending to a more upgraded version where we send
@@ -47,7 +48,7 @@ def send_sms(to_number, auction, bid):
             # with the required credentials
             server.login(EMAIL_USERNAME, EMAIL_PASSWORD)
             # This holds the content of the email we are sending along with the person we are sending to
-            server.sendmail(EMAIL_USERNAME, phone, message)
+            server.send_message(message)
         print("Text Successfully sent")
     except Exception as e:
         print("Messaging Error: ", e)

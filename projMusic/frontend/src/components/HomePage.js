@@ -28,7 +28,7 @@ export default class HomePage extends Component {
   /* This is a life cycle method that allows us to make an action before the page renders.
   * We add async so that this function can run in the background, allowing the component
   * to continue on with other processes*/
-  /*async componentDidMount(){
+  async componentDidMount(){
     fetch('/api/user-in-room'
     ).then((response) => response.json()
     ).then((data) => {
@@ -36,7 +36,7 @@ export default class HomePage extends Component {
         roomCode: data.code
       })
     })
-  }*/
+  }
 
   /* This will allow us to reset the room code to null for the homepage's 'this.roomCode' */
   clearRoomCode(){

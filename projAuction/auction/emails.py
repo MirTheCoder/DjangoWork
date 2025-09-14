@@ -1,7 +1,8 @@
-from django.core.mail import send_mail
+from django.core.mail import send_mail, get_connection
 from django.conf import settings
 import uuid
-import smtplib, ssl
+import smtplib
+import ssl
 import os
 from dotenv import load_dotenv
 load_dotenv()
@@ -51,14 +52,12 @@ def notify_of_win(auction, bid):
     Thank you and have a blessed rest of your day. Congratulations once again!
     """
 
-    notify = f"""\
+    messaging = f"""\
 
         Greetings {name},
 
-        We are happy to inform you that you have been chosen as the winner of the auction titled {auction_title}.
-        Please enter into your account to see the auction now within your bid log.
-
-        Thank you and have a blessed rest of your day. Congratulations once again!
+        This is a test for the emailing system through the django way,
+        and if you are seeing this than that means that it worked
         """
 
     print(EMAIL_USERNAME)
@@ -88,6 +87,31 @@ def notify_of_win(auction, bid):
             server.sendmail(EMAIL_USERNAME,winner_email, message)
         print("Message Successfully sent")
 
+        #Used to bypass the ssl certificate requirement
+        ssl_context = ssl._create_unverified_context()
+
+        connection = get_connection(
+            host="smtp.gmail.com",
+            port=587,
+            username=EMAIL_USERNAME,
+            password=EMAIL_PASSWORD,
+            use_tls=True,
+            ssl_context=ssl_context,  # <- bypass SSL verification
+        )
+
+        try:
+            send_mail(
+                subject,
+                messaging,
+                EMAIL_USERNAME,
+                [winner_email],
+                connection = connection,
+                fail_silently=False
+            )
+            print("Django Message Successfully sent")
+        except Exception as e:
+            print("Error sending Django email:", e)
+
     #Here we will grab all the bids within this auction (excluding the bid winner) to inform them
     #that a bid winner has been picked
         listOfBids = Bids.objects.filter(auction=auction).exclude(bidder__username=name)
@@ -113,22 +137,9 @@ def notify_of_win(auction, bid):
                 server.login(EMAIL_USERNAME, EMAIL_PASSWORD)
                 # This holds the content of the email we are sending along with the person we are sending to
                 server.sendmail(EMAIL_USERNAME, email, notify)
+
         bid.delete()
         return True
     except Exception as e:
          print("Error sending email:", e)
          return False
-    #try:
-        #send_mail(
-            #subject,
-            #message,
-            #settings.EMAIL_HOST_USER,
-            #[winner_email],
-            #fail_silently=False
-        #)
-        #print("Message Successfully sent")
-        #bid.delete()
-        #return True
-    #except Exception as e:
-        #print("Error sending email:", e)
-        #return False
