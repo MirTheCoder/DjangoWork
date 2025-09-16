@@ -13,8 +13,17 @@ def generate_unique_code():
     length = 8
     while True:
         #This will generate a code that is of length six and only has the ascii uppercase characters in it
-        code = ''.join(random.choices(string.ascii_letters, k= length))
+        code = ''.join(random.choices(string.ascii_letters + string.digits, k= length))
         if Code.objects.filter(codeName=code).count() == 0:
+            break
+    return code
+
+def generate_reset_code():
+    length = 8
+    while True:
+        #This will generate a code that is of length six and only has the ascii uppercase characters plus numbers
+        code = ''.join(random.choices(string.ascii_letters, k= length))
+        if LoginReset.objects.filter(code=code).count() == 0:
             break
     return code
 
@@ -68,6 +77,17 @@ class Code(models.Model):
 
     def __str__(self):
         return f"{self.user.username}'s bidding code:{self.codeName}"
+
+
+class LoginReset(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    code = models.CharField(max_length=8, null=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        resetCode = generate_reset_code()
+        self.code = resetCode
+        super().save(*args, **kwargs)
+
 
 
 

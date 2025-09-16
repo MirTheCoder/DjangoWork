@@ -8,6 +8,9 @@
     {% csrf_token %}
     {{form|crispy}}
     <button class="btn" style="background-color: powderblue" type="submit">Log In</button>
+    <!-- This will take the users to a page where they can enter their username to
+    retrieve their password via the email associated with their username-->
+    <a href="{% url 'forgotPassword' %}"><small>Forgot Password</small></a>
   </form>
     <div>
       <small>Don't have an account?</small>

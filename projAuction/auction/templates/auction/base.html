@@ -148,6 +148,15 @@ a.article-title:hover {
             </div>
         {% endfor %}
       {% endif %}
+      <p id="timer"></p>
+      <script>
+      setInterval(updateTime, 1000);
+      function updateTime(){
+       const par = document.getElementById("timer");
+       const time = new Date();
+       par.textContent = time;
+    }
+    </script>
       {% block content %}{% endblock %}
     </div>
     <!--<div class="col-md-4">

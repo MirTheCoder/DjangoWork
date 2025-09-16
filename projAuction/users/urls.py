@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from . import views
 from django.contrib.auth import views as auth_views
-from .views import editProfile
+from .views import editProfile, forgotPassword, loginCode
 
 
 urlpatterns = [
@@ -14,4 +14,6 @@ urlpatterns = [
     #You must past an argument into the url for the editProfile in order for it to work since it is
     #inherting from the update view
     path('updateProfile/<int:pk>/', editProfile.as_view() , name = 'updateProfile'),
+    path('forgotPassword/',forgotPassword , name = "forgotPassword"),
+    path('loginCode/', loginCode , name = "loginCode"),
 ]

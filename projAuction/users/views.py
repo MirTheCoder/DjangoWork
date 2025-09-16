@@ -10,6 +10,8 @@ from django.contrib.auth.models import User
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import Profile, Code
+from .models import LoginReset
+from .emails import login_code
 
 
 def home(request):
@@ -71,6 +73,30 @@ def viewProfile(request):
         character = get_object_or_404(Profile, person=request.user)
     # Fetches parameter from our url and stores it within our context dictionary
     return render(request, "users/profile.html", {"profile": character})
+
+#This will take the user to the forgot password page so that we can send a code to their email
+#that they will have to type in, in order to log back into their account
+def forgotPassword(request):
+        if request.method == "POST":
+            #For a post request, you ought to do a request.POST.get if you are using django
+            uname = request.POST.get("username")
+            uname = uname.strip()
+            val = User.objects.filter(username = uname).first()
+            #Here, if the username that was input is true,
+            if val:
+                value = LoginReset.objects.create(user = val)
+                email = val.profile.email
+                code = value.code
+                #We use this to send the email with the code to the user that they can use
+                #to reset their password
+                login_code(uname,code,email)
+                #Be sure to use direct url names for a redirect to another url in django
+                return redirect("loginCode")
+
+        return render(request, "users/forgotPassword.html")
+
+def loginCode(request):
+    return render(request, "users/codeLogin.html")
 
 
 

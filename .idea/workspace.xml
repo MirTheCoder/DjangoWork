@@ -4,19 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="We have set up the email system to notify bidders when a winner has been chosen for respective auction, and we are now working on a sms text system currently">
+    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="We have made some edits to the spotify project and the auction project, and the blog project as well">
       <change afterPath="$PROJECT_DIR$/projAuction/.env" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/projMusic/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/auction/emails.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/auction/emails.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/auction/messaging.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/auction/messaging.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/projAuction/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/projAuction/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projAuction/auction/templates/auction/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/auction/templates/auction/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projAuction/auction/templates/auction/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/auction/templates/auction/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projAuction/users/templates/users/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/users/templates/users/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projBlog/users/templates/users/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/projBlog/users/templates/users/chat.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/frontend/src/components/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/frontend/src/components/HomePage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/frontend/src/components/Room.js" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/frontend/src/components/Room.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/frontend/templates/frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/frontend/templates/frontend/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/spotify/util.py" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/spotify/util.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projMusic/spotify/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/projMusic/spotify/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,14 +182,6 @@
       <workItem from="1754599007512" duration="6289000" />
       <workItem from="1754618397752" duration="6995000" />
       <workItem from="1754701404286" duration="2440000" />
-    </task>
-    <task id="LOCAL-00026" summary="We are starting a project in which we will be developing and auctioning system">
-      <option name="closed" value="true" />
-      <created>1751237888308</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1751237888308</updated>
     </task>
     <task id="LOCAL-00027" summary="We are starting a project in which we will be developing and auctioning system">
       <option name="closed" value="true" />
@@ -580,14 +567,21 @@
       <option name="project" value="LOCAL" />
       <updated>1757389705019</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="We have made some edits to the spotify project and the auction project, and the blog project as well">
+      <option name="closed" value="true" />
+      <created>1757883600883</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1757883600884</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="We have established a create view where users can now create rooms, and we have some validity and session checks that are also put into place as well" />
     <MESSAGE value="We are working on creating the page for the frontend in which the user can interact with the UI to create their room" />
     <MESSAGE value="We have successfully created the room creation front end page, and we have also connected the frontend to the back end api that will create the room based off of the users input" />
     <MESSAGE value="We are now setting up a page to display teh details of a room" />
@@ -612,7 +606,8 @@
     <MESSAGE value="we are working on displaying all the users within a music room via a new component" />
     <MESSAGE value="Working on an email system for my auction website to allow users to reset their password if they would like" />
     <MESSAGE value="We have set up the email system to notify bidders when a winner has been chosen for respective auction, and we are now working on a sms text system currently" />
-    <option name="LAST_COMMIT_MESSAGE" value="We have set up the email system to notify bidders when a winner has been chosen for respective auction, and we are now working on a sms text system currently" />
+    <MESSAGE value="We have made some edits to the spotify project and the auction project, and the blog project as well" />
+    <option name="LAST_COMMIT_MESSAGE" value="We have made some edits to the spotify project and the auction project, and the blog project as well" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
