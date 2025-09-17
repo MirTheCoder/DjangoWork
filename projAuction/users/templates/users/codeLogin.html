@@ -1,9 +1,20 @@
 {% extends 'auction/base.html' %}
 {% block content %}
 <title>Code Login Entry </title>
+<!-- If the code that the user typed in was valid, then we will allow them to change their
+password-->
+{% if codeValid %}
 <form action="#" method="POST">
-    <label for="code">Enter Code</label>
-    <input name="code" id="code" type="text">
+    {% csrf_token %}
+    <label for="newpswd">Please type in your new password here</label>
+    <input type="text" id="newpswd" name="newpswd" required>
 </form>
+{% else %}
+<form action="#" method="POST">
+    {% csrf_token %}
+    <label for="code">Enter Code</label>
+    <input name="code" id="code" type="text" required>
+</form>
+{% endif %}
 
 {% endblock %}

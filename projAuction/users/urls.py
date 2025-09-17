@@ -15,5 +15,5 @@ urlpatterns = [
     #inherting from the update view
     path('updateProfile/<int:pk>/', editProfile.as_view() , name = 'updateProfile'),
     path('forgotPassword/',forgotPassword , name = "forgotPassword"),
-    path('loginCode/', loginCode , name = "loginCode"),
+    path('loginCode/<str:name>', loginCode , name = "loginCode"),
 ]

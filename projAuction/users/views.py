@@ -84,18 +84,37 @@ def forgotPassword(request):
             val = User.objects.filter(username = uname).first()
             #Here, if the username that was input is true,
             if val:
-                value = LoginReset.objects.create(user = val)
+                #This will make sure that we don't create multiple recovery codes for the same user
+                list = LoginReset.objects.filter(user=val)
+                if list:
+                    value = LoginReset.objects.filter(user=val).first()
+                else:
+                    value = LoginReset.objects.create(user = val)
                 email = val.profile.email
                 code = value.code
                 #We use this to send the email with the code to the user that they can use
                 #to reset their password
                 login_code(uname,code,email)
                 #Be sure to use direct url names for a redirect to another url in django
-                return redirect("loginCode")
+                #We also will be passing the username the user had given us into the redirect
+                return redirect("loginCode", name=uname)
 
         return render(request, "users/forgotPassword.html")
 
-def loginCode(request):
+def loginCode(request, name):
+    if request.method == "POST":
+        person = User.objects.filter(username=name).first()
+        being = LoginReset.objects.filter(user=person).first()
+        #Here we will check and see if the user has entered a new password
+        if request.POST.get("newpswd"):
+            #Here we will send the user to the login page
+            return None
+        #Checks to see if the code input does indeed match the code we gave the user
+        if request.POST.get("code") == being.code:  
+            codeValid = True
+            #If the code is valid, then we will return the same html template but with a special context
+            #attached to it
+            return render(request, "users/codeLogin.html", {"codeValid": codeValid})
     return render(request, "users/codeLogin.html")
 
 
