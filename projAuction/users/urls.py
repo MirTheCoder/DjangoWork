@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from . import views
 from django.contrib.auth import views as auth_views
-from .views import editProfile, forgotPassword, loginCode
+from .views import editProfile, forgotPassword, loginCode, resetPassword
 
 
 urlpatterns = [
@@ -16,4 +16,5 @@ urlpatterns = [
     path('updateProfile/<int:pk>/', editProfile.as_view() , name = 'updateProfile'),
     path('forgotPassword/',forgotPassword , name = "forgotPassword"),
     path('loginCode/<str:name>', loginCode , name = "loginCode"),
+    path('resetPassword/<str:name>', loginCode , name = "resetPassword"),
 ]

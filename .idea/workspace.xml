@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="We are working on a password reset system where users can receive an email with a secret code to help them log back into their account by changing their password">
+    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="We have started to set up the password reset page procedure and will start working towards making sure that the user gets routed back to the login page when they have successfully updated their password">
       <change afterPath="$PROJECT_DIR$/projAuction/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projAuction/users/templates/users/passwordReset.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/projMusic/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projAuction/users/emails.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/users/emails.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projAuction/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/users/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projAuction/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/users/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projAuction/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/users/views.py" afterDir="false" />
     </list>
@@ -20,8 +24,8 @@
       <list>
         <option value="package.json" />
         <option value="JavaScript File" />
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -179,14 +183,6 @@
       <workItem from="1754599007512" duration="6289000" />
       <workItem from="1754618397752" duration="6995000" />
       <workItem from="1754701404286" duration="2440000" />
-    </task>
-    <task id="LOCAL-00029" summary="We have successfully given the user the ability to add an auction, to be able to also log in and register. The next goal is to display the auctions on the page">
-      <option name="closed" value="true" />
-      <created>1751402785732</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1751402785732</updated>
     </task>
     <task id="LOCAL-00030" summary="We are still making edits to our auction page. We have edited the register function in our views so that it automatically creates a profile for each registered user. We also are working on the profile page to allow users to view their profile. More aspects to come as this is just a rough draft">
       <option name="closed" value="true" />
@@ -572,14 +568,21 @@
       <option name="project" value="LOCAL" />
       <updated>1758053901179</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="We have started to set up the password reset page procedure and will start working towards making sure that the user gets routed back to the login page when they have successfully updated their password">
+      <option name="closed" value="true" />
+      <created>1758115730124</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1758115730125</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="We have successfully created the room creation front end page, and we have also connected the frontend to the back end api that will create the room based off of the users input" />
     <MESSAGE value="We are now setting up a page to display teh details of a room" />
     <MESSAGE value="We are now setting up a page to display the details of a room" />
     <MESSAGE value="We have successfully set up the display page for the rooms, and also have made it so that the users are automatically sent to that page after they create a room" />
@@ -604,7 +607,8 @@
     <MESSAGE value="We have set up the email system to notify bidders when a winner has been chosen for respective auction, and we are now working on a sms text system currently" />
     <MESSAGE value="We have made some edits to the spotify project and the auction project, and the blog project as well" />
     <MESSAGE value="We are working on a password reset system where users can receive an email with a secret code to help them log back into their account by changing their password" />
-    <option name="LAST_COMMIT_MESSAGE" value="We are working on a password reset system where users can receive an email with a secret code to help them log back into their account by changing their password" />
+    <MESSAGE value="We have started to set up the password reset page procedure and will start working towards making sure that the user gets routed back to the login page when they have successfully updated their password" />
+    <option name="LAST_COMMIT_MESSAGE" value="We have started to set up the password reset page procedure and will start working towards making sure that the user gets routed back to the login page when they have successfully updated their password" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -627,8 +631,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/projAuction/users/views.py</url>
-          <line>105</line>
+          <line>106</line>
           <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/projMusic/spotify/views.py</url>
+          <line>43</line>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

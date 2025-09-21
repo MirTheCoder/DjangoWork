@@ -16,7 +16,6 @@ EMAIL_PASSWORD = os.getenv('EMAIL_PASSWORD')
 
 
 def login_code(name, code, email):
-        ssl_context = ssl._create_unverified_context()
         #Here we will be populating the messsage and subjct we will add within our email
         subject = "Account Reset Code"
         messaging = f"""
@@ -27,25 +26,28 @@ def login_code(name, code, email):
         Code: {code}
         """
 
-        connection = get_connection(
-            host="smtp.gmail.com",
-            port=587,
-            username=EMAIL_USERNAME,
-            password=EMAIL_PASSWORD,
-            use_tls=True,
-            ssl_context=ssl_context,  # <- bypass SSL verification
-        )
-
         try:
-            send_mail(
-                subject,
-                messaging,
-                EMAIL_USERNAME,
-                [email],
-                connection = connection,
-                fail_silently=False
-            )
-            print("Django Message Successfully sent")
+            # This creates a ssl/tls context which helps to encrypt your email
+            context = ssl.create_default_context()
+            # This disables any checks that are needed between the hostname and the server for the email
+            # to send
+            context.check_hostname = False
+            # skips certificate validation
+            context.verify_mode = ssl.CERT_NONE
+
+            # Establishes a connection with the gmail smtp server so that you can send the email through the
+            # gmail system
+            with smtplib.SMTP('smtp.gmail.com', 587) as server:
+                server.ehlo()
+                # This is where we set the plain text we are sending to a more upgraded version where we send
+                # a more secure email
+                server.starttls(context=context)
+                server.ehlo()
+                # This allows us to get access to the email we want to use to send an email via gmail
+                # with the required credentials
+                server.login(EMAIL_USERNAME, EMAIL_PASSWORD)
+                # This holds the content of the email we are sending along with the person we are sending to
+                server.sendmail(EMAIL_USERNAME, email, messaging)
+            print("Message Successfully sent")
         except Exception as e:
-            print("Error sending Django email:", e)
-            return False
+            print("Error: ", e)

@@ -1,5 +1,6 @@
 from dataclasses import fields
 
+from bootstrap5.utils import render_template_file
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
 from django.template.context_processors import request
@@ -107,6 +108,12 @@ def loginCode(request, name):
         being = LoginReset.objects.filter(user=person).first()
         #Here we will check and see if the user has entered a new password
         if request.POST.get("newpswd"):
+            val = request.POST.get("newpswd")
+            #Check to see if the code that was inputted is the same code as the reset code we email to them
+            if being.code == val:
+                return redirect("resetPassword", name=name)
+            else:
+                messages.error(request, "Incorrect Code")
             #Here we will send the user to the login page
             return None
         #Checks to see if the code input does indeed match the code we gave the user
@@ -116,6 +123,9 @@ def loginCode(request, name):
             #attached to it
             return render(request, "users/codeLogin.html", {"codeValid": codeValid})
     return render(request, "users/codeLogin.html")
+
+def resetPassword(request, name):
+    return render(request,"users/passwordReset")
 
 
 

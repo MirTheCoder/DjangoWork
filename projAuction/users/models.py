@@ -13,7 +13,7 @@ def generate_unique_code():
     length = 8
     while True:
         #This will generate a code that is of length six and only has the ascii uppercase characters in it
-        code = ''.join(random.choices(string.ascii_letters + string.digits, k= length))
+        code = ''.join(random.choices(string.ascii_letters, k=length))
         if Code.objects.filter(codeName=code).count() == 0:
             break
     return code
@@ -22,7 +22,7 @@ def generate_reset_code():
     length = 8
     while True:
         #This will generate a code that is of length six and only has the ascii uppercase characters plus numbers
-        code = ''.join(random.choices(string.ascii_letters, k= length))
+        code = ''.join(random.choices(string.ascii_letters + string.digits, k=length))
         if LoginReset.objects.filter(code=code).count() == 0:
             break
     return code
