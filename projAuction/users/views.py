@@ -13,6 +13,11 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import Profile, Code
 from .models import LoginReset
 from .emails import login_code
+#This is django's built in validation system used in the USER class that has the requirements
+#for a password to be considered valid
+from django.contrib.auth.password_validation import validate_password
+#Needed in order to obtain the exact error that took place during the validation process
+from django.core.exceptions import ValidationError
 
 
 def home(request):
@@ -106,26 +111,33 @@ def loginCode(request, name):
     if request.method == "POST":
         person = User.objects.filter(username=name).first()
         being = LoginReset.objects.filter(user=person).first()
-        #Here we will check and see if the user has entered a new password
-        if request.POST.get("newpswd"):
-            val = request.POST.get("newpswd")
-            #Check to see if the code that was inputted is the same code as the reset code we email to them
-            if being.code == val:
-                return redirect("resetPassword", name=name)
-            else:
-                messages.error(request, "Incorrect Code")
-            #Here we will send the user to the login page
-            return None
-        #Checks to see if the code input does indeed match the code we gave the user
-        if request.POST.get("code") == being.code:  
-            codeValid = True
-            #If the code is valid, then we will return the same html template but with a special context
-            #attached to it
-            return render(request, "users/codeLogin.html", {"codeValid": codeValid})
+        val = request.POST.get("code")
+        if being.code == val:
+            return redirect("resetPassword", name=name)
+        else:
+            messages.error(request, "Incorrect Code")
     return render(request, "users/codeLogin.html")
 
 def resetPassword(request, name):
-    return render(request,"users/passwordReset")
+    if request.method == "POST":
+        user = User.objects.filter(username = name)
+        new_password = request.POST.get("newPass")
+        try:
+            #Here we will use the validate_password to check and see if the new password
+            #is valid for the user
+            validate_password(new_password,user)
+            user.set_password(new_password)
+            user.save()
+            #We will send the user to the login page once the successfully update their password
+            return redirect("login")
+        except ValidationError as e:
+            #If the new password fails the validation test, then we will send an error
+            #message with the specific reasoning for why it failed the validation
+            error = str(e)
+            #e.messages turns the validation object into a list of strings that hold
+            #the errors regarding the password
+            messages.error(request,"Error: ",e.messages)
+    return render(request,"users/passwordReset.html")
 
 
 

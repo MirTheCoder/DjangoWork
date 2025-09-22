@@ -16,5 +16,5 @@ urlpatterns = [
     path('updateProfile/<int:pk>/', editProfile.as_view() , name = 'updateProfile'),
     path('forgotPassword/',forgotPassword , name = "forgotPassword"),
     path('loginCode/<str:name>', loginCode , name = "loginCode"),
-    path('resetPassword/<str:name>', loginCode , name = "resetPassword"),
+    path('resetPassword/<str:name>', resetPassword , name = "resetPassword"),
 ]

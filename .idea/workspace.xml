@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="We have started to set up the password reset page procedure and will start working towards making sure that the user gets routed back to the login page when they have successfully updated their password">
+    <list default="true" id="e81e8b69-7aff-48e3-affa-b649ae83179b" name="Changes" comment="We were successfully able to set up a system that will email you a code if you forget your password in order to reset the password. Now we just need to set up hte template that will allow you to reset your password and then edit the account info so that the user cna login with those new credentials details">
       <change afterPath="$PROJECT_DIR$/projAuction/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projAuction/users/templates/users/passwordReset.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/projMusic/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/users/emails.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/users/emails.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/users/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/users/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projAuction/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/projAuction/users/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,14 +177,6 @@
       <workItem from="1754599007512" duration="6289000" />
       <workItem from="1754618397752" duration="6995000" />
       <workItem from="1754701404286" duration="2440000" />
-    </task>
-    <task id="LOCAL-00030" summary="We are still making edits to our auction page. We have edited the register function in our views so that it automatically creates a profile for each registered user. We also are working on the profile page to allow users to view their profile. More aspects to come as this is just a rough draft">
-      <option name="closed" value="true" />
-      <created>1752279558028</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1752279558028</updated>
     </task>
     <task id="LOCAL-00031" summary="We are still making edits to our auction page. We have edited the register function in our views so that it automatically creates a profile for each registered user. We also are working on the profile page to allow users to view their profile. More aspects to come as this is just a rough draft">
       <option name="closed" value="true" />
@@ -576,14 +562,21 @@
       <option name="project" value="LOCAL" />
       <updated>1758115730125</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="We were successfully able to set up a system that will email you a code if you forget your password in order to reset the password. Now we just need to set up hte template that will allow you to reset your password and then edit the account info so that the user cna login with those new credentials details">
+      <option name="closed" value="true" />
+      <created>1758428940076</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1758428940077</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="We are now setting up a page to display teh details of a room" />
     <MESSAGE value="We are now setting up a page to display the details of a room" />
     <MESSAGE value="We have successfully set up the display page for the rooms, and also have made it so that the users are automatically sent to that page after they create a room" />
     <MESSAGE value="We have now set up the join page that allows users to join a room, however, we are still working out a few bugs with the join room and the api that handles the join room function" />
@@ -608,7 +601,8 @@
     <MESSAGE value="We have made some edits to the spotify project and the auction project, and the blog project as well" />
     <MESSAGE value="We are working on a password reset system where users can receive an email with a secret code to help them log back into their account by changing their password" />
     <MESSAGE value="We have started to set up the password reset page procedure and will start working towards making sure that the user gets routed back to the login page when they have successfully updated their password" />
-    <option name="LAST_COMMIT_MESSAGE" value="We have started to set up the password reset page procedure and will start working towards making sure that the user gets routed back to the login page when they have successfully updated their password" />
+    <MESSAGE value="We were successfully able to set up a system that will email you a code if you forget your password in order to reset the password. Now we just need to set up hte template that will allow you to reset your password and then edit the account info so that the user cna login with those new credentials details" />
+    <option name="LAST_COMMIT_MESSAGE" value="We were successfully able to set up a system that will email you a code if you forget your password in order to reset the password. Now we just need to set up hte template that will allow you to reset your password and then edit the account info so that the user cna login with those new credentials details" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
