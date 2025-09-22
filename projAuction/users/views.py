@@ -91,9 +91,12 @@ def forgotPassword(request):
             #Here, if the username that was input is true,
             if val:
                 #This will make sure that we don't create multiple recovery codes for the same user
-                list = LoginReset.objects.filter(user=val)
+                list = LoginReset.objects.filter(user=val).first()
                 if list:
-                    value = LoginReset.objects.filter(user=val).first()
+                    #Ensures that the user gets a new code everytime the request a reset
+                    #password
+                    list.delete()
+                    value = LoginReset.objects.create(user = val)
                 else:
                     value = LoginReset.objects.create(user = val)
                 email = val.profile.email
@@ -113,6 +116,8 @@ def loginCode(request, name):
         being = LoginReset.objects.filter(user=person).first()
         val = request.POST.get("code")
         if being.code == val:
+            #If the code has been considered valid, then we will delete the old code
+            being.delete()
             return redirect("resetPassword", name=name)
         else:
             messages.error(request, "Incorrect Code")
@@ -120,7 +125,8 @@ def loginCode(request, name):
 
 def resetPassword(request, name):
     if request.method == "POST":
-        user = User.objects.filter(username = name)
+        #Here we collect the user and the new password that was put in for the user
+        user = User.objects.filter(username = name).first()
         new_password = request.POST.get("newPass")
         try:
             #Here we will use the validate_password to check and see if the new password
@@ -133,10 +139,11 @@ def resetPassword(request, name):
         except ValidationError as e:
             #If the new password fails the validation test, then we will send an error
             #message with the specific reasoning for why it failed the validation
-            error = str(e)
+            error = str(e.messages)
+            print(error)
             #e.messages turns the validation object into a list of strings that hold
             #the errors regarding the password
-            messages.error(request,"Error: ",e.messages)
+            return render(request,"users/passwordReset.html", {"Error": error})
     return render(request,"users/passwordReset.html")
 
 
